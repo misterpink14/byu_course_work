@@ -1,0 +1,5 @@
+C:\Users\Ben\Downloads\GeneSequenceAlignment (5)\GeneSequenceAlignment\03-genesequencealign\obj\Release\GeneticsLab.MainForm.resources
+C:\Users\Ben\Downloads\GeneSequenceAlignment (5)\GeneSequenceAlignment\03-genesequencealign\obj\Release\GeneticsLab.Properties.Resources.resources
+C:\Users\Ben\Downloads\GeneSequenceAlignment (5)\GeneSequenceAlignment\03-genesequencealign\obj\Release\GeneticsLab.csproj.GenerateResource.Cache
+C:\Users\Ben\Downloads\GeneSequenceAlignment (5)\GeneSequenceAlignment\03-genesequencealign\obj\Release\GeneticsLab.exe
+C:\Users\Ben\Downloads\GeneSequenceAlignment (5)\GeneSequenceAlignment\03-genesequencealign\obj\Release\GeneticsLab.pdb

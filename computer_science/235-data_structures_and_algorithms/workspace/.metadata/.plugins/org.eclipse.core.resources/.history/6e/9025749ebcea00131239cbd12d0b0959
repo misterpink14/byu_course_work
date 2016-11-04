@@ -1,0 +1,242 @@
+/*
+ * BST.h
+ *
+ *  Created on: Jun 1, 2014
+ *      Author: misterpink14
+ */
+
+#ifndef BST_H_
+#define BST_H_
+
+#include "Node.h"
+#include "BSTInterface.h"
+
+
+class BST : public BSTInterface
+{
+
+		// PRIVATE MEMBERS
+	private:
+		Node* Root;
+
+		/**
+		 * Recursive add function.
+		 *
+		 */
+		bool add(int & data, Node* Current)
+		{
+			if (Current->getData() == data)
+			{
+				return false;
+			}
+			else if (Current->getData() > data)
+			{
+				if(Current->getLeftChild() == NULL)
+				{
+					Node* n = new Node(data, NULL, NULL);
+					Current->left = n;
+					return true;
+				}
+				else
+				{
+					if(add(data, Current->getLeftChild()))
+						return true;
+					else
+						return false;
+				}
+			}
+			else
+			{
+				if(Current->getRightChild() == NULL)
+				{
+					Node* n = new Node(data, NULL, NULL);
+					Current->right = n;
+					return true;
+				}
+				else
+				{
+					if(add(data, Current->getRightChild()))
+						return true;
+					else
+						return false;
+				}
+			}
+		}
+
+
+		Node* find(Node* Remove)
+		{
+			if(Remove->getRightChild() == NULL)
+			{
+				return Remove;
+			}
+			else
+			{
+				return find(Remove->getRightChild());
+			}
+		}
+
+
+
+		Node* replace(Node* Remove)
+		{
+			if (Remove->getLeftChild() == NULL && Remove->getRightChild() == NULL)
+			{
+				return Remove;
+			}
+			else if(Remove->getLeftChild() == NULL)
+			{
+				return find(Remove->getRightChild());
+			}
+			else
+			{
+				return find(Remove->getLeftChild());
+			}
+		}
+
+
+		/**
+		 * Recursive remove function.
+		 *
+		 */
+		bool remove(int data, Node* Remove)
+		{
+			if(Remove->getData() == data)
+			{
+				cout << "yeah";
+				Node* n = replace(Remove);
+				if(n->getData() == Remove->getData())
+				{
+					Remove = NULL;
+				}
+				else
+				{
+					Remove->data = n->getData();
+					if(n->getLeftChild() != NULL)
+					{
+						Node* h;
+						h = n->getLeftChild();
+						n->data = h->getData();
+						n->left = h->getLeftChild();
+						n->right = h->getRightChild();
+						delete h;	// we'll see
+					}
+				}
+				delete n;
+				return true;
+			}
+			else
+			{
+				//go through the checks
+				return false;
+			}
+
+		}
+
+
+
+		/**
+		 * Recursive clear function
+		 *
+		 */
+		void clear(Node* n)
+		{
+			if(n == NULL)
+			{
+				return;
+			}
+			else if(n->getLeftChild() == NULL && n->getRightChild() == NULL)
+			{
+				delete n;
+				return;
+			}
+			else if(n->getLeftChild() == NULL)
+			{
+				clear(n->getRightChild());
+				delete n;
+			}
+			else// if(n->getRightChild() == NULL)
+			{
+				clear(n->getLeftChild());
+				delete n;
+			}
+			return;
+		}
+
+
+
+		// PUBLIC MEMBERS
+	public:
+		BST() : Root(NULL) {}
+		~BST() {}
+
+	//Please note that the class that implements this interface must be made
+	//of objects which implement the NodeInterface
+
+	/*
+	 * Returns the root node for this tree
+	 *
+	 * @return the root node for this tree.
+	 */
+	Node * getRootNode()
+	{
+		return Root;
+	}
+
+	/*
+	 * Attempts to add the given int to the BST tree
+	 *
+	 * @return true if added
+	 * @return false if unsuccessful (i.e. the int is already in tree)
+	 */
+	bool add(int data)
+	{
+		if(Root == NULL)
+		{
+			Root = new Node(data, NULL, NULL);
+			return true;
+		}
+		else
+		{
+			return add(data, Root);
+		}
+	}
+
+	/*
+	 * Attempts to remove the given int from the BST tree
+	 *
+	 * @return true if successfully removed
+	 * @return false if remove is unsuccessful(i.e. the int is not in the tree)
+	 */
+	bool remove(int data)
+	{
+		if(Root == NULL)
+		{
+			return false;
+		}
+		else
+		{
+			return remove(data, Root);
+		}
+	}
+
+	/*
+	 * Removes all nodes from the tree, resulting in an empty tree.
+	 */
+	void clear()
+	{
+		if (Root == NULL)
+		{
+			return;
+		}
+		else
+		{
+			clear(Root);
+		}
+	}
+};
+
+
+
+
+#endif /* BST_H_ */

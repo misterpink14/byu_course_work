@@ -1,0 +1,61 @@
+package Client.GUI.ImageSupport;
+
+import java.awt.Color;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.URL;
+
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
+
+import Client.GUI.Entry.FormEntryView;
+import Client.GUI.Entry.TableEntryView;
+
+@SuppressWarnings("serial")
+public class ImageNavigationView extends JLayeredPanel
+{
+	public ImageNavigationView()
+	{
+		initUI();
+	}
+	
+	private void initUI()
+	{
+		this.setBackground(Color.GRAY);
+	}
+	
+	public void insertImage(String imageUrl)
+	{
+		System.out.println(imageUrl);
+		BufferedImage image = null;
+		try {                
+			image = ImageIO.read(new URL(imageUrl));
+
+		} catch (IOException e) {
+			e.printStackTrace();
+	    }
+		
+		ImageIcon ii = new ImageIcon(image);
+		
+		int width;
+		int height;
+		System.out.println("ppp");
+		System.out.println(ii.getIconWidth() / ii.getIconHeight());
+//		if (ii.getIconWidth() / ii.getIconHeight())
+		
+
+		Image newImage = ii.getImage().getScaledInstance(this.getWidth(), this.getHeight(),  java.awt.Image.SCALE_SMOOTH);
+		ii.setImage(newImage);
+		
+		JLabel picLabel = new JLabel(ii);
+		add(picLabel, 1, 0);
+		
+		revalidate();
+		repaint();
+//		this.updateUI();
+	}
+}

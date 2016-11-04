@@ -1,0 +1,43 @@
+
+**** Build of configuration Debug for project L8aDice ****
+
+"C:\\ti\\ccsv5\\utils\\bin\\gmake" -k all 
+'Building file: ../dice.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv5/tools/compiler/msp430_4.2.1/bin/cl430" -vmsp --abi=eabi --include_path="C:/ti/ccsv5/ccs_base/msp430/include" --include_path="C:/ti/ccsv5/tools/compiler/msp430_4.2.1/include" --advice:power=all -g --define=__MSP430F2274__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="dice.pp"  "../dice.c"
+"../dice.c", line 181: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../dice.c", line 205: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../dice.c", line 205: remark #1533-D: (ULP 6.1) Detected use of multiplication on a device that has no hardware multiplier
+"../dice.c", line 285: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../dice.c", line 285: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../dice.c", line 311: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../dice.c", line 320: remark #1533-D: (ULP 6.1) Detected use of multiplication on a device that has no hardware multiplier
+"../dice.c", line 325: remark #1533-D: (ULP 6.1) Detected use of multiplication on a device that has no hardware multiplier
+"../dice.c", line 330: remark #1533-D: (ULP 6.1) Detected use of multiplication on a device that has no hardware multiplier
+"../dice.c", line 335: remark #1533-D: (ULP 6.1) Detected use of multiplication on a device that has no hardware multiplier
+"../dice.c", line 340: remark #1533-D: (ULP 6.1) Detected use of multiplication on a device that has no hardware multiplier
+"../dice.c", line 343: remark #1533-D: (ULP 6.1) Detected use of multiplication on a device that has no hardware multiplier
+"../dice.c", line 347: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../dice.c", line 356: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../dice.c", line 366: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../dice.c", line 377: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../dice.c", line 398: remark #2553-D: (ULP 14.1) Array index (involving "die") of type "int". Recommend using "unsigned int"
+"../dice.c", line 434: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../dice.c", line 467: remark #1538-D: (ULP 10.1) ISR WDT_ISR calls function lcd_backlight. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../dice.c", line 469: remark #1538-D: (ULP 10.1) ISR WDT_ISR calls function showHist. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../dice.c", line 470: remark #1538-D: (ULP 10.1) ISR WDT_ISR calls function lcd_backlight. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../dice.c", line 476: remark #1538-D: (ULP 10.1) ISR WDT_ISR calls function lcd_backlight. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../dice.c", line 62: remark #1535-D: (ULP 8.1) variable "switches" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../dice.c", line 63: remark #1535-D: (ULP 8.1) variable "fives" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../dice.c", line 205 (col. 9): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../dice.c", line 209 (col. 7): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+'Finished building: ../dice.c'
+' '
+'Building target: L8aDice.out'
+'Invoking: MSP430 Linker'
+"C:/ti/ccsv5/tools/compiler/msp430_4.2.1/bin/cl430" -vmsp --abi=eabi --advice:power=all -g --define=__MSP430F2274__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal -z -m"L8aDice.map" --heap_size=80 --stack_size=80 -i"C:/ti/ccsv5/ccs_base/msp430/include" -i"C:/ti/ccsv5/tools/compiler/msp430_4.2.1/lib" -i"C:/ti/ccsv5/tools/compiler/msp430_4.2.1/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="L8aDice_linkInfo.xml" --rom_model -o "L8aDice.out"  "./random.obj" "./dice.obj" "./RBX430_lcd.obj" "./RBX430-1.obj" "../lnk_msp430f2274.cmd" -l"libc.a" 
+<Linking>
+'Finished building target: L8aDice.out'
+' '
+
+**** Build Finished ****

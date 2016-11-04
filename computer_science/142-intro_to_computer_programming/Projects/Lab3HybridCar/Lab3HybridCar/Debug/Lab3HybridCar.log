@@ -1,0 +1,21 @@
+﻿Build started 9/23/2013 1:06:57 PM.
+     1>Project "c:\Users\Benjamin\documents\visual studio 2010\Projects\Lab3HybridCar\Lab3HybridCar\Lab3HybridCar.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\Lab3HybridCar.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt HybridCar.cpp
+         HybridCar.cpp
+       Link:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"c:\users\benjamin\documents\visual studio 2010\Projects\Lab3HybridCar\Debug\Lab3HybridCar.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Lab3HybridCar.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"c:\users\benjamin\documents\visual studio 2010\Projects\Lab3HybridCar\Debug\Lab3HybridCar.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"c:\users\benjamin\documents\visual studio 2010\Projects\Lab3HybridCar\Debug\Lab3HybridCar.lib" /MACHINE:X86 Debug\HybridCar.obj
+         LINK : c:\users\benjamin\documents\visual studio 2010\Projects\Lab3HybridCar\Debug\Lab3HybridCar.exe not found or not built by the last incremental link; performing full link
+         Lab3HybridCar.vcxproj -> c:\users\benjamin\documents\visual studio 2010\Projects\Lab3HybridCar\Debug\Lab3HybridCar.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"c:\users\benjamin\documents\visual studio 2010\Projects\Lab3HybridCar\Debug\Lab3HybridCar.exe;#1" /manifest Debug\Lab3HybridCar.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         Deleting file "Debug\Lab3HybridCar.unsuccessfulbuild".
+         Touching "Debug\Lab3HybridCar.lastbuildstate".
+     1>Done Building Project "c:\Users\Benjamin\documents\visual studio 2010\Projects\Lab3HybridCar\Lab3HybridCar\Lab3HybridCar.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.68

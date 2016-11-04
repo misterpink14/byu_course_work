@@ -1,0 +1,4 @@
+Client.Communicator
+Server.DatabaseAccess
+Shared.Communication
+Shared.Model

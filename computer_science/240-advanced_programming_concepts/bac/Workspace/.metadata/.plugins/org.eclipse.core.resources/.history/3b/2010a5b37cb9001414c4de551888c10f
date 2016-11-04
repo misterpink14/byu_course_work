@@ -1,0 +1,102 @@
+
+package Server.DatabaseAccess;
+
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
+import Shared.Model.Project;
+
+/**
+ * ProjectDBAccess class. CRUD access the project table in the
+ * 	database via DBAccess super class
+ * 
+ * @author Benjamin Thompson
+ *
+ */
+public class ProjectDBAccess extends DBAccess
+{
+
+	/**
+	 * Create a project
+	 * 
+	 * @param p
+	 */
+	public void CreateProject(Project p)
+	{
+		super.Create("");
+	}
+	
+	/**
+	 * Get all projects
+	 * 
+	 * @return List<Project>
+	 */
+	public List<Project> GetAllProjects()
+	{
+		ArrayList<Project> result = new ArrayList<Project>();
+		PreparedStatement stmt = null;
+		ResultSet rs = null;	
+		try {
+			String query = "select id, name, phone, address, email, url from contact";
+			stmt = db.getConnection().prepareStatement(query);
+
+			rs = stmt.executeQuery();
+			while (rs.next()) {
+				int id = rs.getInt(1);
+				String name = rs.getString(2);
+				String phone = rs.getString(3);
+				String address = rs.getString(4);
+				String email = rs.getString(5);
+				String url = rs.getString(6);
+
+				result.add(new Contact(id, name, phone, address, email, url));
+			}
+		}
+		catch (SQLException e) {
+			DatabaseException serverEx = new DatabaseException(e.getMessage(), e);
+			
+			logger.throwing("server.database.Contacts", "getAll", serverEx);
+			
+			throw serverEx;
+		}		
+		finally {
+			Database.safeClose(rs);
+			Database.safeClose(stmt);
+		}
+
+		logger.exiting("server.database.Contacts", "getAll");
+		
+		return result;	
+	}
+	
+	/**
+	 * Get a project. May not be used
+	 * 
+	 * @param p
+	 */
+	public void Get(Project p)
+	{
+		super.Get("");
+	}
+	
+	/**
+	 * Updates a project. May not be used
+	 * 
+	 * @param p
+	 */
+	public void Update(Project p)
+	{
+		super.Update("");
+	}
+	
+	/**
+	 * Deletes a project
+	 * 
+	 * @param p
+	 */
+	public void DeleteProject(Project p)
+	{
+		super.Delete("");
+	}
+}

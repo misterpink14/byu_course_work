@@ -1,0 +1,51 @@
+/*
+ * main.cpp
+ *
+ *  Created on: Aug 31, 2014
+ *      Author: misterpink14
+ */
+
+#include "AVL.h"
+
+
+//15s
+void fivehundredtozero()
+{
+	AVL tree = new AVL();
+	for (unsigned i = 500; i > 0; i-=15)
+	{
+		if(!tree.add(i))
+		{
+			cout << "ERRORR ADDING: " << i << ".\n";
+			break;
+		}
+	}
+}
+
+//5s
+void zerotofivehunred()
+{
+	AVL tree = new AVL();
+	for (unsigned i = 0; i > 500; i+=5)
+	{
+		if(!tree.add(i))
+		{
+			cout << "ERRORR ADDING: " << i << ".\n";
+			break;
+		}
+	}
+
+}
+
+// and zero to -50
+void zerotofifty()
+{
+	AVL tree = new AVL();
+
+}
+
+
+int main()
+{
+
+}

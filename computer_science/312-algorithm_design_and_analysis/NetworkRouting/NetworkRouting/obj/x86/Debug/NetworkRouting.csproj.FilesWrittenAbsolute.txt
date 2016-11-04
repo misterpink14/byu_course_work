@@ -1,0 +1,7 @@
+/Users/benthompson/Documents/class/byu_cs312/NetworkRouting/NetworkRouting/obj/x86/Debug/.NETFramework,Version=v4.0,Profile=Client.AssemblyAttribute.cs
+/Users/benthompson/Documents/class/byu_cs312/NetworkRouting/NetworkRouting/obj/x86/Debug/NetworkRouting.Form1.resources
+/Users/benthompson/Documents/class/byu_cs312/NetworkRouting/NetworkRouting/obj/x86/Debug/NetworkRouting.Properties.Resources.resources
+/Users/benthompson/Documents/class/byu_cs312/NetworkRouting/NetworkRouting/bin/Debug/NetworkRouting.exe.mdb
+/Users/benthompson/Documents/class/byu_cs312/NetworkRouting/NetworkRouting/bin/Debug/NetworkRouting.exe
+/Users/benthompson/Documents/class/byu_cs312/NetworkRouting/NetworkRouting/obj/x86/Debug/NetworkRouting.exe
+/Users/benthompson/Documents/class/byu_cs312/NetworkRouting/NetworkRouting/obj/x86/Debug/NetworkRouting.exe.mdb

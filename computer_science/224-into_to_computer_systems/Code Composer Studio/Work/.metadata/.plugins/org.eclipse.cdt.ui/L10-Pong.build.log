@@ -1,0 +1,42 @@
+
+**** Build of configuration Debug for project L10-Pong ****
+
+"C:\\ti\\ccsv5\\utils\\bin\\gmake" -k all 
+'Building file: ../pong.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv5/tools/compiler/msp430_4.2.1/bin/cl430" -vmsp --abi=coffabi --include_path="C:/ti/ccsv5/ccs_base/msp430/include" --include_path="C:/ti/ccsv5/tools/compiler/msp430_4.2.1/include" --advice:power=all -g --define=__MSP430F2274__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="pong.pp"  "../pong.c"
+"../pong.c", line 134: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../pong.c", line 139: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../pong.c", line 143: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../pong.c", line 147: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../pong.c", line 151: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../pong.c", line 183: remark #1530-D: (ULP 5.1) Detected modulo operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../pong.c", line 184: remark #1530-D: (ULP 5.1) Detected modulo operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../pong.c", line 238: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../pong.c", line 242: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../pong.c", line 238: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../pong.c", line 242: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../pong.c", line 238: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../pong.c", line 242: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../pong.c", line 260: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../pong.c", line 262: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../pong.c", line 264: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../pong.c", line 266: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../pong.c", line 268: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../pong.c", line 270: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../pong.c", line 392: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../pong.c", line 430: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../pong.c", line 464: remark #1538-D: (ULP 10.1) ISR WDT_ISR calls function lcd_rectangle. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../pong.c", line 472: remark #1538-D: (ULP 10.1) ISR WDT_ISR calls function update. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../pong.c", line 474: remark #1533-D: (ULP 6.1) Detected use of multiplication on a device that has no hardware multiplier
+"../pong.c", line 498: remark #1538-D: (ULP 10.1) ISR ISR_trap calls function ERROR2. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+'Finished building: ../pong.c'
+' '
+'Building target: L10-Pong.out'
+'Invoking: MSP430 Linker'
+"C:/ti/ccsv5/tools/compiler/msp430_4.2.1/bin/cl430" -vmsp --abi=coffabi --advice:power=all -g --define=__MSP430F2274__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal -z -m"L10-Pong.map" --heap_size=80 --stack_size=80 -i"C:/ti/ccsv5/ccs_base/msp430/include" -i"C:/ti/ccsv5/tools/compiler/msp430_4.2.1/lib" -i"C:/ti/ccsv5/tools/compiler/msp430_4.2.1/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="L10-Pong_linkInfo.xml" --rom_model -o "L10-Pong.out"  "./pongLib.obj" "./pongImages.obj" "./pongEvents.obj" "./pong.obj" "./RBX430_lcd.obj" "./RBX430-1.obj" "../lnk_msp430f2274.cmd" -l"libc.a" 
+<Linking>
+'Finished building target: L10-Pong.out'
+' '
+
+**** Build Finished ****

@@ -1,0 +1,585 @@
+/*
+ * main.cpp
+ *
+ *  Created on: Jun 4, 2014
+ *      Author: Benjamin Thompson
+ *
+ *  Midterm CS 235
+ */
+
+// Input/Output
+#include <iostream>
+
+// Data Types
+#include <string>
+#include <fstream>
+#include "LinkedList.h"
+#include "Person.h"
+#include "Node.h"
+
+/**
+ * Menu for the program
+ *
+ */
+void menu()
+{
+	std::cout << "\t1. Create Roster" << std::endl
+			<< "\t2. View Roster" << std::endl
+			<< "\t3. Shuffle Roster" << std::endl
+			<< "\t4. Create Teams" << std::endl
+			<< "\t5. View Teams" << std::endl
+			<< "\t6. User Play" << std::endl
+			<< "\t7. Auto Play" << std::endl
+			<< "\t8. Quit" << std::endl
+			<< "Enter the number you wish to execute: ";
+}
+
+
+/**
+ * Builds the given LinkedList from a user inputed file
+ *
+ * @param LinkedList Roster
+ *
+ */
+void CreateRoster(LinkedList& Roster)
+{
+
+	std::string file;	// fix this
+	std::cout << "\n\n\n\nPlease enter the filename: ";
+	std::cin >> file;
+
+	std::ifstream in(file.c_str());
+	if(!in.is_open())
+	{
+		std::cout << "\n\n\n\nERROR: Not a valid filename.\n";
+		return;
+	}
+
+
+	std::string name;
+	int speed;
+	int str;
+	while(in >> name >> speed >> str)
+	{
+		Roster.push(Person(name, speed, str));
+	}
+	in.close();
+}
+
+
+/**
+ *  Displays the contents of the given LinkedList
+ *
+ *  @param LinkedList Roster
+ *
+ */
+void ViewRoster(LinkedList& Roster)
+{
+	if(Roster.Empty())
+	{
+		std::cout << "\n\nRoster Empty\n\n";
+		return;
+	}
+	Roster.Display();
+}
+
+
+/**
+ * Shuffles the given LinkedList
+ *
+ * @param LinkedList Roster
+ *
+ */
+void ShuffleRoster(LinkedList& Roster)
+{
+	if(Roster.Empty())
+	{
+		std::cout << "\n\nRoster Empty\n\n";
+		return;
+	}
+	Roster.Shuffle();
+}
+
+
+/**
+ * Create Teams from the Roster
+ *
+ * @param Roster
+ * @param TeamA
+ * @param TeamB
+ *
+ */
+void CreateTeams(LinkedList& Roster, LinkedList& TeamA, LinkedList& TeamB)
+{
+	if (Roster.size() < 4)
+	{
+		std::cout << "\n\nERROR: At least 4 people needed on the Roster\n\n";
+		return;
+	}
+	if (!TeamA.Empty())
+	{
+		TeamA.clear();
+	}
+	if (!TeamB.Empty())
+	{
+		TeamB.clear();
+	}
+	int size = Roster.size() / 2;
+
+	Roster.CreateTeams(TeamA, TeamB, size);
+}
+
+
+/**
+ * Displays the Teams
+ *
+ * @param TeamA
+ * @param TeamB
+ *
+ */
+void ViewTeams(LinkedList& TeamA, LinkedList& TeamB)
+{
+	std::cout << "Team A: \n";
+	TeamA.Display();
+	std::cout << "Team B: \n";
+	TeamB.Display();
+}
+
+void UserPlay(LinkedList& TeamA, LinkedList& TeamB)
+{
+	std::string nameA;
+	Node* A = NULL;
+	std::string nameB;
+	Node* B = NULL;
+
+	while(TeamA.size() != 1 && TeamB.size() != 1)
+	{
+		while(true)
+		{
+			std::cout << "Team A: ";
+			TeamA.DisplayPlayers();
+			std::cout << "\tPick: ";
+			std::cin >> nameA;
+			if(std::cin.fail())
+			{
+				std::cin.clear();
+			}
+			else if(!TeamA.find(A, nameA))
+			{
+				std::cout << "\nERROR: Name not found. \n";
+			}
+			else
+			{
+				break;
+			}
+		}
+		while(true)
+		{
+			std::cout << "Team B: ";
+			TeamB.DisplayPlayers();
+			std::cout << "\tPick: ";
+			std::cin >> nameB;
+			if(std::cin.fail())
+			{
+				std::cin.clear();
+			}
+			else if(!TeamB.find(B, nameB))
+			{
+				std::cout << "\nERROR: Name not found. \n";
+			}
+			else
+			{
+				break;
+			}
+		}
+		std::cout << "Red Rover, Red Rover, send " << A->item.name << " right over!\n";
+		if(B->next == NULL)
+		{
+			if((B->item.str + B->prev->item.str) < (A->item.speed + A->item.str))
+			{
+				if(B->item.str > B->prev->item.str)
+				{
+					// B goes after A
+					TeamA.Insert(B->item, A->item);
+					TeamB.Remove(B->item);
+				}
+				else
+				{
+					// B->prev goes after A
+					TeamA.Insert(B->prev->item, A->item);
+					TeamB.Remove(B->prev->item);
+				}
+			}
+			else
+			{
+				// A goes before B
+				TeamB.Insert(A->item, B->prev->item);
+				TeamA.Remove(A->item);
+			}
+		}
+		else
+		{
+			if((B->item.str + B->next->item.str) < (A->item.speed + A->item.str))
+			{
+				if(B->item.str > B->prev->item.str)
+				{
+					// B goes after A
+					TeamA.Insert(B->item, A->item);
+					TeamB.Remove(B->item);
+				}
+				else
+				{
+					// B->next goes after A
+					TeamA.Insert(B->next->item, A->item);
+					TeamB.Remove(B->next->item);
+				}
+			}
+			else
+			{
+				// A goes after B
+				TeamB.Insert(A->item, B->item);
+				TeamA.Remove(A->item);
+			}
+		}
+		A = NULL;
+		B = NULL;
+		if(TeamA.size() == 1 || TeamB.size() == 1)
+		{
+			break;
+		}
+
+
+
+		while(true)
+		{
+			std::cout << "Team B: ";
+			TeamB.DisplayPlayers();
+			std::cout << "\tPick: ";
+			std::cin >> nameA;
+			if(std::cin.fail())
+			{
+				std::cin.clear();
+			}
+			else if(!TeamB.find(B, nameB))
+			{
+				std::cout << "\nERROR: Name not found. \n";
+			}
+			else
+			{
+				break;
+			}
+		}
+		while(true)
+		{
+			std::cout << "Team A: ";
+			TeamA.DisplayPlayers();
+			std::cout << "\tPick: ";
+			std::cin >> nameA;
+			if(std::cin.fail())
+			{
+				std::cin.clear();
+			}
+			else if(!TeamA.find(A, nameA))
+			{
+				std::cout << "\nERROR: Name not found. \n";
+			}
+			else
+			{
+				break;
+			}
+		}
+
+		std::cout << "Red Rover, Red Rover, send " << B->item.name << " right over!\n";
+
+		if(A->next == NULL)
+		{
+			if((A->item.str + A->prev->item.str) < (B->item.speed + B->item.str))
+			{
+				if(A->item.str > A->prev->item.str)
+				{
+					// A goes after B
+					TeamB.Insert(A->item, B->item);
+					TeamA.Remove(A->item);
+				}
+				else
+				{
+					// A->prev goes after B
+					TeamB.Insert(A->prev->item, B->item);
+					TeamA.Remove(A->prev->item);
+				}
+			}
+			else
+			{
+				// B goes before A
+				TeamA.Insert(B->item, A->prev->item);
+				TeamB.Remove(B->item);
+			}
+		}
+		else
+		{
+			if((A->item.str + A->next->item.str) < (B->item.speed + B->item.str))
+			{
+				if(A->item.str > A->prev->item.str)
+				{
+					// A goes after B
+					TeamB.Insert(A->item, B->item);
+					TeamA.Remove(A->item);
+				}
+				else
+				{
+					// A->next goes after B
+					TeamB.Insert(A->next->item, B->item);
+					TeamA.Remove(A->next->item);
+				}
+			}
+			else
+			{
+				// B goes after A
+				TeamB.Insert(B->item, A->item);
+				TeamA.Remove(B->item);
+
+			}
+		}
+		A = NULL;
+		B = NULL;
+
+
+
+	}
+
+
+	if(TeamA.size() > TeamB.size())
+	{
+		std::cout << "\n\nTeam A WON!\n";
+	}
+	else
+	{
+		std::cout << "\n\nTeam B WON!\n";
+	}
+}
+
+void AutoPlay(LinkedList& TeamA, LinkedList& TeamB)
+{
+
+	std::string nameA;
+	Node* A = NULL;
+	std::string nameB;
+	Node* B = NULL;
+
+	while(TeamA.size() != 1 && TeamB.size() != 1)
+	{
+
+			std::cout << "Team A: ";
+			TeamA.DisplayPlayers();
+			TeamA.Random(A);
+
+
+
+			std::cout << "Team B: ";
+			TeamB.DisplayPlayers();
+			TeamB.Random(B);
+
+			std::cout << "Red Rover, Red Rover, send " << A->item.name << " right over!\n";
+
+
+
+		if(B->next == NULL)
+		{
+			if((B->item.str + B->prev->item.str) < (A->item.speed + A->item.str))
+			{
+				if(B->item.str > B->prev->item.str)
+				{
+					// B goes after A
+					TeamA.Insert(B->item, A->item);
+					TeamB.Remove(B->item);
+				}
+				else
+				{
+					// B->prev goes after A
+					TeamA.Insert(B->prev->item, A->item);
+					TeamB.Remove(B->prev->item);
+				}
+			}
+			else
+			{
+				// A goes before B
+				TeamB.Insert(A->item, B->prev->item);
+				TeamA.Remove(A->item);
+			}
+		}
+		else
+		{
+			if((B->item.str + B->next->item.str) < (A->item.speed + A->item.str))
+			{
+				if(B->item.str > B->next->item.str)
+				{
+					// B goes after A
+					TeamA.Insert(B->item, A->item);
+					TeamB.Remove(B->item);
+				}
+				else
+				{
+					// B->next goes after A
+					TeamA.Insert(B->next->item, A->item);
+					TeamB.Remove(B->next->item);
+				}
+			}
+			else
+			{
+				// A goes after B
+				TeamB.Insert(A->item, B->item);
+				TeamA.Remove(A->item);
+			}
+		}
+		A = NULL;
+		B = NULL;
+		if(TeamA.size() == 1 || TeamB.size() == 1)
+		{
+			break;
+		}
+
+
+
+			std::cout << "Team B: ";
+			TeamB.DisplayPlayers();
+			TeamB.Random(B);
+
+
+
+			std::cout << "Team A: ";
+			TeamA.DisplayPlayers();
+			TeamA.Random(A);
+
+
+			std::cout << "Red Rover, Red Rover, send " << B->item.name << " right over!\n";
+
+
+
+		if(A->next == NULL)
+		{
+			if((A->item.str + A->prev->item.str) < (B->item.speed + B->item.str))
+			{
+				if(A->item.str > A->prev->item.str)
+				{
+					// A goes after B
+					TeamB.Insert(A->item, B->item);
+					TeamA.Remove(A->item);
+				}
+				else
+				{
+					// A->prev goes after B
+					TeamB.Insert(A->prev->item, B->item);
+					TeamA.Remove(A->prev->item);
+				}
+			}
+			else
+			{
+				// B goes before A
+				TeamA.Insert(B->item, A->prev->item);
+				TeamB.Remove(B->item);
+			}
+		}
+		else
+		{
+			if((A->item.str + A->next->item.str) < (B->item.speed + B->item.str))
+			{
+				if(A->item.str > A->prev->item.str)
+				{
+					// A goes after B
+					TeamB.Insert(A->item, B->item);
+					TeamA.Remove(A->item);
+				}
+				else
+				{
+					// A->next goes after B
+					TeamB.Insert(A->next->item, B->item);
+					TeamA.Remove(A->next->item);
+				}
+			}
+			else
+			{
+				// B goes after A
+				TeamB.Insert(B->item, A->item);
+				TeamA.Remove(B->item);
+
+			}
+		}
+		A = NULL;
+		B = NULL;
+
+
+
+	}
+
+
+	if(TeamA.size() > TeamB.size())
+	{
+		std::cout << "\n\nTeam A WON!\n";
+	}
+	else
+	{
+		std::cout << "\n\nTeam B WON!\n";
+	}
+
+}
+
+
+int main()
+{
+
+	LinkedList Roster;
+	LinkedList TeamA;
+	LinkedList TeamB;
+
+	while(true)
+	{
+		menu();
+		int input;
+		std::cin >> input;
+		if(std::cin.fail())
+		{
+			//invalid input
+		}
+		else if(input == 1)	// Create Rooster
+		{
+			CreateRoster(Roster);
+		}
+		else if(input == 2)	// View
+		{
+			ViewRoster(Roster);
+		}
+		else if(input == 3)	// Shuffle
+		{
+			ShuffleRoster(Roster);
+		}
+		else if(input == 4)	// Create Teams
+		{
+			CreateTeams(Roster, TeamA, TeamB);
+		}
+		else if(input == 5)	// View
+		{
+			ViewTeams(TeamA, TeamB);
+		}
+		else if(input == 6)	// User Play
+		{
+			UserPlay(TeamA, TeamB);
+		}
+		else if(input == 7)	// Auto Play
+		{
+			AutoPlay(TeamA, TeamB);
+		}
+		else if(input == 8)	// Quit
+		{
+			break;
+		}
+		if(std::cin.fail())
+		{
+			std::cin.clear();
+			std::cin.ignore(10000,'\n');
+			std::cout << "ERROR: Invalid input. Please enter a number."
+					<< std::endl;
+		}
+
+	}
+
+}

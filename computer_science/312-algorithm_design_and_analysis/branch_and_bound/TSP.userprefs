@@ -1,0 +1,16 @@
+﻿<Properties StartupItem="TSP/TSP.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="TSP/State.cs">
+    <Files>
+      <File FileName="TSP/ProblemAndSolver.cs" Line="361" Column="14" />
+      <File FileName="TSP/State.cs" Line="203" Column="22" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/benthompson/Documents/class/byu_cs312/branch_and_bound/TSP/ProblemAndSolver.cs" line="365" column="1" />
+      <Breakpoint file="/Users/benthompson/Documents/class/byu_cs312/branch_and_bound/TSP/ProblemAndSolver.cs" line="362" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

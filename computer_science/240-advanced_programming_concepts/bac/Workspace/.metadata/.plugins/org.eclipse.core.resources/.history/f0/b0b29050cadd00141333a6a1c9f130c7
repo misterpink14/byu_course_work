@@ -1,0 +1,43 @@
+package Client.Model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import Shared.Model.Project;
+import Shared.Model.User;
+
+public class BatchState
+{
+	private User u;
+	private List<Project> pList;
+	
+	/* ***********************************
+	 * Updatable Content
+	 *************************************/
+	
+	public void setU(String user, String pass, String first, 
+			String last, String email, Integer indexed)
+	{
+		u = new User(user, pass, first, last, email, indexed);
+	}
+	
+	public User getU()
+	{
+		return u;
+	}
+	
+	public void setP(List<Project> list)
+	{
+		pList = list;
+	}
+	
+	public String[] getPNameList()
+	{
+		String[] pNameList = new String[pList.size()];
+		for (Project p: this.pList)
+		{
+			pNameList[i] = p.getTitle();
+		}
+		return pNameList;
+	}
+}

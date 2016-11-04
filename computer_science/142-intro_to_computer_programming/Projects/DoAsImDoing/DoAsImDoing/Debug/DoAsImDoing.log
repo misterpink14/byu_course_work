@@ -1,0 +1,17 @@
+﻿Build started 9/10/2013 1:21:32 PM.
+     1>Project "E:\Projects\DoAsImDoing\DoAsImDoing\DoAsImDoing.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\DoAsImDoing.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+       Link:
+         All outputs are up-to-date.
+         DoAsImDoing.vcxproj -> E:\Projects\DoAsImDoing\Debug\DoAsImDoing.exe
+       FinalizeBuildStatus:
+         Deleting file "Debug\DoAsImDoing.unsuccessfulbuild".
+         Touching "Debug\DoAsImDoing.lastbuildstate".
+     1>Done Building Project "E:\Projects\DoAsImDoing\DoAsImDoing\DoAsImDoing.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.23

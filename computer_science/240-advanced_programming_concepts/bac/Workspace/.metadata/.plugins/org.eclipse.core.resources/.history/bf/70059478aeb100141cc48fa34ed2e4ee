@@ -1,0 +1,138 @@
+/**
+ * 
+ */
+
+/**
+ * @author Benjamin Thompson
+ *
+ */
+public class User 
+{
+	
+	/**
+	 * 
+	 */
+	private Integer id;
+	/**
+	 * 
+	 */
+	private String user;
+	/**
+	 * 
+	 */
+	private String pass;
+	/**
+	 * 
+	 */
+	private String first;
+	/**
+	 * 
+	 */
+	private String last;
+	/**
+	 * 
+	 */
+	private String email;
+	/**
+	 * 
+	 */
+	private Integer indexed;
+	
+	
+	
+	/**
+	 * @return
+	 */
+	public Integer getId()
+	{
+		return id;
+	}
+	/**
+	 * @return
+	 */
+	public String getUser()
+	{
+		return user;
+	}
+	/**
+	 * @return
+	 */
+	public String getPass()
+	{
+		return pass;
+	}
+	/**
+	 * @return
+	 */
+	public String getFirst()
+	{
+		return first;
+	}
+	/**
+	 * @return
+	 */
+	public String getLast()
+	{
+		return last;
+	}
+	/**
+	 * @return
+	 */
+	public String getEmail()
+	{
+		return email;
+	}
+	/**
+	 * @return
+	 */
+	public Integer getIndexed()
+	{
+		return indexed;
+	}
+	
+	
+	/**
+	 * @param user
+	 */
+	public void setUser(String user)
+	{
+		this.user = user;
+	}
+	/**
+	 * @param pass
+	 */
+	public void setPass(String pass)
+	{
+		this.pass = pass;
+	}
+	/**
+	 * @param first
+	 */
+	public void setFirst(String first)
+	{
+		this.first = first;
+	}
+	/**
+	 * @param last
+	 */
+	public void setLast(String last)
+	{
+		this.last = last;
+	}
+	/**
+	 * @param email
+	 */
+	public void setEmail(String email)
+	{
+		this.email = email;
+	}
+	/**
+	 * @param indexed
+	 */
+	public void setIndexed(Integer indexed)
+	{
+		this.indexed = indexed;
+	}
+	
+	
+}

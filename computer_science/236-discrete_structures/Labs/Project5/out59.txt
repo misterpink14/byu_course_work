@@ -1,0 +1,92 @@
+Scheme Evaluation
+
+Fact Evaluation
+
+a
+  x='a'
+
+b
+
+c
+
+d
+
+e
+
+f
+
+g
+
+h
+
+i
+
+j
+
+Dependency Graph
+  Q1: R1
+  R1: R2
+  R2: R3
+  R3: R4
+  R4: R5
+  R5: R6
+  R6: R7
+  R7: R8
+  R8: R9
+  R9:
+
+Query Evaluation
+
+j('a')?
+
+Postorder Numbers
+  Q1: 10
+  R1: 9
+  R2: 8
+  R3: 7
+  R4: 6
+  R5: 5
+  R6: 4
+  R7: 3
+  R8: 2
+  R9: 1
+
+Rule Evaluation Order
+  R9
+  R8
+  R7
+  R6
+  R5
+  R4
+  R3
+  R2
+  R1
+
+Backward Edges
+
+Rule Evaluation
+b(x) :- a(x)
+  x='a'
+c(x) :- b(x)
+  x='a'
+d(x) :- c(x)
+  x='a'
+e(x) :- d(x)
+  x='a'
+f(x) :- e(x)
+  x='a'
+g(x) :- f(x)
+  x='a'
+h(x) :- g(x)
+  x='a'
+i(x) :- h(x)
+  x='a'
+j(x) :- i(x)
+  x='a'
+
+j('a')? Yes(1)
+select
+  x='a'
+project
+rename
+

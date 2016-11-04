@@ -1,0 +1,118 @@
+﻿Build started 12/19/2013 7:32:28 AM.
+     1>Project "c:\Users\Benjamin\documents\visual studio 2010\Projects\BankFinal\BankFinal\BankFinal.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Touching "Debug\BankFinal.unsuccessfulbuild".
+       ClCompile:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Account.cpp Bank.cpp BankInterface.cpp Checking.cpp Factory.cpp Savings.cpp TestDriver.cpp
+         TestDriver.cpp
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\vector(869): error C2259: 'AccountInterface' : cannot instantiate abstract class
+                 due to following members:
+                 'int AccountInterface::getAccountNumber(void)' : is abstract
+                 c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\accountinterface.h(21) : see declaration of 'AccountInterface::getAccountNumber'
+                 'double AccountInterface::getCurrentBalance(void)' : is abstract
+                 c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\accountinterface.h(29) : see declaration of 'AccountInterface::getCurrentBalance'
+                 'std::string AccountInterface::getAccountOwner(void)' : is abstract
+                 c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\accountinterface.h(37) : see declaration of 'AccountInterface::getAccountOwner'
+                 'void AccountInterface::advanceMonth(void)' : is abstract
+                 c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\accountinterface.h(70) : see declaration of 'AccountInterface::advanceMonth'
+                 'void AccountInterface::deposit(double)' : is abstract
+                 c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\accountinterface.h(78) : see declaration of 'AccountInterface::deposit'
+                 'bool AccountInterface::withdrawFromSavings(double)' : is abstract
+                 c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\accountinterface.h(104) : see declaration of 'AccountInterface::withdrawFromSavings'
+                 'bool AccountInterface::writeCheck(double)' : is abstract
+                 c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\accountinterface.h(131) : see declaration of 'AccountInterface::writeCheck'
+                 c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\bank.h(3) : see reference to class template instantiation 'std::vector<_Ty>' being compiled
+                 with
+                 [
+                     _Ty=AccountInterface
+                 ]
+     1>c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\testdriver.cpp(162): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+         Savings.cpp
+     1>c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\savings.cpp(7): error C2084: function 'Savings::Savings(void)' already has a body
+                 c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\savings.h(15) : see previous definition of '{ctor}'
+     1>c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\savings.cpp(33): error C2084: function 'Savings::~Savings(void)' already has a body
+                 c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\savings.h(54) : see previous definition of '{dtor}'
+     1>c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\savings.cpp(54): error C2084: function 'Savings1::~Savings1(void)' already has a body
+                 c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\savings.h(86) : see previous definition of '{dtor}'
+     1>c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\savings.cpp(54): error C2264: 'Savings::~Savings' : error in function definition or declaration; function not called
+     1>c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\savings.cpp(58): error C2084: function 'CD::CD(void)' already has a body
+                 c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\savings.h(97) : see previous definition of '{ctor}'
+     1>c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\savings.cpp(58): error C2264: 'Savings::Savings' : error in function definition or declaration; function not called
+     1>c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\savings.cpp(58): error C2264: 'Savings::~Savings' : error in function definition or declaration; function not called
+     1>c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\savings.cpp(80): error C2084: function 'CD::~CD(void)' already has a body
+                 c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\savings.h(120) : see previous definition of '{dtor}'
+     1>c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\savings.cpp(80): error C2264: 'Savings::~Savings' : error in function definition or declaration; function not called
+         Factory.cpp
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\vector(869): error C2259: 'AccountInterface' : cannot instantiate abstract class
+                 due to following members:
+                 'int AccountInterface::getAccountNumber(void)' : is abstract
+                 c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\accountinterface.h(21) : see declaration of 'AccountInterface::getAccountNumber'
+                 'double AccountInterface::getCurrentBalance(void)' : is abstract
+                 c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\accountinterface.h(29) : see declaration of 'AccountInterface::getCurrentBalance'
+                 'std::string AccountInterface::getAccountOwner(void)' : is abstract
+                 c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\accountinterface.h(37) : see declaration of 'AccountInterface::getAccountOwner'
+                 'void AccountInterface::advanceMonth(void)' : is abstract
+                 c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\accountinterface.h(70) : see declaration of 'AccountInterface::advanceMonth'
+                 'void AccountInterface::deposit(double)' : is abstract
+                 c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\accountinterface.h(78) : see declaration of 'AccountInterface::deposit'
+                 'bool AccountInterface::withdrawFromSavings(double)' : is abstract
+                 c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\accountinterface.h(104) : see declaration of 'AccountInterface::withdrawFromSavings'
+                 'bool AccountInterface::writeCheck(double)' : is abstract
+                 c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\accountinterface.h(131) : see declaration of 'AccountInterface::writeCheck'
+                 c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\bank.h(3) : see reference to class template instantiation 'std::vector<_Ty>' being compiled
+                 with
+                 [
+                     _Ty=AccountInterface
+                 ]
+         Checking.cpp
+     1>c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\checking.cpp(5): error C2084: function 'Checking::Checking(void)' already has a body
+                 c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\checking.h(10) : see previous definition of '{ctor}'
+     1>c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\checking.cpp(29): error C2084: function 'Checking::~Checking(void)' already has a body
+                 c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\checking.h(40) : see previous definition of '{dtor}'
+     1>c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\checking.cpp(33): error C2084: function 'Checking1::Checking1(void)' already has a body
+                 c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\checking.h(50) : see previous definition of '{ctor}'
+     1>c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\checking.cpp(33): error C2264: 'Checking::Checking' : error in function definition or declaration; function not called
+     1>c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\checking.cpp(33): error C2264: 'Checking::~Checking' : error in function definition or declaration; function not called
+     1>c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\checking.cpp(57): error C2084: function 'Checking1::~Checking1(void)' already has a body
+                 c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\checking.h(72) : see previous definition of '{dtor}'
+     1>c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\checking.cpp(57): error C2264: 'Checking::~Checking' : error in function definition or declaration; function not called
+     1>c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\checking.cpp(62): error C2084: function 'Checking2::Checking2(void)' already has a body
+                 c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\checking.h(81) : see previous definition of '{ctor}'
+     1>c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\checking.cpp(62): error C2264: 'Checking::Checking' : error in function definition or declaration; function not called
+     1>c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\checking.cpp(62): error C2264: 'Checking::~Checking' : error in function definition or declaration; function not called
+     1>c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\checking.cpp(87): error C2084: function 'Checking2::~Checking2(void)' already has a body
+                 c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\checking.h(109) : see previous definition of '{dtor}'
+     1>c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\checking.cpp(87): error C2264: 'Checking::~Checking' : error in function definition or declaration; function not called
+         Bank.cpp
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\vector(869): error C2259: 'AccountInterface' : cannot instantiate abstract class
+                 due to following members:
+                 'int AccountInterface::getAccountNumber(void)' : is abstract
+                 c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\accountinterface.h(21) : see declaration of 'AccountInterface::getAccountNumber'
+                 'double AccountInterface::getCurrentBalance(void)' : is abstract
+                 c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\accountinterface.h(29) : see declaration of 'AccountInterface::getCurrentBalance'
+                 'std::string AccountInterface::getAccountOwner(void)' : is abstract
+                 c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\accountinterface.h(37) : see declaration of 'AccountInterface::getAccountOwner'
+                 'void AccountInterface::advanceMonth(void)' : is abstract
+                 c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\accountinterface.h(70) : see declaration of 'AccountInterface::advanceMonth'
+                 'void AccountInterface::deposit(double)' : is abstract
+                 c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\accountinterface.h(78) : see declaration of 'AccountInterface::deposit'
+                 'bool AccountInterface::withdrawFromSavings(double)' : is abstract
+                 c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\accountinterface.h(104) : see declaration of 'AccountInterface::withdrawFromSavings'
+                 'bool AccountInterface::writeCheck(double)' : is abstract
+                 c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\accountinterface.h(131) : see declaration of 'AccountInterface::writeCheck'
+                 c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\bank.h(3) : see reference to class template instantiation 'std::vector<_Ty>' being compiled
+                 with
+                 [
+                     _Ty=AccountInterface
+                 ]
+     1>c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\bank.cpp(3): error C2011: 'Bank' : 'class' type redefinition
+                 c:\users\benjamin\documents\visual studio 2010\projects\bankfinal\bankfinal\bank.h(5) : see declaration of 'Bank'
+         Account.cpp
+         Generating Code...
+         Skipping... (no relevant changes detected)
+         BankInterface.cpp
+     1>Done Building Project "c:\Users\Benjamin\documents\visual studio 2010\Projects\BankFinal\BankFinal\BankFinal.vcxproj" (build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:13.10

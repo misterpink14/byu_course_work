@@ -1,0 +1,24 @@
+/**
+ * 
+ */
+package Server.DatabaseAccess.Database;
+
+/**
+ * @author Benjamin Thompson
+ *
+ */
+public class Importer
+{
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args)
+	{
+		// TODO Auto-generated method stub
+		
+		new Importer().import(args[0]);
+
+	}
+
+}

@@ -1,0 +1,83 @@
+package Client.GUI;
+
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+import Client.Client;
+import Client.Controller;
+
+@SuppressWarnings("serial")
+public class WelcomeView extends JFrame
+{
+	JText userText;
+    String first;
+    String last;
+    Integer indexed;
+    
+	public WelcomeView()
+	{
+		initLogin();
+	}
+	
+	public WelcomeView(String f, String l, Integer i)
+	{
+		first = f;
+		last = l;
+		indexed = i;
+		initLogin();
+	}
+		
+	private void initLogin()
+	{
+		JPanel basic = new JPanel();
+        basic.setLayout(new BoxLayout(basic, BoxLayout.Y_AXIS));
+        add(basic);
+
+        basic.add(Box.createVerticalGlue());
+
+        JPanel bottom1 = new JPanel();
+//        JPanel bottom2 = new JPanel();
+        userText = new JComponent();
+        JButton login = new JButton("OK");
+        
+        login.addActionListener(new ActionListener()
+        {
+
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				Controller.hideLogin();
+			}
+        	
+        });
+        
+        userText.setText("Welcome, " + first + " " + last + ".\nYou have indexed " 
+        				+ indexed + " records.");
+//        userText.setBackground();
+
+        bottom1.add(userText);
+
+        basic.add(bottom1);
+//        basic.add(bottom2);
+        basic.add(login);
+        
+        setTitle("Welcome to Indexer");
+        setSize(376, 118);
+        setLocationRelativeTo(null);
+        setResizable(false);
+        setAlwaysOnTop(true);
+		setVisible(true);
+	}
+
+}

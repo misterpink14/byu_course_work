@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+$(document).ready(function(){
+	$("#submit").click(function(){
+		var myobj = {Name:$("#Name").val(),Comment:$("#Comment").val()};
+		jobj = JSON.stringify(myobj);
+		$("#json").text(jobj);
+		var url = "comment";
+
+		jQuery.ajax ({
+            url: url,
+            type: "POST",
+            data: jobj,
+            contentType: "application/json; charset=utf-8",
+            success: function(){
+              $("#done").append("Success");
+            }
+        });
+
+		$.getJSON(url,function(data) {
+			resarray = [ { Name: 'Mickey', Comment: 'Hello',
+		        _id: '54f53d5ebf89e6100c2180da' },
+		      { Name: 'Mark', Comment: 'This is a comment',
+		        _id: '54f53e21801a52330c04be8a' }
+		      ]
+		    res.json(resarray);
+		});
+	});
+	
+	$("#show").click(function(){
+		var url = "comment";
+		
+		$.getJSON(url,function(data) {
+			var everything;
+			everything = "<ul>";
+			$.each(data, function(i,item) {
+				everything += "<li> Name: "+data[i].Name+" Comment: "+data[i].Comment;
+			});
+			everything += "</ul>";
+			$("#comments").html(everything);
+		})
+	})
+});
+</script>
+</head>
+<body>
+
+<form id="commentForm" action="">
+	Name: <input type="text" id="Name" value="Mickey"><br>
+	comment: <input type="text" id="Comment" value="Hello"><br>
+</form>
+
+<button id='submit'>Submit Comment</button>
+<button id='show'>Show Comments</button>
+
+<div id="json"></div>
+<div id="comments"></div>
+
+</body>
+</html>
+

@@ -1,0 +1,115 @@
+10:54:47 **** Incremental Build of configuration Debug for project Final ****
+make all 
+Building file: ../To Students/Student_Code/AVL.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"To Students/Student_Code/AVL.d" -MT"To\ Students/Student_Code/AVL.d" -o "To Students/Student_Code/AVL.o" "../To Students/Student_Code/AVL.cpp"
+Finished building: ../To Students/Student_Code/AVL.cpp
+ 
+Building file: ../To Students/Student_Code/Node.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"To Students/Student_Code/Node.d" -MT"To\ Students/Student_Code/Node.d" -o "To Students/Student_Code/Node.o" "../To Students/Student_Code/Node.cpp"
+Finished building: ../To Students/Student_Code/Node.cpp
+ 
+Building file: ../To Students/Student_Code/main.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"To Students/Student_Code/main.d" -MT"To\ Students/Student_Code/main.d" -o "To Students/Student_Code/main.o" "../To Students/Student_Code/main.cpp"
+Finished building: ../To Students/Student_Code/main.cpp
+ 
+Building target: Final
+Invoking: Cross G++ Linker
+g++  -o "Final"  ./To\ Students/Student_Code/NotME/Factory.o  ./To\ Students/Student_Code/Me/AVL.o ./To\ Students/Student_Code/Me/Factory.o ./To\ Students/Student_Code/Me/Node.o  ./To\ Students/Student_Code/AVL.o ./To\ Students/Student_Code/Node.o ./To\ Students/Student_Code/main.o   
+./To Students/Student_Code/Me/Factory.o: In function `Factory::getAVL()':
+/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/Me/Factory.cpp:18: multiple definition of `Factory::getAVL()'
+./To Students/Student_Code/NotME/Factory.o:/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/NotME/Factory.cpp:19: first defined here
+./To Students/Student_Code/AVL.o: In function `Node::~Node()':
+/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/AVL.cpp:14: multiple definition of `AVL::rebalance(Node*)'
+./To Students/Student_Code/Me/AVL.o:/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/Me/AVL.cpp:14: first defined here
+./To Students/Student_Code/AVL.o: In function `AVL::height(Node*)':
+/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/AVL.cpp:168: multiple definition of `AVL::height(Node*)'
+./To Students/Student_Code/Me/AVL.o:/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/Me/AVL.cpp:168: first defined here
+./To Students/Student_Code/AVL.o: In function `AVL::DoubleRight(Node*&)':
+/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/AVL.cpp:120: multiple definition of `AVL::DoubleRight(Node*&)'
+./To Students/Student_Code/Me/AVL.o:/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/Me/AVL.cpp:120: first defined here
+./To Students/Student_Code/AVL.o: In function `AVL::SingleRight(Node*&)':
+/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/AVL.cpp:90: multiple definition of `AVL::SingleRight(Node*&)'
+./To Students/Student_Code/Me/AVL.o:/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/Me/AVL.cpp:90: first defined here
+./To Students/Student_Code/AVL.o: In function `AVL::DoubleLeft(Node*&)':
+/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/AVL.cpp:83: multiple definition of `AVL::DoubleLeft(Node*&)'
+./To Students/Student_Code/Me/AVL.o:/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/Me/AVL.cpp:83: first defined here
+./To Students/Student_Code/AVL.o: In function `AVL::SingleLeft(Node*&)':
+/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/AVL.cpp:58: multiple definition of `AVL::SingleLeft(Node*&)'
+./To Students/Student_Code/Me/AVL.o:/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/Me/AVL.cpp:58: first defined here
+./To Students/Student_Code/AVL.o: In function `AVL::Height(Node*)':
+/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/AVL.cpp:127: multiple definition of `AVL::Height(Node*)'
+./To Students/Student_Code/Me/AVL.o:/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/Me/AVL.cpp:127: first defined here
+./To Students/Student_Code/AVL.o: In function `AVL::add(int&, Node*)':
+/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/AVL.cpp:195: multiple definition of `AVL::add(int&, Node*)'
+./To Students/Student_Code/Me/AVL.o:/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/Me/AVL.cpp:195: first defined here
+./To Students/Student_Code/AVL.o: In function `AVL::find(int, Node*&, Node*&)':
+/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/AVL.cpp:255: multiple definition of `AVL::find(int, Node*&, Node*&)'
+./To Students/Student_Code/Me/AVL.o:/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/Me/AVL.cpp:255: first defined here
+./To Students/Student_Code/AVL.o: In function `AVL::replace(Node*&, Node*&)':
+/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/AVL.cpp:301: multiple definition of `AVL::replace(Node*&, Node*&)'
+./To Students/Student_Code/Me/AVL.o:/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/Me/AVL.cpp:301: first defined here
+./To Students/Student_Code/AVL.o: In function `AVL::rreplace(Node*&, Node*&)':
+/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/AVL.cpp:314: multiple definition of `AVL::rreplace(Node*&, Node*&)'
+./To Students/Student_Code/Me/AVL.o:/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/Me/AVL.cpp:314: first defined here
+./To Students/Student_Code/AVL.o: In function `AVL::Remove(int)':
+/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/AVL.cpp:328: multiple definition of `AVL::Remove(int)'
+./To Students/Student_Code/Me/AVL.o:/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/Me/AVL.cpp:328: first defined here
+./To Students/Student_Code/AVL.o: In function `AVL::Remove(Node*, int, bool&)':
+/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/AVL.cpp:451: multiple definition of `AVL::Remove(Node*, int, bool&)'
+./To Students/Student_Code/Me/AVL.o:/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/Me/AVL.cpp:451: first defined here
+./To Students/Student_Code/AVL.o: In function `AVL::Clear()':
+/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/AVL.cpp:602: multiple definition of `AVL::Clear()'
+./To Students/Student_Code/Me/AVL.o:/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/Me/AVL.cpp:602: first defined here
+./To Students/Student_Code/AVL.o: In function `AVL::AVL()':
+/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/AVL.cpp:621: multiple definition of `AVL::AVL()'
+./To Students/Student_Code/Me/AVL.o:/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/Me/AVL.cpp:621: first defined here
+./To Students/Student_Code/AVL.o: In function `AVL::AVL()':
+/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/AVL.cpp:621: multiple definition of `AVL::AVL()'
+./To Students/Student_Code/Me/AVL.o:/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/Me/AVL.cpp:621: first defined here
+./To Students/Student_Code/AVL.o: In function `AVL::~AVL()':
+/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/AVL.cpp:627: multiple definition of `AVL::~AVL()'
+./To Students/Student_Code/Me/AVL.o:/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/Me/AVL.cpp:627: first defined here
+./To Students/Student_Code/AVL.o: In function `AVL::~AVL()':
+/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/AVL.cpp:627: multiple definition of `AVL::~AVL()'
+./To Students/Student_Code/Me/AVL.o:/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/Me/AVL.cpp:627: first defined here
+./To Students/Student_Code/AVL.o: In function `AVL::getRootNode()':
+/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/AVL.cpp:636: multiple definition of `AVL::getRootNode()'
+./To Students/Student_Code/Me/AVL.o:/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/Me/AVL.cpp:636: first defined here
+./To Students/Student_Code/AVL.o: In function `AVL::add(int)':
+/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/AVL.cpp:643: multiple definition of `AVL::add(int)'
+./To Students/Student_Code/Me/AVL.o:/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/Me/AVL.cpp:643: first defined here
+./To Students/Student_Code/AVL.o: In function `AVL::remove(int)':
+/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/AVL.cpp:668: multiple definition of `AVL::remove(int)'
+./To Students/Student_Code/Me/AVL.o:/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/Me/AVL.cpp:668: first defined here
+./To Students/Student_Code/Node.o: In function `Node::Node()':
+/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/Node.cpp:11: multiple definition of `Node::Node()'
+./To Students/Student_Code/Me/Node.o:/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/Me/Node.cpp:11: first defined here
+./To Students/Student_Code/Node.o: In function `Node::Node()':
+/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/Node.cpp:11: multiple definition of `Node::Node()'
+./To Students/Student_Code/Me/Node.o:/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/Me/Node.cpp:11: first defined here
+./To Students/Student_Code/Node.o: In function `Node::Node(int, int, Node*, Node*)':
+/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/Node.cpp:13: multiple definition of `Node::Node(int, int, Node*, Node*)'
+./To Students/Student_Code/Me/Node.o:/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/Me/Node.cpp:13: first defined here
+./To Students/Student_Code/Node.o: In function `Node::Node(int, int, Node*, Node*)':
+/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/Node.cpp:13: multiple definition of `Node::Node(int, int, Node*, Node*)'
+./To Students/Student_Code/Me/Node.o:/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/Me/Node.cpp:13: first defined here
+./To Students/Student_Code/Node.o: In function `Node::getData()':
+/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/Node.cpp:23: multiple definition of `Node::getData()'
+./To Students/Student_Code/Me/Node.o:/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/Me/Node.cpp:23: first defined here
+./To Students/Student_Code/Node.o: In function `Node::getLeftChild()':
+/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/Node.cpp:31: multiple definition of `Node::getLeftChild()'
+./To Students/Student_Code/Me/Node.o:/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/Me/Node.cpp:31: first defined here
+./To Students/Student_Code/Node.o: In function `Node::getRightChild()':
+/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/Node.cpp:38: multiple definition of `Node::getRightChild()'
+./To Students/Student_Code/Me/Node.o:/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/Me/Node.cpp:38: first defined here
+./To Students/Student_Code/Node.o: In function `Node::getHeight()':
+/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/Node.cpp:45: multiple definition of `Node::getHeight()'
+./To Students/Student_Code/Me/Node.o:/home/misterpink14/Google Drive/235-Spring/workspace/Final/Debug/../To Students/Student_Code/Me/Node.cpp:45: first defined here
+collect2: error: ld returned 1 exit status
+make: *** [Final] Error 1
+
+10:54:52 Build Finished (took 4s.756ms)
+

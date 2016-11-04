@@ -1,0 +1,51 @@
+package Client.Model;
+
+import java.util.List;
+
+import Shared.Model.Project;
+import Shared.Model.User;
+
+public class BatchState
+{
+	private User u;
+	private List<Project> pList;
+	
+
+	public void setU(String user, String pass, String first, 
+			String last, String email, Integer indexed)
+	{
+		u = new User(user, pass, first, last, email, indexed);
+	}
+	
+	public User getU()
+	{
+		return u;
+	}
+	
+	public void setP(List<Project> list)
+	{
+		pList = list;
+	}
+	
+	public String[] getPNameList()
+	{
+		String[] pNameList = new String[pList.size()];
+		int i = 0;
+		for (Project p: this.pList)
+		{
+			pNameList[i] = p.getTitle();
+			i++;
+		}
+		return pNameList;
+	}
+	
+	public Integer getProjectID(Integer index)
+	{
+		return pList.get(index).getId();
+	}
+	
+	public void clear()
+	{
+		this = new BatchState();
+	}
+}

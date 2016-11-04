@@ -1,0 +1,173 @@
+package Client.GUI;
+
+
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JSplitPane;
+import javax.swing.JToolBar;
+
+import Client.Controller;
+import Client.GUI.Entry.EntryView;
+import Client.GUI.ImageSupport.ImageSupportView;
+
+@SuppressWarnings("serial")
+public class WindowView extends JFrame 
+{
+	public DownloadBatchView downloadbatch;
+	public ImageView top;
+	public ImageSupportView bottomRight;
+	JMenuItem downloadBatch;
+    
+	public WindowView()
+	{
+		initUI();
+	}
+		
+	private void initUI()
+	{
+		JSplitPane basic = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
+		basic.setDividerLocation(450);
+		
+		top = new ImageView();
+		JSplitPane bottom = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
+		bottom.setDividerLocation(400);
+		
+		EntryView bottomLeft = new EntryView();
+		bottomRight = new ImageSupportView();
+		
+		bottom.setLeftComponent(bottomLeft);
+		bottom.setRightComponent(bottomRight);
+		
+		add(basic);
+        basic.setLeftComponent(top);
+        basic.setRightComponent(bottom);
+
+        createMenuBar();
+        buildToolbar();
+        setVisible(false);
+        setTitle("Record Indexer");
+        setSize(1000, 750);
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+	}
+	
+	public void hideMenu()
+	{
+		downloadBatch.setEnabled(false);
+	}
+
+	private void createMenuBar()
+	{
+		JMenuBar menu = new JMenuBar();
+		JMenu file = new JMenu("File");
+		file.setMnemonic(KeyEvent.VK_E);
+		
+		downloadBatch = new JMenuItem("Download Batch");
+		downloadBatch.setMnemonic(KeyEvent.VK_E);
+		downloadBatch.addActionListener(new ActionListener()
+		{
+			@Override
+            public void actionPerformed(ActionEvent event) 
+			{
+				downloadbatch = new DownloadBatchView();
+            }
+		});
+		file.add(downloadBatch);
+		
+		JMenuItem menuItem = new JMenuItem("Logout");
+		menuItem.setMnemonic(KeyEvent.VK_E);
+		menuItem.addActionListener(new ActionListener()
+		{
+			@Override
+            public void actionPerformed(ActionEvent event) {
+                Controller.logout();
+            }
+		});
+		file.add(menuItem);
+		
+		menuItem = new JMenuItem("Exit");
+		menuItem.setMnemonic(KeyEvent.VK_E);
+		menuItem.addActionListener(new ActionListener()
+		{
+			@Override
+            public void actionPerformed(ActionEvent event) {
+                System.exit(0);
+            }
+		});
+		file.add(menuItem);
+		menu.add(file);
+		setJMenuBar(menu);
+	}
+	
+	private void buildToolbar()
+	{
+		JToolBar toolbar = new JToolBar();
+		
+//		toolbar.setAlignmentX((float) 0.0);
+
+		JButton button = new JButton("Zoom In");
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent event) {
+                System.exit(0);
+            }
+        });
+        toolbar.add(button);
+
+        button = new JButton("Zoom Out");
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent event) {
+                System.exit(0);
+            }
+        });
+        toolbar.add(button);
+        
+        button = new JButton("Invert Image");
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent event) {
+                System.exit(0);
+            }
+        });
+        toolbar.add(button);
+        
+        button = new JButton("Toggle Highlights");
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent event) {
+                System.exit(0);
+            }
+        });
+        toolbar.add(button);
+
+        button = new JButton("Save");
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent event) {
+                System.exit(0);
+            }
+        });
+        toolbar.add(button);
+        
+
+        button = new JButton("Submit");
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent event) {
+                System.exit(0);
+            }
+        });
+        toolbar.add(button);
+
+        add(toolbar, BorderLayout.NORTH);  
+	}
+}

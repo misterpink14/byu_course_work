@@ -1,0 +1,67 @@
+/*
+ * AVL.cpp
+ *
+ *  Created on: Jun 18, 2014
+ *      Author: misterpink14
+ */
+
+#include "AVL.h"
+
+
+void AVL::Clear()
+{
+	if (Root == NULL)
+	{
+		return;
+	}
+	else
+	{
+		while(Root != NULL)
+		{
+			Remove(Root->data);
+		}
+
+
+		Root = NULL;
+	}
+}
+
+
+
+AVL::AVL()
+{
+	Root = NULL;
+}
+
+
+AVL::~AVL()
+{
+	Clear();
+}
+
+
+
+
+NodeInterface * AVL::getRootNode();
+{
+	return Head;
+}
+
+
+
+bool AVL::add(int data)
+{
+	if(Root == NULL)
+	{
+		Root = new Node(data, NULL, NULL);
+		return true;
+	}
+	else
+	{
+		return add(data, Root);
+	}
+	// rebalance?
+}
+
+
+

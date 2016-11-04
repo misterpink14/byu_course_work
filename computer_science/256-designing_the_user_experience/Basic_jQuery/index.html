@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Title</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+<body>
+	<h2>
+		Heading 1
+	</h2>
+		<p></p>
+		<p></p>
+		<p></p>
+		<button type="button">click</button>
+	<h2>
+		Heading 2
+	</h2>
+		<p></p>
+		<p></p>
+		<p></p>
+		<button type="button">click</button>
+
+
+<script type="text/javascript">
+
+var button = $('button');
+var bk_color = 'black';
+var color = 'white';
+button.click(function(){
+	$('p').append(" Again, the button was pushed. ");
+	$('p').css({
+		'background-color': bk_color,
+		'color' : color
+	});
+
+	if (bk_color == 'black') {
+		bk_color = 'white';
+		color = 'black';
+	}
+	else {
+		bk_color = 'black';
+		color = 'white';
+	}
+});
+
+</script>
+</body>
+</html>

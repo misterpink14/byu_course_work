@@ -1,0 +1,13 @@
+/**
+ * 
+ */
+package Shared.Communication;
+
+/**
+ * @author Benjamin Thompson
+ *
+ */
+public class GetProjects_Param
+{
+
+}

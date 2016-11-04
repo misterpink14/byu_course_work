@@ -1,0 +1,21 @@
+package Client.GUI.Table;
+
+
+import java.awt.*;
+import java.util.*;
+
+public class ColorScheme {
+
+	private ArrayList<String> nameList = new ArrayList<String>();
+	
+	public ColorScheme(String name, Color foreground, Color background,
+						Color highlight, Color shadow) {
+		setName(name);
+		setForeground(foreground);
+		setBackground(background);
+		setHighlight(highlight);
+		setShadow(shadow);
+	}
+	
+	
+}

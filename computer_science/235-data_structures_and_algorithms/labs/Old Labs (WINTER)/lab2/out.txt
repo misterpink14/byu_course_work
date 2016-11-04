@@ -1,0 +1,9 @@
+and: 5 
+bleu: 5 
+debugging: 1 
+process: 2 4 
+programming: 3 5 
+putting: 4 
+red: 5 
+removing: 2 2 
+scheese: 5 

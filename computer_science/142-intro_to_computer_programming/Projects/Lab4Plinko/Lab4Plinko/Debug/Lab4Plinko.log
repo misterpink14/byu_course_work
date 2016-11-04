@@ -1,0 +1,20 @@
+﻿Build started 10/3/2013 5:32:50 PM.
+     1>Project "C:\Users\Benjamin\Documents\Visual Studio 2010\Projects\Lab4Plinko\Lab4Plinko\Lab4Plinko.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Touching "Debug\Lab4Plinko.unsuccessfulbuild".
+       ClCompile:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Plinko.cpp
+         Plinko.cpp
+       Link:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Benjamin\Documents\Visual Studio 2010\Projects\Lab4Plinko\Debug\Lab4Plinko.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Lab4Plinko.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Benjamin\Documents\Visual Studio 2010\Projects\Lab4Plinko\Debug\Lab4Plinko.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Benjamin\Documents\Visual Studio 2010\Projects\Lab4Plinko\Debug\Lab4Plinko.lib" /MACHINE:X86 Debug\Plinko.obj
+         Lab4Plinko.vcxproj -> C:\Users\Benjamin\Documents\Visual Studio 2010\Projects\Lab4Plinko\Debug\Lab4Plinko.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\Benjamin\Documents\Visual Studio 2010\Projects\Lab4Plinko\Debug\Lab4Plinko.exe;#1" /manifest Debug\Lab4Plinko.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         Deleting file "Debug\Lab4Plinko.unsuccessfulbuild".
+         Touching "Debug\Lab4Plinko.lastbuildstate".
+     1>Done Building Project "C:\Users\Benjamin\Documents\Visual Studio 2010\Projects\Lab4Plinko\Lab4Plinko\Lab4Plinko.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.98

@@ -1,0 +1,14 @@
+clear
+add bob
+add joe
+add jim
+print
+level 1: joe
+level 2: jim
+level 0: bob
+find
+remove bob
+remove joe
+remove jim
+print
+find

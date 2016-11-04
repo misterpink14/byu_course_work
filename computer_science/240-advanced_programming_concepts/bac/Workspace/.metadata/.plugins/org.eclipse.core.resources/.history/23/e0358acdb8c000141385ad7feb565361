@@ -1,0 +1,40 @@
+/**
+ * 
+ */
+package Server.DatabaseAccess.Database;
+
+import java.io.File;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+import org.w3c.dom.Document;
+
+/**
+ * @author Benjamin Thompson
+ *
+ */
+public class Importer
+{
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args)
+	{
+		// TODO Auto-generated method stub
+		new Importer().execute(args[0]);
+
+	}
+	
+	public void execute(String fileURL)
+	{
+		File f = new File(fileURL);
+		
+		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+		Document doc = dBuilder.parse(f);
+		
+	}
+
+}

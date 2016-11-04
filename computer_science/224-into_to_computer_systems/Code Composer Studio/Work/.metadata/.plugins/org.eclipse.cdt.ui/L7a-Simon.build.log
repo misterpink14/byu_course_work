@@ -1,0 +1,1030 @@
+
+**** Build of configuration Debug for project L7a-Simon ****
+
+"C:\\ti\\ccsv5\\utils\\bin\\gmake" -k all 
+'Building file: ../main.asm'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv5/tools/compiler/msp430_4.2.1/bin/cl430" -vmsp --abi=coffabi --include_path="C:/ti/ccsv5/ccs_base/msp430/include" --include_path="C:/ti/ccsv5/tools/compiler/msp430_4.2.1/include" --advice:power=all -g --define=__MSP430F2274__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="main.pp"  "../main.asm"
+"../main.asm", ERROR!   at line 153: [E0002] Illegal mnemonic specified
+	mov.w	#ATONE,r14
+
+"../main.asm", ERROR!   at line 155: [E0300] Symbol mov has already been defined
+	mov.w	r14,r12
+
+"../main.asm", ERROR!   at line 155: [E0002] Illegal mnemonic specified
+	mov.w	r14,r12
+
+"../main.asm", ERROR!   at line 164: [E0002] Illegal mnemonic specified
+	bic.b #ALED,&P4OUT
+
+"../main.asm", ERROR!   at line 166: [E0002] Illegal mnemonic specified
+	call	#delay
+
+"../main.asm", ERROR!   at line 168: [E0002] Illegal mnemonic specified
+	push	r12
+
+"../main.asm", ERROR!   at line 169: [E0300] Symbol mov has already been defined
+	mov.w	#A2TONE,r12
+
+"../main.asm", ERROR!   at line 169: [E0002] Illegal mnemonic specified
+	mov.w	#A2TONE,r12
+
+"../main.asm", ERROR!   at line 181: [E0300] Symbol call has already been defined
+	call	#delay
+
+"../main.asm", ERROR!   at line 181: [E0002] Illegal mnemonic specified
+	call	#delay
+
+"../main.asm", ERROR!   at line 182: [E0300] Symbol call has already been defined
+	call	#delay
+
+"../main.asm", ERROR!   at line 182: [E0002] Illegal mnemonic specified
+	call	#delay
+
+"../main.asm", ERROR!   at line 188: [E0300] Symbol mov has already been defined
+	mov.w	r13,r12
+
+"../main.asm", ERROR!   at line 188: [E0002] Illegal mnemonic specified
+	mov.w	r13,r12
+
+"../main.asm", ERROR!   at line 189: [E0300] Symbol call has already been defined
+	call	#setrandSeed
+
+"../main.asm", ERROR!   at line 189: [E0002] Illegal mnemonic specified
+	call	#setrandSeed
+
+"../main.asm", ERROR!   at line 190: [E0300] Symbol call has already been defined
+	call	#rand16
+
+"../main.asm", ERROR!   at line 190: [E0002] Illegal mnemonic specified
+	call	#rand16
+
+"../main.asm", ERROR!   at line 191: [E0300] Symbol mov has already been defined
+	mov.w	#0x05,r5	; Use r5 to keep score
+
+"../main.asm", ERROR!   at line 191: [E0002] Illegal mnemonic specified
+	mov.w	#0x05,r5	; Use r5 to keep score
+
+"../main.asm", ERROR!   at line 193: [E0300] Symbol call has already been defined
+	call	#challenge
+
+"../main.asm", ERROR!   at line 193: [E0002] Illegal mnemonic specified
+	call	#challenge
+
+"../main.asm", ERROR!   at line 198: [E0300] Symbol call has already been defined
+	call	#getSwitch
+
+"../main.asm", ERROR!   at line 198: [E0002] Illegal mnemonic specified
+	call	#getSwitch
+
+"../main.asm", ERROR!   at line 199: [E0300] Symbol call has already been defined
+	call	#checkres
+
+"../main.asm", ERROR!   at line 199: [E0002] Illegal mnemonic specified
+	call	#checkres
+
+"../main.asm", ERROR!   at line 200: [E0002] Illegal mnemonic specified
+	cmp.b	#0,r10
+
+"../main.asm", ERROR!   at line 201: [E0002] Illegal mnemonic specified
+	jeq	lose
+
+"../main.asm", ERROR!   at line 202: [E0002] Illegal mnemonic specified
+	add.w	#1,r6	; Use r6 to record responses
+
+"../main.asm", ERROR!   at line 203: [E0300] Symbol cmp has already been defined
+	cmp.w	r5,r6	; has player finished current sequence?
+
+"../main.asm", ERROR!   at line 203: [E0002] Illegal mnemonic specified
+	cmp.w	r5,r6	; has player finished current sequence?
+
+"../main.asm", ERROR!   at line 204: [E0300] Symbol jeq has already been defined
+	jeq	charge	; yes? send to win sequence
+
+"../main.asm", ERROR!   at line 204: [E0002] Illegal mnemonic specified
+	jeq	charge	; yes? send to win sequence
+
+"../main.asm", ERROR!   at line 205: [E0002] Illegal mnemonic specified
+	jmp	continuegame	; no? wait for next response
+
+"../main.asm", ERROR!   at line 209: [E0300] Symbol push has already been defined
+	push	r9
+
+"../main.asm", ERROR!   at line 209: [E0002] Illegal mnemonic specified
+	push	r9
+
+"../main.asm", ERROR!   at line 210: [E0300] Symbol push has already been defined
+	push	r12
+
+"../main.asm", ERROR!   at line 210: [E0002] Illegal mnemonic specified
+	push	r12
+
+"../main.asm", ERROR!   at line 211: [E0300] Symbol mov has already been defined
+	mov.w	#1,r6
+
+"../main.asm", ERROR!   at line 211: [E0002] Illegal mnemonic specified
+	mov.w	#1,r6
+
+"../main.asm", ERROR!   at line 212: [E0300] Symbol mov has already been defined
+	mov.w	#RLED,r4
+
+"../main.asm", ERROR!   at line 212: [E0002] Illegal mnemonic specified
+	mov.w	#RLED,r4
+
+"../main.asm", ERROR!   at line 213: [E0300] Symbol mov has already been defined
+	mov.w	#LOTONE,r12
+
+"../main.asm", ERROR!   at line 213: [E0002] Illegal mnemonic specified
+	mov.w	#LOTONE,r12
+
+"../main.asm", ERROR!   at line 214: [E0300] Symbol call has already been defined
+	call	#toneON
+
+"../main.asm", ERROR!   at line 214: [E0002] Illegal mnemonic specified
+	call	#toneON
+
+"../main.asm", ERROR!   at line 216: [E0300] Symbol mov has already been defined
+	mov.w	#0xffff,r9
+
+"../main.asm", ERROR!   at line 216: [E0002] Illegal mnemonic specified
+	mov.w	#0xffff,r9
+
+"../main.asm", ERROR!   at line 218: [E0002] Illegal mnemonic specified
+	jne lose1
+
+"../main.asm", ERROR!   at line 219: [E0002] Illegal mnemonic specified
+	rra.w	r4
+
+"../main.asm", ERROR!   at line 220: [E0002] Illegal mnemonic specified
+	jnz	lose2
+
+"../main.asm", ERROR!   at line 221: [E0300] Symbol bic has already been defined
+	bic.b	#0x0f,&P4OUT
+
+"../main.asm", ERROR!   at line 221: [E0002] Illegal mnemonic specified
+	bic.b	#0x0f,&P4OUT
+
+"../main.asm", ERROR!   at line 222: [E0300] Symbol call has already been defined
+	call	#delay
+
+"../main.asm", ERROR!   at line 222: [E0002] Illegal mnemonic specified
+	call	#delay
+
+"../main.asm", ERROR!   at line 223: [E0300] Symbol call has already been defined
+	call	#toneOFF
+
+"../main.asm", ERROR!   at line 223: [E0002] Illegal mnemonic specified
+	call	#toneOFF
+
+"../main.asm", ERROR!   at line 224: [E0002] Illegal mnemonic specified
+	pop	r12
+
+"../main.asm", ERROR!   at line 225: [E0300] Symbol pop has already been defined
+	pop	r9
+
+"../main.asm", ERROR!   at line 225: [E0002] Illegal mnemonic specified
+	pop	r9
+
+"../main.asm", ERROR!   at line 226: [E0300] Symbol jmp has already been defined
+	jmp	loop02	; Start game over
+
+"../main.asm", ERROR!   at line 226: [E0002] Illegal mnemonic specified
+	jmp	loop02	; Start game over
+
+"../main.asm", ERROR!   at line 229: [E0300] Symbol add has already been defined
+	add.w	#1,r5	; add one to score
+
+"../main.asm", ERROR!   at line 229: [E0002] Illegal mnemonic specified
+	add.w	#1,r5	; add one to score
+
+"../main.asm", ERROR!   at line 230: [E0300] Symbol call has already been defined
+	call	#cout1
+
+"../main.asm", ERROR!   at line 230: [E0002] Illegal mnemonic specified
+	call	#cout1
+
+"../main.asm", ERROR!   at line 232: [E0300] Symbol call has already been defined
+	call	#cout2
+
+"../main.asm", ERROR!   at line 232: [E0002] Illegal mnemonic specified
+	call	#cout2
+
+"../main.asm", ERROR!   at line 234: [E0300] Symbol call has already been defined
+	call	#cout3
+
+"../main.asm", ERROR!   at line 234: [E0002] Illegal mnemonic specified
+	call	#cout3
+
+"../main.asm", ERROR!   at line 236: [E0300] Symbol call has already been defined
+	call	#cout4
+
+"../main.asm", ERROR!   at line 236: [E0002] Illegal mnemonic specified
+	call	#cout4
+
+"../main.asm", ERROR!   at line 237: [E0300] Symbol call has already been defined
+	call #delay2
+
+"../main.asm", ERROR!   at line 237: [E0002] Illegal mnemonic specified
+	call #delay2
+
+"../main.asm", ERROR!   at line 238: [E0300] Symbol call has already been defined
+	call	#cout3
+
+"../main.asm", ERROR!   at line 238: [E0002] Illegal mnemonic specified
+	call	#cout3
+
+"../main.asm", ERROR!   at line 240: [E0300] Symbol call has already been defined
+	call	#out4
+
+"../main.asm", ERROR!   at line 240: [E0002] Illegal mnemonic specified
+	call	#out4
+
+"../main.asm", ERROR!   at line 241: [E0300] Symbol call has already been defined
+	call #delay
+
+"../main.asm", ERROR!   at line 241: [E0002] Illegal mnemonic specified
+	call #delay
+
+"../main.asm", ERROR!   at line 242: [E0300] Symbol jmp has already been defined
+	jmp	nextstage	; add one to current sequence
+
+"../main.asm", ERROR!   at line 242: [E0002] Illegal mnemonic specified
+	jmp	nextstage	; add one to current sequence
+
+"../main.asm", ERROR!   at line 246: [E0300] Symbol push has already been defined
+	push	r9
+
+"../main.asm", ERROR!   at line 246: [E0002] Illegal mnemonic specified
+	push	r9
+
+"../main.asm", ERROR!   at line 247: [E0300] Symbol push has already been defined
+	push	r12
+
+"../main.asm", ERROR!   at line 247: [E0002] Illegal mnemonic specified
+	push	r12
+
+"../main.asm", ERROR!   at line 248: [E0300] Symbol push has already been defined
+	push	r5
+
+"../main.asm", ERROR!   at line 248: [E0002] Illegal mnemonic specified
+	push	r5
+
+"../main.asm", ERROR!   at line 250: [E0002] Illegal mnemonic specified
+	tst.w	r5
+
+"../main.asm", ERROR!   at line 251: [E0300] Symbol jeq has already been defined
+	jeq	endchallenge
+
+"../main.asm", ERROR!   at line 251: [E0002] Illegal mnemonic specified
+	jeq	endchallenge
+
+"../main.asm", ERROR!   at line 252: [E0300] Symbol mov has already been defined
+	mov.w	r12,r9
+
+"../main.asm", ERROR!   at line 252: [E0002] Illegal mnemonic specified
+	mov.w	r12,r9
+
+"../main.asm", ERROR!   at line 253: [E0002] Illegal mnemonic specified
+	and.w	#0x0001,r9
+
+"../main.asm", ERROR!   at line 255: [E0300] Symbol cmp has already been defined
+	cmp.b	#0x01,r9
+
+"../main.asm", ERROR!   at line 255: [E0002] Illegal mnemonic specified
+	cmp.b	#0x01,r9
+
+"../main.asm", ERROR!   at line 256: [E0300] Symbol jeq has already been defined
+	jeq	ch2
+
+"../main.asm", ERROR!   at line 256: [E0002] Illegal mnemonic specified
+	jeq	ch2
+
+"../main.asm", ERROR!   at line 257: [E0300] Symbol mov has already been defined
+	mov.w	r12,r9
+
+"../main.asm", ERROR!   at line 257: [E0002] Illegal mnemonic specified
+	mov.w	r12,r9
+
+"../main.asm", ERROR!   at line 258: [E0002] Illegal mnemonic specified
+	rrc.w	r9
+
+"../main.asm", ERROR!   at line 259: [E0300] Symbol and has already been defined
+	and.w	#0x0001,r9
+
+"../main.asm", ERROR!   at line 259: [E0002] Illegal mnemonic specified
+	and.w	#0x0001,r9
+
+"../main.asm", ERROR!   at line 260: [E0300] Symbol cmp has already been defined
+	cmp.b	#0x01,r9
+
+"../main.asm", ERROR!   at line 260: [E0002] Illegal mnemonic specified
+	cmp.b	#0x01,r9
+
+"../main.asm", ERROR!   at line 261: [E0300] Symbol jeq has already been defined
+	jeq	ch3
+
+"../main.asm", ERROR!   at line 261: [E0002] Illegal mnemonic specified
+	jeq	ch3
+
+"../main.asm", ERROR!   at line 262: [E0300] Symbol call has already been defined
+	call	#out1
+
+"../main.asm", ERROR!   at line 262: [E0002] Illegal mnemonic specified
+	call	#out1
+
+"../main.asm", ERROR!   at line 263: [E0300] Symbol rrc has already been defined
+	rrc.w	r12
+
+"../main.asm", ERROR!   at line 263: [E0002] Illegal mnemonic specified
+	rrc.w	r12
+
+"../main.asm", ERROR!   at line 264: [E0300] Symbol rrc has already been defined
+	rrc.w	r12
+
+"../main.asm", ERROR!   at line 264: [E0002] Illegal mnemonic specified
+	rrc.w	r12
+
+"../main.asm", ERROR!   at line 265: [E0300] Symbol jmp has already been defined
+	jmp	ch1
+
+"../main.asm", ERROR!   at line 265: [E0002] Illegal mnemonic specified
+	jmp	ch1
+
+"../main.asm", ERROR!   at line 267: [E0300] Symbol call has already been defined
+	call	#out2
+
+"../main.asm", ERROR!   at line 267: [E0002] Illegal mnemonic specified
+	call	#out2
+
+"../main.asm", ERROR!   at line 268: [E0300] Symbol rrc has already been defined
+	rrc.w	r12
+
+"../main.asm", ERROR!   at line 268: [E0002] Illegal mnemonic specified
+	rrc.w	r12
+
+"../main.asm", ERROR!   at line 269: [E0300] Symbol rrc has already been defined
+	rrc.w	r12
+
+"../main.asm", ERROR!   at line 269: [E0002] Illegal mnemonic specified
+	rrc.w	r12
+
+"../main.asm", ERROR!   at line 270: [E0300] Symbol jmp has already been defined
+	jmp	ch1
+
+"../main.asm", ERROR!   at line 270: [E0002] Illegal mnemonic specified
+	jmp	ch1
+
+"../main.asm", ERROR!   at line 273: [E0300] Symbol rrc has already been defined
+	rrc.w	r9
+
+"../main.asm", ERROR!   at line 273: [E0002] Illegal mnemonic specified
+	rrc.w	r9
+
+"../main.asm", ERROR!   at line 274: [E0300] Symbol and has already been defined
+	and.w	#0x0001,r9
+
+"../main.asm", ERROR!   at line 274: [E0002] Illegal mnemonic specified
+	and.w	#0x0001,r9
+
+"../main.asm", ERROR!   at line 275: [E0300] Symbol cmp has already been defined
+	cmp.b	#0x01,r9
+
+"../main.asm", ERROR!   at line 275: [E0002] Illegal mnemonic specified
+	cmp.b	#0x01,r9
+
+"../main.asm", ERROR!   at line 276: [E0300] Symbol jeq has already been defined
+	jeq	ch4
+
+"../main.asm", ERROR!   at line 276: [E0002] Illegal mnemonic specified
+	jeq	ch4
+
+"../main.asm", ERROR!   at line 277: [E0300] Symbol call has already been defined
+	call	#out3
+
+"../main.asm", ERROR!   at line 277: [E0002] Illegal mnemonic specified
+	call	#out3
+
+"../main.asm", ERROR!   at line 278: [E0300] Symbol rrc has already been defined
+	rrc.w	r12
+
+"../main.asm", ERROR!   at line 278: [E0002] Illegal mnemonic specified
+	rrc.w	r12
+
+"../main.asm", ERROR!   at line 279: [E0300] Symbol rrc has already been defined
+	rrc.w	r12
+
+"../main.asm", ERROR!   at line 279: [E0002] Illegal mnemonic specified
+	rrc.w	r12
+
+"../main.asm", ERROR!   at line 280: [E0300] Symbol jmp has already been defined
+	jmp	ch1
+
+"../main.asm", ERROR!   at line 280: [E0002] Illegal mnemonic specified
+	jmp	ch1
+
+"../main.asm", ERROR!   at line 282: [E0300] Symbol call has already been defined
+	call	#out4
+
+"../main.asm", ERROR!   at line 282: [E0002] Illegal mnemonic specified
+	call	#out4
+
+"../main.asm", ERROR!   at line 283: [E0300] Symbol rrc has already been defined
+	rrc.w	r12
+
+"../main.asm", ERROR!   at line 283: [E0002] Illegal mnemonic specified
+	rrc.w	r12
+
+"../main.asm", ERROR!   at line 284: [E0300] Symbol rrc has already been defined
+	rrc.w	r12
+
+"../main.asm", ERROR!   at line 284: [E0002] Illegal mnemonic specified
+	rrc.w	r12
+
+"../main.asm", ERROR!   at line 285: [E0300] Symbol jmp has already been defined
+	jmp	ch1
+
+"../main.asm", ERROR!   at line 285: [E0002] Illegal mnemonic specified
+	jmp	ch1
+
+"../main.asm", ERROR!   at line 289: [E0300] Symbol mov has already been defined
+	mov.w	#1,r6	; reset response counter
+
+"../main.asm", ERROR!   at line 289: [E0002] Illegal mnemonic specified
+	mov.w	#1,r6	; reset response counter
+
+"../main.asm", ERROR!   at line 290: [E0300] Symbol pop has already been defined
+	pop	r5
+
+"../main.asm", ERROR!   at line 290: [E0002] Illegal mnemonic specified
+	pop	r5
+
+"../main.asm", ERROR!   at line 291: [E0300] Symbol pop has already been defined
+	pop	r12
+
+"../main.asm", ERROR!   at line 291: [E0002] Illegal mnemonic specified
+	pop	r12
+
+"../main.asm", ERROR!   at line 292: [E0300] Symbol pop has already been defined
+	pop	r9
+
+"../main.asm", ERROR!   at line 292: [E0002] Illegal mnemonic specified
+	pop	r9
+
+"../main.asm", ERROR!   at line 297: [E0300] Symbol push has already been defined
+	push	r12
+
+"../main.asm", ERROR!   at line 297: [E0002] Illegal mnemonic specified
+	push	r12
+
+"../main.asm", ERROR!   at line 298: [E0002] Illegal mnemonic specified
+	bis.b	#GLED,&P4OUT
+
+"../main.asm", ERROR!   at line 299: [E0300] Symbol mov has already been defined
+	mov.w	#ATONE,r12
+
+"../main.asm", ERROR!   at line 299: [E0002] Illegal mnemonic specified
+	mov.w	#ATONE,r12
+
+"../main.asm", ERROR!   at line 303: [E0300] Symbol bic has already been defined
+	bic.b	#GLED,&P4OUT
+
+"../main.asm", ERROR!   at line 303: [E0002] Illegal mnemonic specified
+	bic.b	#GLED,&P4OUT
+
+"../main.asm", ERROR!   at line 304: [E0300] Symbol pop has already been defined
+	pop	r12
+
+"../main.asm", ERROR!   at line 304: [E0002] Illegal mnemonic specified
+	pop	r12
+
+"../main.asm", ERROR!   at line 308: [E0300] Symbol push has already been defined
+	push	r12
+
+"../main.asm", ERROR!   at line 308: [E0300] Symbol ret has already been defined
+	push	r12
+
+"../main.asm", ERROR!   at line 308: [E0002] Illegal mnemonic specified
+	push	r12
+
+"../main.asm", ERROR!   at line 309: [E0300] Symbol bis has already been defined
+	bis.b	#OLED,&P4OUT
+
+"../main.asm", ERROR!   at line 309: [E0002] Illegal mnemonic specified
+	bis.b	#OLED,&P4OUT
+
+"../main.asm", ERROR!   at line 310: [E0300] Symbol mov has already been defined
+	mov.w	#DTONE,r12
+
+"../main.asm", ERROR!   at line 310: [E0002] Illegal mnemonic specified
+	mov.w	#DTONE,r12
+
+"../main.asm", ERROR!   at line 314: [E0300] Symbol bic has already been defined
+	bic.b	#OLED,&P4OUT
+
+"../main.asm", ERROR!   at line 314: [E0002] Illegal mnemonic specified
+	bic.b	#OLED,&P4OUT
+
+"../main.asm", ERROR!   at line 315: [E0300] Symbol pop has already been defined
+	pop	r12
+
+"../main.asm", ERROR!   at line 315: [E0002] Illegal mnemonic specified
+	pop	r12
+
+"../main.asm", ERROR!   at line 319: [E0300] Symbol push has already been defined
+	push	r12
+
+"../main.asm", ERROR!   at line 319: [E0300] Symbol ret has already been defined
+	push	r12
+
+"../main.asm", ERROR!   at line 319: [E0002] Illegal mnemonic specified
+	push	r12
+
+"../main.asm", ERROR!   at line 320: [E0300] Symbol bis has already been defined
+	bis.b	#YLED,&P4OUT
+
+"../main.asm", ERROR!   at line 320: [E0002] Illegal mnemonic specified
+	bis.b	#YLED,&P4OUT
+
+"../main.asm", ERROR!   at line 321: [E0300] Symbol mov has already been defined
+	mov.w	#GTONE,r12
+
+"../main.asm", ERROR!   at line 321: [E0002] Illegal mnemonic specified
+	mov.w	#GTONE,r12
+
+"../main.asm", ERROR!   at line 325: [E0300] Symbol bic has already been defined
+	bic.b	#YLED,&P4OUT
+
+"../main.asm", ERROR!   at line 325: [E0002] Illegal mnemonic specified
+	bic.b	#YLED,&P4OUT
+
+"../main.asm", ERROR!   at line 326: [E0300] Symbol pop has already been defined
+	pop	r12
+
+"../main.asm", ERROR!   at line 326: [E0002] Illegal mnemonic specified
+	pop	r12
+
+"../main.asm", ERROR!   at line 330: [E0300] Symbol push has already been defined
+	push	r12
+
+"../main.asm", ERROR!   at line 330: [E0300] Symbol ret has already been defined
+	push	r12
+
+"../main.asm", ERROR!   at line 330: [E0002] Illegal mnemonic specified
+	push	r12
+
+"../main.asm", ERROR!   at line 331: [E0300] Symbol bis has already been defined
+	bis.b	#RLED,&P4OUT
+
+"../main.asm", ERROR!   at line 331: [E0002] Illegal mnemonic specified
+	bis.b	#RLED,&P4OUT
+
+"../main.asm", ERROR!   at line 332: [E0300] Symbol mov has already been defined
+	mov.w	#A2TONE,r12
+
+"../main.asm", ERROR!   at line 332: [E0002] Illegal mnemonic specified
+	mov.w	#A2TONE,r12
+
+"../main.asm", ERROR!   at line 336: [E0300] Symbol bic has already been defined
+	bic.b	#RLED,&P4OUT
+
+"../main.asm", ERROR!   at line 336: [E0002] Illegal mnemonic specified
+	bic.b	#RLED,&P4OUT
+
+"../main.asm", ERROR!   at line 337: [E0300] Symbol pop has already been defined
+	pop	r12
+
+"../main.asm", ERROR!   at line 337: [E0002] Illegal mnemonic specified
+	pop	r12
+
+"../main.asm", ERROR!   at line 342: [E0300] Symbol push has already been defined
+	push	r12
+
+"../main.asm", ERROR!   at line 342: [E0300] Symbol ret has already been defined
+	push	r12
+
+"../main.asm", ERROR!   at line 342: [E0002] Illegal mnemonic specified
+	push	r12
+
+"../main.asm", ERROR!   at line 343: [E0300] Symbol bis has already been defined
+	bis.b	#GLED,&P4OUT
+
+"../main.asm", ERROR!   at line 343: [E0002] Illegal mnemonic specified
+	bis.b	#GLED,&P4OUT
+
+"../main.asm", ERROR!   at line 344: [E0300] Symbol mov has already been defined
+	mov.w	#ATONE,r12
+
+"../main.asm", ERROR!   at line 344: [E0002] Illegal mnemonic specified
+	mov.w	#ATONE,r12
+
+"../main.asm", ERROR!   at line 348: [E0300] Symbol bic has already been defined
+	bic.b	#GLED,&P4OUT
+
+"../main.asm", ERROR!   at line 348: [E0002] Illegal mnemonic specified
+	bic.b	#GLED,&P4OUT
+
+"../main.asm", ERROR!   at line 349: [E0300] Symbol pop has already been defined
+	pop	r12
+
+"../main.asm", ERROR!   at line 349: [E0002] Illegal mnemonic specified
+	pop	r12
+
+"../main.asm", ERROR!   at line 353: [E0300] Symbol push has already been defined
+	push	r12
+
+"../main.asm", ERROR!   at line 353: [E0300] Symbol ret has already been defined
+	push	r12
+
+"../main.asm", ERROR!   at line 353: [E0002] Illegal mnemonic specified
+	push	r12
+
+"../main.asm", ERROR!   at line 354: [E0300] Symbol bis has already been defined
+	bis.b	#OLED,&P4OUT
+
+"../main.asm", ERROR!   at line 354: [E0002] Illegal mnemonic specified
+	bis.b	#OLED,&P4OUT
+
+"../main.asm", ERROR!   at line 355: [E0300] Symbol mov has already been defined
+	mov.w	#DTONE,r12
+
+"../main.asm", ERROR!   at line 355: [E0002] Illegal mnemonic specified
+	mov.w	#DTONE,r12
+
+"../main.asm", ERROR!   at line 359: [E0300] Symbol bic has already been defined
+	bic.b	#OLED,&P4OUT
+
+"../main.asm", ERROR!   at line 359: [E0002] Illegal mnemonic specified
+	bic.b	#OLED,&P4OUT
+
+"../main.asm", ERROR!   at line 360: [E0300] Symbol pop has already been defined
+	pop	r12
+
+"../main.asm", ERROR!   at line 360: [E0002] Illegal mnemonic specified
+	pop	r12
+
+"../main.asm", ERROR!   at line 364: [E0300] Symbol push has already been defined
+	push	r12
+
+"../main.asm", ERROR!   at line 364: [E0300] Symbol ret has already been defined
+	push	r12
+
+"../main.asm", ERROR!   at line 364: [E0002] Illegal mnemonic specified
+	push	r12
+
+"../main.asm", ERROR!   at line 365: [E0300] Symbol bis has already been defined
+	bis.b	#YLED,&P4OUT
+
+"../main.asm", ERROR!   at line 365: [E0002] Illegal mnemonic specified
+	bis.b	#YLED,&P4OUT
+
+"../main.asm", ERROR!   at line 366: [E0300] Symbol mov has already been defined
+	mov.w	#GTONE,r12
+
+"../main.asm", ERROR!   at line 366: [E0002] Illegal mnemonic specified
+	mov.w	#GTONE,r12
+
+"../main.asm", ERROR!   at line 370: [E0300] Symbol bic has already been defined
+	bic.b	#YLED,&P4OUT
+
+"../main.asm", ERROR!   at line 370: [E0002] Illegal mnemonic specified
+	bic.b	#YLED,&P4OUT
+
+"../main.asm", ERROR!   at line 371: [E0300] Symbol pop has already been defined
+	pop	r12
+
+"../main.asm", ERROR!   at line 371: [E0002] Illegal mnemonic specified
+	pop	r12
+
+"../main.asm", ERROR!   at line 375: [E0300] Symbol push has already been defined
+	push	r12
+
+"../main.asm", ERROR!   at line 375: [E0300] Symbol ret has already been defined
+	push	r12
+
+"../main.asm", ERROR!   at line 375: [E0002] Illegal mnemonic specified
+	push	r12
+
+"../main.asm", ERROR!   at line 376: [E0300] Symbol bis has already been defined
+	bis.b	#RLED,&P4OUT
+
+"../main.asm", ERROR!   at line 376: [E0002] Illegal mnemonic specified
+	bis.b	#RLED,&P4OUT
+
+"../main.asm", ERROR!   at line 377: [E0300] Symbol mov has already been defined
+	mov.w	#A2TONE,r12
+
+"../main.asm", ERROR!   at line 377: [E0002] Illegal mnemonic specified
+	mov.w	#A2TONE,r12
+
+"../main.asm", ERROR!   at line 381: [E0300] Symbol bic has already been defined
+	bic.b	#RLED,&P4OUT
+
+"../main.asm", ERROR!   at line 381: [E0002] Illegal mnemonic specified
+	bic.b	#RLED,&P4OUT
+
+"../main.asm", ERROR!   at line 382: [E0300] Symbol pop has already been defined
+	pop	r12
+
+"../main.asm", ERROR!   at line 382: [E0002] Illegal mnemonic specified
+	pop	r12
+
+"../main.asm", ERROR!   at line 389: [E0300] Symbol mov has already been defined
+	mov.w   #DELAY,WDT_delay        ; set WD delay counter
+
+"../main.asm", ERROR!   at line 389: [E0300] Symbol ret has already been defined
+	mov.w   #DELAY,WDT_delay        ; set WD delay counter
+
+"../main.asm", ERROR!   at line 389: [E0002] Illegal mnemonic specified
+	mov.w   #DELAY,WDT_delay        ; set WD delay counter
+
+"../main.asm", ERROR!   at line 394: [E0300] Symbol mov has already been defined
+	mov.w   #DELAY/3,WDT_delay        ; set WD delay counter
+
+"../main.asm", ERROR!   at line 394: [E0002] Illegal mnemonic specified
+	mov.w   #DELAY/3,WDT_delay        ; set WD delay counter
+
+"../main.asm", ERROR!   at line 399: [E0300] Symbol mov has already been defined
+	mov.w   #DELAY/6,WDT_delay        ; set WD delay counter
+
+"../main.asm", ERROR!   at line 399: [E0002] Illegal mnemonic specified
+	mov.w   #DELAY/6,WDT_delay        ; set WD delay counter
+
+"../main.asm", ERROR!   at line 415: [E0300] Symbol bis has already been defined
+	bis.b	#0x10,&P4OUT	;Turn on LCD background
+
+"../main.asm", ERROR!   at line 415: [E0002] Illegal mnemonic specified
+	bis.b	#0x10,&P4OUT	;Turn on LCD background
+
+"../main.asm", ERROR!   at line 416: [E0300] Symbol mov has already been defined
+	mov.w	#FIVES, r14
+
+"../main.asm", ERROR!   at line 416: [E0002] Illegal mnemonic specified
+	mov.w	#FIVES, r14
+
+"../main.asm", ERROR!   at line 418: [E0300] Symbol jne has already been defined
+	jne	press2
+
+"../main.asm", ERROR!   at line 418: [E0002] Illegal mnemonic specified
+	jne	press2
+
+"../main.asm", ERROR!   at line 419: [E0300] Symbol call has already been defined
+	call	#switch1
+
+"../main.asm", ERROR!   at line 419: [E0002] Illegal mnemonic specified
+	call	#switch1
+
+"../main.asm", ERROR!   at line 422: [E0300] Symbol jne has already been defined
+	jne	press3
+
+"../main.asm", ERROR!   at line 422: [E0002] Illegal mnemonic specified
+	jne	press3
+
+"../main.asm", ERROR!   at line 423: [E0300] Symbol call has already been defined
+	call	#switch2
+
+"../main.asm", ERROR!   at line 423: [E0002] Illegal mnemonic specified
+	call	#switch2
+
+"../main.asm", ERROR!   at line 426: [E0300] Symbol jne has already been defined
+	jne	press4
+
+"../main.asm", ERROR!   at line 426: [E0002] Illegal mnemonic specified
+	jne	press4
+
+"../main.asm", ERROR!   at line 427: [E0300] Symbol call has already been defined
+	call	#switch3
+
+"../main.asm", ERROR!   at line 427: [E0002] Illegal mnemonic specified
+	call	#switch3
+
+"../main.asm", ERROR!   at line 430: [E0300] Symbol jne has already been defined
+	jne	endgetsw
+
+"../main.asm", ERROR!   at line 430: [E0002] Illegal mnemonic specified
+	jne	endgetsw
+
+"../main.asm", ERROR!   at line 431: [E0300] Symbol call has already been defined
+	call	#switch4
+
+"../main.asm", ERROR!   at line 431: [E0002] Illegal mnemonic specified
+	call	#switch4
+
+"../main.asm", ERROR!   at line 440: [E0300] Symbol mov has already been defined
+	mov.w	#0,r8
+
+"../main.asm", ERROR!   at line 440: [E0002] Illegal mnemonic specified
+	mov.w	#0,r8
+
+"../main.asm", ERROR!   at line 441: [E0300] Symbol call has already been defined
+	call	#out1
+
+"../main.asm", ERROR!   at line 441: [E0002] Illegal mnemonic specified
+	call	#out1
+
+"../main.asm", ERROR!   at line 445: [E0300] Symbol mov has already been defined
+	mov.w	#2,r8
+
+"../main.asm", ERROR!   at line 445: [E0300] Symbol ret has already been defined
+	mov.w	#2,r8
+
+"../main.asm", ERROR!   at line 445: [E0002] Illegal mnemonic specified
+	mov.w	#2,r8
+
+"../main.asm", ERROR!   at line 446: [E0300] Symbol call has already been defined
+	call	#out2
+
+"../main.asm", ERROR!   at line 446: [E0002] Illegal mnemonic specified
+	call	#out2
+
+"../main.asm", ERROR!   at line 450: [E0300] Symbol mov has already been defined
+	mov.w	#1,r8
+
+"../main.asm", ERROR!   at line 450: [E0300] Symbol ret has already been defined
+	mov.w	#1,r8
+
+"../main.asm", ERROR!   at line 450: [E0002] Illegal mnemonic specified
+	mov.w	#1,r8
+
+"../main.asm", ERROR!   at line 451: [E0300] Symbol call has already been defined
+	call	#out3
+
+"../main.asm", ERROR!   at line 451: [E0002] Illegal mnemonic specified
+	call	#out3
+
+"../main.asm", ERROR!   at line 455: [E0300] Symbol mov has already been defined
+	mov.w	#0x03,r8
+
+"../main.asm", ERROR!   at line 455: [E0300] Symbol ret has already been defined
+	mov.w	#0x03,r8
+
+"../main.asm", ERROR!   at line 455: [E0002] Illegal mnemonic specified
+	mov.w	#0x03,r8
+
+"../main.asm", ERROR!   at line 456: [E0300] Symbol call has already been defined
+	call	#out4
+
+"../main.asm", ERROR!   at line 456: [E0002] Illegal mnemonic specified
+	call	#out4
+
+"../main.asm", ERROR!   at line 463: [E0300] Symbol push has already been defined
+	push	r12
+
+"../main.asm", ERROR!   at line 463: [E0300] Symbol ret has already been defined
+	push	r12
+
+"../main.asm", ERROR!   at line 463: [E0002] Illegal mnemonic specified
+	push	r12
+
+"../main.asm", ERROR!   at line 464: [E0300] Symbol push has already been defined
+	push	r9
+
+"../main.asm", ERROR!   at line 464: [E0002] Illegal mnemonic specified
+	push	r9
+
+"../main.asm", ERROR!   at line 465: [E0300] Symbol push has already been defined
+	push	r6
+
+"../main.asm", ERROR!   at line 465: [E0002] Illegal mnemonic specified
+	push	r6
+
+"../main.asm", ERROR!   at line 466: [E0002] Illegal mnemonic specified
+	sub.w	#1,r6
+
+"../main.asm", ERROR!   at line 468: [E0300] Symbol cmp has already been defined
+	cmp.b	#0,r6
+
+"../main.asm", ERROR!   at line 468: [E0002] Illegal mnemonic specified
+	cmp.b	#0,r6
+
+"../main.asm", ERROR!   at line 469: [E0300] Symbol jeq has already been defined
+	jeq contcheck
+
+"../main.asm", ERROR!   at line 469: [E0002] Illegal mnemonic specified
+	jeq contcheck
+
+"../main.asm", ERROR!   at line 470: [E0300] Symbol sub has already been defined
+	sub.w	#1,r6
+
+"../main.asm", ERROR!   at line 470: [E0002] Illegal mnemonic specified
+	sub.w	#1,r6
+
+"../main.asm", ERROR!   at line 471: [E0300] Symbol rrc has already been defined
+	rrc.w	r12
+
+"../main.asm", ERROR!   at line 471: [E0002] Illegal mnemonic specified
+	rrc.w	r12
+
+"../main.asm", ERROR!   at line 472: [E0300] Symbol rrc has already been defined
+	rrc.w	r12
+
+"../main.asm", ERROR!   at line 472: [E0002] Illegal mnemonic specified
+	rrc.w	r12
+
+"../main.asm", ERROR!   at line 473: [E0300] Symbol jmp has already been defined
+	jmp	test
+
+"../main.asm", ERROR!   at line 473: [E0002] Illegal mnemonic specified
+	jmp	test
+
+"../main.asm", ERROR!   at line 476: [E0300] Symbol pop has already been defined
+	pop	r6
+
+"../main.asm", ERROR!   at line 476: [E0002] Illegal mnemonic specified
+	pop	r6
+
+"../main.asm", ERROR!   at line 477: [E0300] Symbol mov has already been defined
+	mov.w	r12,r9
+
+"../main.asm", ERROR!   at line 477: [E0002] Illegal mnemonic specified
+	mov.w	r12,r9
+
+"../main.asm", ERROR!   at line 478: [E0300] Symbol and has already been defined
+	and.w	#0x0003,r9
+
+"../main.asm", ERROR!   at line 478: [E0002] Illegal mnemonic specified
+	and.w	#0x0003,r9
+
+"../main.asm", ERROR!   at line 479: [E0300] Symbol cmp has already been defined
+	cmp.w	r8,r9
+
+"../main.asm", ERROR!   at line 479: [E0002] Illegal mnemonic specified
+	cmp.w	r8,r9
+
+"../main.asm", ERROR!   at line 480: [E0300] Symbol jeq has already been defined
+	jeq	true
+
+"../main.asm", ERROR!   at line 480: [E0002] Illegal mnemonic specified
+	jeq	true
+
+"../main.asm", ERROR!   at line 481: [E0300] Symbol mov has already been defined
+	mov.w	#0,r10
+
+"../main.asm", ERROR!   at line 481: [E0002] Illegal mnemonic specified
+	mov.w	#0,r10
+
+"../main.asm", ERROR!   at line 482: [E0300] Symbol pop has already been defined
+	pop	r9
+
+"../main.asm", ERROR!   at line 482: [E0002] Illegal mnemonic specified
+	pop	r9
+
+"../main.asm", ERROR!   at line 483: [E0300] Symbol pop has already been defined
+	pop	r12
+
+"../main.asm", ERROR!   at line 483: [E0002] Illegal mnemonic specified
+	pop	r12
+
+"../main.asm", ERROR!   at line 487: [E0300] Symbol mov has already been defined
+	mov.w	#0x01,r10
+
+"../main.asm", ERROR!   at line 487: [E0300] Symbol ret has already been defined
+	mov.w	#0x01,r10
+
+"../main.asm", ERROR!   at line 487: [E0002] Illegal mnemonic specified
+	mov.w	#0x01,r10
+
+"../main.asm", ERROR!   at line 488: [E0300] Symbol pop has already been defined
+	pop	r9
+
+"../main.asm", ERROR!   at line 488: [E0002] Illegal mnemonic specified
+	pop	r9
+
+"../main.asm", ERROR!   at line 489: [E0300] Symbol pop has already been defined
+	pop	r12
+
+"../main.asm", ERROR!   at line 489: [E0002] Illegal mnemonic specified
+	pop	r12
+
+"../main.asm", ERROR!   at line 496: [E0300] Symbol ret has already been defined
+338 Assembly Errors, No Assembly Warnings
+	        push    r12
+
+
+"../main.asm", ERROR!   at line 523: [E0002] Illegal mnemonic specified
+>> Compilation failure
+	dec.w	r13
+
+"../main.asm", ERROR!   at line 537: [E0300] Symbol dec has already been defined
+	dec.w	r14
+
+"../main.asm", ERROR!   at line 537: [E0002] Illegal mnemonic specified
+	dec.w	r14
+
+"../main.asm", ERROR!   at line 538: [E0300] Symbol jnz has already been defined
+	jnz	WDT_04
+
+"../main.asm", ERROR!   at line 538: [E0002] Illegal mnemonic specified
+	jnz	WDT_04
+
+"../main.asm", ERROR!   at line 539: [E0300] Symbol bic has already been defined
+	bic.b	#0x10,&P4OUT
+
+"../main.asm", ERROR!   at line 539: [E0002] Illegal mnemonic specified
+	bic.b	#0x10,&P4OUT
+
+
+Errors in Source - Assembler Aborted
+gmake: *** [main.obj] Error 1
+gmake: Target `all' not remade because of errors.
+
+**** Build Finished ****

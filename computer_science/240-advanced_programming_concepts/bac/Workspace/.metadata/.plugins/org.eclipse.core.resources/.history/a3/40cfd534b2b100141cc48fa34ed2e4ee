@@ -1,0 +1,20 @@
+/**
+ * 
+ */
+package Shared.Model;
+
+/**
+ * @author Benjamin Thompson
+ *
+ */
+public class User extends Parent 
+{
+
+	private String user;
+	private String pass;
+	private String first;
+	private String last;
+	private String email;
+	private Integer indexed;
+	
+}

@@ -1,0 +1,49 @@
+body {
+	background-color: #F0E6C8;
+}
+
+div {
+	font-size: 12pt;
+}
+
+.pane {
+	border-width: 1px;
+	border-style: solid;
+	border-color: brown;
+	padding: 8px 0 8px 0;
+	border-radius: 5px;
+	width: 120px;
+	background-color: #F0E6C8;
+	margin-left: 7px;
+	margin-top: 5px;
+	text-align: center;
+	box-shadow: 5px 5px 5px #505050 ;
+}
+
+/*.pane */
+
+
+#parent {
+	text-align: center;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#parent li{
+	float: left;
+	/*display: block;*/
+}
+
+#parent li:hover{
+	box-shadow: 5px 5px 0px #505050  ;
+}
+
+#parent li:active {
+	transform: translate(4px, 4px);
+	box-shadow: 0px 0px 0px #505050;
+}
+
+#target {
+	font-weight: normal;
+}

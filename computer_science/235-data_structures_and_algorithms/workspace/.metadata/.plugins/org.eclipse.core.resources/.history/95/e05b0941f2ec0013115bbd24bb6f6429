@@ -1,0 +1,138 @@
+/*
+ * LinkedList.h
+ *
+ *  Created on: Jun 4, 2014
+ *      Author: misterpink14
+ */
+
+#ifndef LINKEDLIST_H_
+#define LINKEDLIST_H_
+
+#include "Person.h"
+#include <stdlib.h>
+#include <time.h>
+
+
+
+class LinkedList
+{
+
+
+
+
+
+
+public:
+
+		struct Node
+		{
+			Person item;
+			Node* next;
+			Node* prev;
+
+			Node()
+			{
+				//item = NULL;
+				next = NULL;
+				prev = NULL;
+			};
+			~Node() { next = NULL; }
+			Node(Person value, Node* n = NULL, Node* h = NULL)
+			{
+				item = value;
+				next = n;
+				prev = h;
+			};
+		};
+
+	/*
+	 * Constructor
+	 */
+	LinkedList();
+
+
+	/**
+	 * Destructor
+	 */
+	~LinkedList()
+	{
+		clear();
+	}
+
+
+	/**
+	 * Pushes a Person object on the back of the LinkedList
+	 */
+	void push(Person p);
+
+
+
+	/**
+	 * Displays the objects to the user
+	 */
+	void Display();
+
+
+	/**
+	 * Displays the Names of the Players to the user
+	 */
+	void DisplayPlayers();
+
+
+	/**
+	 * Shuffles the List
+	 */
+	void Shuffle();
+
+
+	/**
+	 * Creates 2 teams from the Roster
+	 */
+	void CreateTeams(LinkedList& TeamA, LinkedList& TeamB, int size);
+
+
+	/**
+	 * Finds a Person by name
+	 */
+	bool find(Person& per, std::string n);
+
+
+	/*
+		clear
+
+		Remove all nodes from the list.
+	 */
+	 void clear();
+
+
+
+	 /**
+	  * clear all but last in list
+	  */
+	 void keepLast();
+
+
+	 /**
+	  * Returns true is empty
+	  */
+	 bool Empty();
+
+
+	/*
+		size
+
+		Returns the number of nodes in the list.
+	 */
+	int size();
+
+
+private:
+	Node* head;
+	Node* tail;
+	int amt;
+
+};
+
+
+
+#endif /* LINKEDLIST_H_ */

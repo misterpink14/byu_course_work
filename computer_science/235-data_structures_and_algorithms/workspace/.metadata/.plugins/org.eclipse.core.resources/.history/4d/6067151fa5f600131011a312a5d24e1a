@@ -1,0 +1,59 @@
+/*
+ * Node.h
+ *
+ *  Created on: Jun 17, 2014
+ *      Author: misterpink14
+ */
+
+#ifndef NODE_H_
+#define NODE_H_
+
+#include "NodeInterface.h"
+
+
+class Node : NodeInterface {
+
+private:
+	int data;
+	int height;
+	Node* left;
+	Node* right;
+
+
+public:
+	Node() : data(0), height(0), left(NULL), right(NULL) {}
+	~Node() {}
+
+	/*
+	 * Returns the data that is stored in this node
+	 *
+	 * @return the data that is stored in this node.
+	 */
+	int getData();
+
+	/*
+	 * Returns the left child of this node or null if it doesn't have one.
+	 *
+	 * @return the left child of this node or null if it doesn't have one.
+	 */
+	NodeInterface * getLeftChild();
+
+	/*
+	 * Returns the right child of this node or null if it doesn't have one.
+	 *
+	 * @return the right child of this node or null if it doesn't have one.
+	 */
+	NodeInterface * getRightChild();
+
+	/*
+	 * Returns the height of this node. The height is the number of edges
+	 * from this node to this nodes farthest child.
+	 */
+	int getHeight();
+
+};
+
+
+
+
+#endif /* NODE_H_ */

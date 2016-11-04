@@ -1,0 +1,23 @@
+/*
+ * main.cpp
+ *
+ *  Created on: Jun 4, 2014
+ *      Author: Benjamin Thompson
+ *
+ *  Midterm CS 235
+ */
+
+
+#include <iostream>
+
+// Data Types
+#include <string>
+
+using namespace std;
+
+int main()
+{
+	int str, spd;
+	string name;
+
+}

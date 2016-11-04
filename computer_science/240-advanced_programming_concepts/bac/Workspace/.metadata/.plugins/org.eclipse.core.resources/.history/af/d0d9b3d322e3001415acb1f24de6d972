@@ -1,0 +1,12 @@
+package Client.GUI.Entry;
+
+import javax.swing.JPanel;
+
+@SuppressWarnings("serial")
+public class TableEntryView extends JPanel
+{
+	public TableEntryView()
+	{
+		
+	}
+}

@@ -1,0 +1,28 @@
+color: convert to categorical 
+director_name: exclude because there are too many different actors
+num_critic_for_reviews: exclude, because critics don't review a movie until after it's finished
+duration: keep
+director_facebook_likes: keep
+actor_3_facebook_likes: keep
+actor_2_name: exclude because there are too many different actors
+actor_1_facebook_likes: keep
+gross: what we are looking for (target) - transformation
+genres: exclude because there are too many combinations of genres
+actor_1_name: exclude because there are too many different actors
+movie_title: exclude because we don't really care about it
+num_voted_users: exclude because it happens after the fact
+cast_total_facebook_likes: keep
+actor_3_name: exclude because there are too many different actors
+facenumber_in_poster: keep
+plot_keywords: exclude because there are too many combinations of genres
+movie_imdb_link: exclude, not relevant
+num_user_for_reviews: exclude, happens after the fact
+language: categorical
+country: categorical
+content_rating: categorical
+budget: keep
+title_year: keep
+actor_2_facebook_likes: keep
+imdb_score: exclude, after the fact
+aspect_ratio: exclude, not important
+movie_facebook_likes: keep

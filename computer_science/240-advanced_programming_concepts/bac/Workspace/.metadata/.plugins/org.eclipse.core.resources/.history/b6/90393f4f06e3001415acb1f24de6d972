@@ -1,0 +1,316 @@
+package Client.GUI.Table;
+//
+//import java.awt.*;
+//import java.awt.event.*;
+//
+//import javax.swing.*;
+//import javax.swing.border.*;
+//import javax.swing.table.*;
+//
+//import Client.Controller;
+//
+//import java.util.*;
+//
+//
+//@SuppressWarnings("serial")
+//public class ColorTable extends JPanel {
+//
+//	private ArrayList<ColorScheme> colorSchemes;
+//	private ColorTableModel tableModel;
+//	private JTable table;
+//
+//	public ColorTable() throws HeadlessException {
+////		super(title);
+//
+//		colorSchemes = generateSchemes();
+//
+//		tableModel = new ColorTableModel(colorSchemes);
+//
+//		table = new JTable(tableModel);
+//		table.setRowHeight(20);
+//		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+//		table.setCellSelectionEnabled(true);
+//		table.getTableHeader().setReorderingAllowed(false);
+//		table.addMouseListener(mouseAdapter);
+//
+//		TableColumnModel columnModel = table.getColumnModel();		
+//		for (int i = 0; i < tableModel.getColumnCount(); ++i) {
+//			TableColumn column = columnModel.getColumn(i);
+//			column.setPreferredWidth(100);
+//		}		
+//		for (int i = 1; i < tableModel.getColumnCount(); ++i) {
+//			TableColumn column = columnModel.getColumn(i);
+//			column.setCellRenderer(new ColorCellRenderer());
+//			column.setCellEditor(new ColorCellEditor());
+//		}
+//		
+//
+//		JPanel rootPanel = new JPanel(new BorderLayout());
+//		rootPanel.add(table.getTableHeader(), BorderLayout.NORTH);
+//		rootPanel.add(table, BorderLayout.CENTER);
+//
+//		this.add(rootPanel);
+//	}
+//	
+//	private MouseAdapter mouseAdapter = new MouseAdapter() {
+//
+//		@Override
+//		public void mouseReleased(MouseEvent e) {
+//
+//			if (e.isPopupTrigger()) {
+//				
+//				final int row = table.rowAtPoint(e.getPoint());
+//				final int column = table.columnAtPoint(e.getPoint());
+//				
+//				if (row >= 0 && row < tableModel.getRowCount() &&
+//						column >= 1 && column < tableModel.getColumnCount()) {
+//										
+//					final JColorChooser colorChooser = new JColorChooser();
+//					
+//					ActionListener okListener = new ActionListener() {
+//						@Override
+//						public void actionPerformed(ActionEvent e2) {							
+//							Color newColor = colorChooser.getColor();						
+//							tableModel.setValueAt(newColor.toString(), row, column);
+//						}					
+//					};
+//					
+//					JDialog dialog = JColorChooser.createDialog(table, "Pick a Color", true, colorChooser, okListener, null);
+//					dialog.setVisible(true);
+//				}
+//			}
+//		}
+//		
+//	};
+//	
+//	private ArrayList<ColorScheme> generateSchemes() {
+//		
+//		final int NUM_SCHEMES = 20;
+//		
+//		ArrayList<ColorScheme> result = new ArrayList<ColorScheme>();
+//		Random rand = new Random();
+//		
+//		ArrayList<String> list = new ArrayList<String>();
+//		for (int i = 1; i < Controller.batch.getFList().size(); i++)
+//		{
+//			list.add("");
+//		}
+//		
+//		for (int i = 1; i <= NUM_SCHEMES; ++i) {
+//			
+//			ColorScheme scheme = new ColorScheme("" + (i+1), list);
+//			result.add(scheme);
+//		}
+//		
+//		return result;
+//	}
+//	
+//	private Color generateColor(Random rand) {
+//		
+//		int r = rand.nextInt(256);
+//		int g = rand.nextInt(256);
+//		int b = rand.nextInt(256);
+//		
+//		return new Color(r, g, b);
+//	}
+//
+//}
+//
+//
+//@SuppressWarnings("serial")
+//class ColorCellRenderer extends JLabel implements TableCellRenderer {
+//
+//	private Border unselectedBorder = BorderFactory.createLineBorder(Color.BLACK, 1);
+//	private Border selectedBorder = BorderFactory.createLineBorder(Color.BLACK, 2);
+//
+//	public ColorCellRenderer() {
+//		
+//		setOpaque(true);
+//		setFont(getFont().deriveFont(16.0f));
+//	}
+//
+//	public Component getTableCellRendererComponent(JTable table,
+//			Object value, boolean isSelected, boolean hasFocus, int row,
+//			int column) {
+//
+//		Color c = Color.WHITE;
+//		this.setBackground(c);
+//		
+//		if (isSelected) {
+//			this.setBorder(selectedBorder);
+//		}
+//		else {
+//			this.setBorder(unselectedBorder);
+//		}
+//		
+//		this.setText((String)value);
+//		
+//		return this;
+//	}
+//
+//}
+//
+//
+//@SuppressWarnings("serial")
+//class ColorCellEditor extends AbstractCellEditor implements TableCellEditor {
+//	
+//	private JComboBox<String> comboBox;
+//	private String currentValue;
+//	
+//	private Map<String, Color> colorMap;
+//	
+//	public ColorCellEditor() {
+//		
+//		colorMap = new TreeMap<String, Color>();
+//		colorMap.put("Black", Color.BLACK);
+//		colorMap.put("Blue", Color.BLUE);
+//		colorMap.put("Cyan", Color.CYAN);
+//		colorMap.put("Dark Gray", Color.DARK_GRAY);
+//		colorMap.put("Gray", Color.GRAY);
+//		colorMap.put("Green", Color.GREEN);
+//		colorMap.put("Yellow", Color.YELLOW);
+//		colorMap.put("Light Gray", Color.LIGHT_GRAY);
+//		colorMap.put("Magenta", Color.MAGENTA);
+//		colorMap.put("Orange", Color.ORANGE);
+//		colorMap.put("Pink", Color.PINK);
+//		colorMap.put("Red", Color.RED);
+//		colorMap.put("White", Color.WHITE);
+//			
+//		comboBox = new JComboBox<String>();
+//		comboBox.setEditable(true);
+//		comboBox.addActionListener(actionListener);
+//		for (String colorName : colorMap.keySet()) {
+//			comboBox.addItem(colorName);
+//		}
+//	}
+//
+//	@Override
+//	public Object getCellEditorValue() {
+//		return currentValue;
+//	}
+//
+//	@Override
+//	public Component getTableCellEditorComponent(JTable table, Object value,
+//			boolean isSelected, int row, int column) {
+//		
+//		currentValue = (String)value;
+//		
+//		comboBox.setSelectedItem(currentValue);
+//		
+//		return comboBox;
+//	}
+//	
+//	private ActionListener actionListener = new ActionListener() {
+//
+//		@Override
+//		public void actionPerformed(ActionEvent e) {
+//			
+//			String comboValue = (String)comboBox.getSelectedItem();
+//			
+//			Color colorValue = Color.black;
+//			
+//			if (colorValue == null) {
+//				if (colorMap.containsKey(comboValue)) {
+//					colorValue = colorMap.get(comboValue);
+//				}
+//			}
+//			
+//			if (colorValue != null) {
+//				currentValue = colorValue.toString();
+//			}
+//			
+//			fireEditingStopped();
+//		}	
+//	};
+//	
+//}
+
+
+
+
+
+import java.awt.*;
+
+import javax.swing.*;
+
+import Client.Controller;
+
+@SuppressWarnings("serial")
+public class BatchTable extends JPanel
+ {
+	// Instance attributes used in this example
+	public	JTable		table;
+	private	JScrollPane scrollPane;
+	String columnNames[];
+	String dataValues[][];
+
+	// Constructor of main frame
+	public BatchTable()
+	{
+		setLayout( new BorderLayout() );
+
+		String[] columns;
+		columns = Controller.batch.getFTitleList();
+		columnNames = new String[columns.length+1];
+		dataValues = new String[Controller.batch.getRecordCount()][columns.length+1];
+		
+		System.out.println(Controller.batch.getRecordCount());
+		for (int i = 0; i < Controller.batch.getRecordCount(); i++)
+		{
+			for (int j = 0; j < columns.length+1; j++)
+			{
+				System.out.println(j + " " + i);
+				if (i == 0)
+				{
+					if (j == 0)
+					{
+						columnNames[j] = "Record Number";
+					}
+					else
+					{
+						System.out.println(columns[j-1]);
+						columnNames[j] = columns[j-1];
+					}
+				}
+				if (j == 0)
+				{
+					dataValues[i][j] = (new Integer(i+1)).toString();
+					System.out.println(dataValues[i][j]);
+				}
+				else
+				{
+					dataValues[i][j] = "";
+				}
+			}
+		}
+		System.out.println(dataValues.length);
+		System.out.println(columnNames.length);
+
+		for (String s: columnNames)
+		{
+			System.out.println(s);
+		}
+		
+		// Create a new table instance
+		table = new JTable( dataValues, columnNames )
+		{
+			  public boolean isCellEditable(int row,int column){
+				    if(column == 0) return false;//the 4th column is not editable
+				    return true;
+				  }
+			  public boolean getScrollableTracksViewportWidth()
+			  {
+				  return false;
+			  }
+		};
+		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+		// Add the table to a scrolling pane
+		scrollPane = new JScrollPane( table ,
+			    JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
+			    JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		scrollPane.setAutoscrolls(true);
+		
+		add( scrollPane, BoxLayout.X_AXIS);
+	}
+
+}

@@ -1,0 +1,94 @@
+package Client.GUI.ImageSupport;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.IOException;
+
+import javax.swing.BoxLayout;
+import javax.swing.JEditorPane;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneLayout;
+import javax.swing.event.HyperlinkEvent;
+import javax.swing.event.HyperlinkListener;
+
+@SuppressWarnings("serial")
+public class FieldHelpView extends JScrollPane
+{
+	JEditorPane jep 
+	
+	public FieldHelpView()
+	{
+		initUI();
+	}
+	
+	private void initUI()
+	{
+		this.setLayout(new ScrollPaneLayout());
+//		createHorizontalScrollBar();
+	}
+	
+	public void insertHTML(String url)
+	{
+//		JScrollPane basic = new JScrollPane();
+		jep = new JEditorPane();
+//		basic.setLayout(new BoxLayout(basic, BoxLayout.Y_AXIS));
+
+		jep.setEditable(false);
+		jep.setOpaque(true);
+		try {
+			jep.setContentType("text/html");
+			jep.setPage(url);
+		}catch (IOException e) {
+			jep.setContentType("text/html");
+			jep.setText("<html>Could not load</html>");
+		}
+		jep.setForeground(Color.BLACK);
+		jep.setBackground(Color.WHITE);
+		jep.setEditable(false);
+		jep.setSize(this.getSize());
+		jep.addHyperlinkListener(hyperlinkListener );
+		jep.addMouseListener(mouseAdapter);
+//		JScrollPane scrollPane = new JScrollPane(this);
+		add(jep);
+
+	
+		
+		setBackground(Color.WHITE);
+		revalidate();
+		repaint();
+		
+	}
+	
+	private HyperlinkListener hyperlinkListener = new HyperlinkListener() {
+
+		public void hyperlinkUpdate(HyperlinkEvent e) {
+
+			System.out.println("hyperlink");
+
+			if (e.getEventType() == HyperlinkEvent.EventType.ACTIVATED) {
+				String url = e.getURL().toString();
+				historyLoadPage(url);
+			}
+		}
+	};
+    
+    private MouseAdapter mouseAdapter = new MouseAdapter() {
+
+		@Override
+		public void mouseReleased(MouseEvent e) {
+			if (e.isPopupTrigger()) {
+				if (e.getSource() == jep) {
+						htmlPopupMenu.show(e.getComponent(),
+	                   						e.getX(), e.getY());
+				}
+			}
+		} 	
+    };
+	
+}
+
+

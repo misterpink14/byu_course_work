@@ -1,0 +1,117 @@
+package Client.GUI;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+
+import Client.Controller;
+
+@SuppressWarnings("serial")
+public class WelcomeView extends JFrame
+{
+	JTextArea userText;
+    String first;
+    String last;
+    Integer indexed;
+    
+	public WelcomeView()
+	{
+		initLogin();
+	}
+	
+	public WelcomeView(String f, String l, Integer i)
+	{
+		if (f == null)
+		{
+			initError();
+		}
+		else
+		{
+			first = f;
+			last = l;
+			indexed = i;
+			initLogin();
+		}
+	}
+	
+	private void initError()
+	{
+		JPanel basic = new JPanel();
+        basic.setLayout(new BoxLayout(basic, BoxLayout.Y_AXIS));
+        add(basic);
+
+        basic.add(Box.createVerticalGlue());
+
+        JPanel bottom1 = new JPanel();
+        userText = new JTextArea();
+        JButton login = new JButton("OK");
+        
+        login.addActionListener(new ActionListener()
+        {
+
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				Controller.hideLogin();
+			}
+        });
+        
+        userText.setText("Welcome, " + first + " " + last + ".\nYou have indexed " 
+        				+ indexed + " records.");
+
+        bottom1.add(userText);
+        basic.add(bottom1);
+        basic.add(login);
+        
+        setTitle("Welcome to Indexer");
+        setSize(376, 118);
+        setLocationRelativeTo(null);
+        setResizable(false);
+        setAlwaysOnTop(true);
+		setVisible(true);
+	}
+		
+	private void initLogin()
+	{
+		JPanel basic = new JPanel();
+        basic.setLayout(new BoxLayout(basic, BoxLayout.Y_AXIS));
+        add(basic);
+
+        basic.add(Box.createVerticalGlue());
+
+        JPanel bottom1 = new JPanel();
+        userText = new JTextArea();
+        JButton login = new JButton("OK");
+        
+        login.addActionListener(new ActionListener()
+        {
+
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				Controller.hideLogin();
+			}
+        });
+        
+        userText.setText("Welcome, " + first + " " + last + ".\nYou have indexed " 
+        				+ indexed + " records.");
+
+        bottom1.add(userText);
+        basic.add(bottom1);
+        basic.add(login);
+        
+        setTitle("Welcome to Indexer");
+        setSize(376, 118);
+        setLocationRelativeTo(null);
+        setResizable(false);
+        setAlwaysOnTop(true);
+		setVisible(true);
+	}
+
+}

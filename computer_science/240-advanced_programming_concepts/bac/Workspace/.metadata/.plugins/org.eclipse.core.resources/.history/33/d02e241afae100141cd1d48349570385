@@ -1,0 +1,63 @@
+package Client.GUI.Drawing;
+
+
+import java.awt.*;
+
+import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
+import Client.Controller;
+
+
+@SuppressWarnings("serial")
+public class DrawingFrame extends JPanel {
+
+	public DrawingComponent component;
+	private JSlider slider;
+	
+	public DrawingFrame(String imageURL, boolean isNav) {
+//		this.setTitle("Drawing");
+		
+//		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setLayout(new GridBagLayout());
+		
+		component = new DrawingComponent(imageURL, isNav);
+		this.add(component);
+		
+//		this.setLocation(100, 100);
+
+//		this.pack();
+	}
+	
+	@Override
+	protected void paintComponent(Graphics g) {
+
+		super.paintComponent(g);
+		
+
+		int width = Controller.client.getWindow().bottomRight.getWidth();
+		int height = Controller.client.getWindow().bottomRight.getHeight();
+		
+		this.setPreferredSize(new Dimension(width, height));
+
+		drawShapes(g2);
+	}
+	
+	public void setOrigin(int w_newOriginX, int w_newOriginY) {
+		component.setOrigin(w_newOriginX, w_newOriginY);
+	}
+	
+	public void addDrawingListener(DrawingListener listener) {
+		component.addDrawingListener(listener);
+	}
+	
+	private ChangeListener sliderChangeListener = new ChangeListener() {
+		
+		@Override
+		public void stateChanged(ChangeEvent e) {
+			component.setScale(slider.getValue() * 0.05);
+		}
+	};
+	
+}

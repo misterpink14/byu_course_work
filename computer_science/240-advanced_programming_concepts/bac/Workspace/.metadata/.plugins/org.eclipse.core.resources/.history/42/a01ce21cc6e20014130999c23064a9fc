@@ -1,0 +1,278 @@
+package Client;
+
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+
+import Client.Communicator.ClientCommunicator;
+import Client.Communicator.ClientCommunicatorException;
+import Client.GUI.WelcomeView;
+import Client.GUI.Drawing.DrawingFrame;
+import Client.GUI.Drawing.DrawingListener;
+import Client.GUI.Table.ColorTable;
+import Client.Model.BatchState;
+import Shared.Communication.Param.DownloadBatch_Param;
+import Shared.Communication.Param.GetFields_Param;
+import Shared.Communication.Param.GetProjects_Param;
+import Shared.Communication.Param.GetSampleImage_Param;
+import Shared.Communication.Param.SubmitBatch_Param;
+import Shared.Communication.Param.ValidateUser_Param;
+import Shared.Communication.Result.DownloadBatch_Result;
+import Shared.Communication.Result.GetFields_Result;
+import Shared.Communication.Result.GetProjects_Result;
+import Shared.Communication.Result.GetSampleImage_Result;
+import Shared.Communication.Result.SubmitBatch_Result;
+import Shared.Communication.Result.ValidateUser_Result;
+
+@SuppressWarnings("unused")
+public class Controller
+{
+	public static ClientCommunicator comm = new ClientCommunicator();
+	public static Client client;
+	
+	public static BatchState batch;
+
+//	static ValidateUser_Param user_p;
+//	static GetProjects_Param projects_p;
+//	static GetSampleImage_Param sampleImage_p;
+//	static ;
+//	static SubmitBatch_Param submitBatch_p;
+//	static GetFields_Param fields_p;
+	
+//	static GetProjects_Result projects_r;
+//	static GetSampleImage_Result sampleImage_r;
+//	static DownloadBatch_Result downloadBatch_r;
+//	static SubmitBatch_Result submitBatch_r;
+//	static GetFields_Result fields_r;
+                                                                                                                                             	
+	public static String imageURL;
+	public static DrawingFrame frame1;
+	public static ColorTable table;
+	
+	private static boolean isInverted = false;
+	
+	
+	public Controller (Client c)
+	{
+	}
+	
+	public static boolean validateUser(String user, String pass)
+	{
+		try
+		{
+			ValidateUser_Result user_r = comm.ValidateUser(new ValidateUser_Param(user, pass));
+			batch.setU(user, pass, user_r.getFirst(), user_r.getLast(), null, user_r.getRecords());
+			return (user_r.getFirst() != null) ? true : false;
+			
+			
+		} catch (IOException | ClientCommunicatorException e)
+		{
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	public static String[] getProjects()
+	{
+		try
+		{
+			GetProjects_Param projects_p = new GetProjects_Param(batch.getU().getUser(), batch.getU().getPass());
+			GetProjects_Result projects_r = comm.GetProjects(projects_p);
+			batch.setP(projects_r.getProjectList());
+			return batch.getPNameList();
+			
+		} catch (IOException | ClientCommunicatorException e)
+		{
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public static String getSampleImage(int index)
+	{
+		try
+		{
+			GetSampleImage_Param sampleImage_p = new GetSampleImage_Param(batch.getU().getUser(), batch.getU().getPass(), batch.getProjectID(index));
+			GetSampleImage_Result sampleImage_r = comm.GetSampleImage(sampleImage_p);
+			return sampleImage_r.getFile();
+			
+		} catch (IOException | ClientCommunicatorException e)
+		{
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public static void downloadBatch(Integer index)
+	{
+		try
+		{
+			DownloadBatch_Param downloadBatch_p = new DownloadBatch_Param(batch.getU().getUser(), batch.getU().getPass(), batch.getProjectID(index));
+			DownloadBatch_Result downloadBatch_r = comm.DownloadBatch(downloadBatch_p);
+
+			
+			batch.setFList((ArrayList<Shared.Model.Field>)downloadBatch_r.getFieldList());
+			batch.setRecordCount(downloadBatch_r.getRecords());
+			client.getWindow().bottomRight.imageNav.insertImage(downloadBatch_r.getFile());
+			imageURL = downloadBatch_r.getFile();
+
+			client.getWindow().bottomRight.help.setBackground(Color.white);
+			client.getWindow().bottomRight.help.insertHTML(downloadBatch_r.getFieldList().get(0).getHelphtml());
+			addImage();
+			client.getWindow().hideMenu();
+			table = new ColorTable();
+			client.getWindow().bottomLeft.table.add(table);
+			
+		} catch (IOException | ClientCommunicatorException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public static void submitBatch()
+	{
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < batch.getRecordCount(); i++)
+		{;
+			for (int j = 1; j < batch.getPNameList().length; j++)
+			{
+
+				System.out.println(table.table.getModel().getValueAt(i, j));
+				if (table.table.getModel().getValueAt(i, j) == "" || table.table.getModel().getValueAt(i, j) == null)
+				{
+					break;
+				}
+				if (i == 0 && j == 1)
+					sb.append(table.table.getModel().getValueAt(i, j));
+				else
+					sb.append(", " + table.table.getModel().getValueAt(i, j));
+			}
+		}
+		
+		try
+		{
+			SubmitBatch_Param submitBatch_p = new SubmitBatch_Param(batch.getU().getUser(), batch.getU().getPass(), batch.getImageID(), sb.toString());
+			SubmitBatch_Result submitBatch_r = comm.SubmitBatch(submitBatch_p);
+			
+		} catch (IOException | ClientCommunicatorException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+//	public static void getFields()
+//	{
+//		try
+//		{
+//			fields_r = comm.GetFields(fields_p);
+//			
+//		} catch (IOException | ClientCommunicatorException e)
+//		{
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//	}
+	
+	public static void addImage ()
+	{
+		EventQueue.invokeLater(new Runnable() {
+			
+			
+			private DrawingFrame frame2;
+			
+			public void run() {
+				
+				frame1 = new DrawingFrame(imageURL, false);
+				frame2 = new DrawingFrame(imageURL, true);
+				
+				frame1.addDrawingListener(drawingListener1);
+				frame2.addDrawingListener(drawingListener2);
+				
+//				frame1.setLocation(100, 100);
+//				frame2.setLocation(700, 100);
+				
+				frame1.setVisible(true);
+				frame1.setOpaque(false);
+				frame2.setVisible(true);
+//				frame2.setOpaque(false);
+				
+				frame1.addComponentListener( new ComponentAdapter()
+				{  
+				        public void componentResized(ComponentEvent evt) {
+				            frame1.revalidate();
+				            frame1.repaint();
+				        }
+				});
+				
+//				Controller.client.getWindow().top.removeAll();
+				Controller.client.getWindow().basic.setLeftComponent(frame1);
+//				Controller.client.getWindow().revalidate();
+//				Controller.client.getWindow().repaint();
+				
+//				frame1.component.invert();
+//				Controller.client.getWindow().bottomRight.imageNav.removeAll();
+				Controller.client.getWindow().bottomRight.imageNav.layer.setLayer(frame2, new Integer(2));
+				Controller.client.getWindow().bottomRight.imageNav.layer.add(frame2);
+				
+			}
+			
+			private DrawingListener drawingListener1 = new DrawingListener() {
+
+				@Override
+				public void originChanged(int w_newOriginX, int w_newOriginY) {
+					frame2.setOrigin(w_newOriginX, w_newOriginY);	
+				}			
+			};
+			
+			private DrawingListener drawingListener2 = new DrawingListener() {
+
+				@Override
+				public void originChanged(int w_newOriginX, int w_newOriginY) {
+					frame1.setOrigin(w_newOriginX, w_newOriginY);	
+				}			
+			};
+	
+		});
+	}
+	
+	public static void hideLogin()
+	{
+		client.hideLogin();
+	}
+	
+	public static void errorLogin()
+	{
+		client.errorLogin();
+	}
+	
+	public static void logout()
+	{
+		client.getWindow().setVisible(false);
+		client = new Client();
+	}
+	
+	public static void invert()
+	{
+		frame1.component.invert(isInverted);
+
+		isInverted = (Controller.isInverted ? false : true);
+	}
+	
+	public static void zoomIn()
+	{
+		frame1.component.zoomIn();
+	}
+	
+	public static void zoomOut()
+	{
+		frame1.component.zoomOut();
+	}
+	
+}

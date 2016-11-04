@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<body>
+
+<form>
+	Email: <input type="text" id="email"> <br>
+	Password: <input type="text" id="pass"> <br>
+	<button type="button" id="login">Login</button>
+	<br>
+	<br>
+	<button type="button" id="sign-up">Sign Up!</button>
+
+	<div id="content">
+		
+	</div>
+
+</form>
+
+<script type="text/javascript">
+	$("#login").click(function() {
+		console.log("login")
+		email = $("#email").val()
+		pass = $("#pass").val()
+		console.log(email)
+		console.log(pass)
+		json = {
+			'email' : email,
+			'password' : pass
+		}
+
+		$.get("/users/?"+email, json, function(data, status){
+			console.log(status)
+			console.log(data)
+        	if (status == "success") {
+        		for (key in data.message) {
+        			console.log(data.message[key])
+        			if (data.message[key].userEmail == email)
+        			{
+        				html_str = "<p>login successful):</p>"
+						for (k in data.message[key].userInfo)
+						{
+							html_str += "<p class='list'>" + data.message[key].userInfo[k] + "</p>"
+						}
+						html_str += "<textarea></textarea><button type='button' id='add'>+add</button><div id='id' hidden>" + data.message[key]._id + "</div>"
+						$("#content").html(html_str)
+						$.getScript("script.js", function(){
+						    console.log("Running script.js");
+						});
+		        		return;
+        			}
+        		}
+        		$("#content").html("<p>login unsuccessful):</p>")
+        	}
+    	});
+	})
+	$("#sign-up").click(function() {
+		console.log("sign-up")
+		email = $("#email").val()
+		pass = $("#pass").val()
+		console.log(email)
+		console.log(pass)
+		json = {
+			'email' : email,
+			'password' : pass
+		}
+
+		$.post("/users", json, function(data, status){
+			console.log(status)
+        	if (status == "success") {
+        		$("#content").html("<p>login created!</p>")
+        	}
+    	});
+	})
+
+	// $("#add").click(function() {
+	// 	console.log("add")
+		// id = $("#id").html()
+		// console.log(id)
+
+		// $.post("/users", json, function(data, status){
+		// 	console.log(status)
+  //       	if (status == "success") {
+  //       		$("#content").html("<p>login created!</p>")
+  //       	}
+  //   	});
+	// }) 
+// $.post( "test.php", { name: "John", time: "2pm" })
+//   .done(function( data ) {
+//     alert( "Data Loaded: " + data );
+//   });
+
+</script>
+
+
+</body>
+</html>

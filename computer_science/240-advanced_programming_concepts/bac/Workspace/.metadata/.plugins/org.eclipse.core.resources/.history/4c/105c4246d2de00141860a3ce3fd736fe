@@ -1,0 +1,52 @@
+package Client.GUI.ImageSupport;
+
+import java.awt.Color;
+import java.io.IOException;
+
+import javax.swing.JEditorPane;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneLayout;
+
+@SuppressWarnings("serial")
+public class FieldHelpView extends JScrollPane
+{
+	
+	public FieldHelpView()
+	{
+		initUI();
+	}
+	
+	private void initUI()
+	{
+		createHorizontalScrollBar();
+		this.setBackground(Color.GRAY);
+	}
+	
+	public void insertHTML(String url)
+	{
+//		this.setLayout(new ScrollPaneLayout());
+		
+		JEditorPane jep = new JEditorPane();
+		
+
+		jep.setEditable(false);
+		try {
+			jep.setContentType("text/html");
+			jep.setPage(url);
+		}catch (IOException e) {
+			jep.setContentType("text/html");
+			jep.setText("<html>Could not load</html>");
+		}
+		
+		jep.setBackground(Color.WHITE);
+		jep.setSize(this.getSize());
+		add(jep);
+
+		this.revalidate();
+		this.repaint();
+	}
+}
+
+

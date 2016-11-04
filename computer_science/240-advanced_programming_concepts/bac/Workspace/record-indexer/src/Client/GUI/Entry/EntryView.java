@@ -1,0 +1,26 @@
+package Client.GUI.Entry;
+
+import javax.swing.JTabbedPane;
+
+@SuppressWarnings("serial")
+public class EntryView extends JTabbedPane
+{
+	public TableEntryView table;
+	public FormEntryView form;
+	public EntryView()
+	{
+//		this.setLayout(mgr);
+		table = new TableEntryView();
+		table.setPreferredSize(this.getPreferredSize());
+		form = new FormEntryView();
+		form.setPreferredSize(this.getPreferredSize());
+		initUI();
+	}
+	
+	private void initUI()
+	{
+		this.addTab("Table Entry", table);
+		this.addTab("Form Entry", form);
+	}
+
+}

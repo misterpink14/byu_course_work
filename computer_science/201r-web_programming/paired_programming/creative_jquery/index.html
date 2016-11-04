@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>City Finder</title>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+</head>
+<body>
+
+
+<button type="button" id="submit">Submit</button>
+
+<h1>Comic</h1>
+<div id="xkcd"></div>
+
+
+
+<script>
+
+$("#submit").click(function () {
+    var city = $('#xkcd').val();
+    $("#xkcd").text(city);
+    
+    var myurl= "http://dynamic.xkcd.com/api-0/jsonp/comic";
+    console.log(myurl);
+    $.ajax({
+        url : myurl,
+        crossDomain : true,
+        dataType : "jsonp",
+        success : function(parsed_json) {
+            console.log(parsed_json.num);
+            // $("#weather").html(everything);
+        }
+    });
+}); 
+
+</script>
+
+
+</body>
+</html>

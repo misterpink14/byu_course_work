@@ -1,0 +1,29 @@
+/*
+ * AVL.cpp
+ *
+ *  Created on: Jun 18, 2014
+ *      Author: misterpink14
+ */
+
+#include "AVL.h"
+
+
+void AVL::clear()
+{
+
+}
+
+
+
+AVL::AVL()
+{
+	Root = NULL;
+}
+
+
+AVL::~AVL()
+{
+	clear();
+}
+
+

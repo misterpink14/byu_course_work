@@ -1,0 +1,88 @@
+package Client.GUI;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JSplitPane;
+import javax.swing.JToolBar;
+
+@SuppressWarnings("serial")
+public class WindowView extends JFrame 
+{
+    
+	public WindowView()
+	{
+		initUI();
+	}
+		
+	private void initUI()
+	{
+		JSplitPane basic = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
+		JPanel top = new JPanel();
+		JSplitPane bottom = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
+		JPanel bottomLeft = new JPanel();
+		JPanel bottomRight = new JPanel();
+		bottom.setLeftComponent(bottomLeft);
+		bottom.setRightComponent(bottomRight);
+		
+		add(basic);
+        basic.setTopComponent(top);
+        basic.setBottomComponent(bottom);
+
+        createMenuBar();
+        setVisible(false);
+        setTitle("Record Indexer");
+        setSize(1000, 750);
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+	}
+
+	private void createMenuBar()
+	{
+		JMenuBar menu = new JMenuBar();
+		JMenu file = new JMenu("File");
+		file.setMnemonic(KeyEvent.VK_E);
+		
+		JMenuItem menuItem = new JMenuItem("Download Batch");
+		menuItem.setMnemonic(KeyEvent.VK_E);
+		menuItem.addActionListener(new ActionListener()
+		{
+			@Override
+            public void actionPerformed(ActionEvent event) {
+                System.exit(0);
+            }
+		});
+		file.add(menuItem);
+		
+		menuItem = new JMenuItem("Logout");
+		menuItem.setMnemonic(KeyEvent.VK_E);
+		menuItem.addActionListener(new ActionListener()
+		{
+			@Override
+            public void actionPerformed(ActionEvent event) {
+                System.exit(0);
+            }
+		});
+		file.add(menuItem);
+		
+		menuItem = new JMenuItem("Exit");
+		menuItem.setMnemonic(KeyEvent.VK_E);
+		menuItem.addActionListener(new ActionListener()
+		{
+			@Override
+            public void actionPerformed(ActionEvent event) {
+                System.exit(0);
+            }
+		});
+		file.add(menuItem);
+		menu.add(file);
+		setJMenuBar(menu);
+	}
+}

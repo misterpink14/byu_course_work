@@ -1,0 +1,172 @@
+/*
+ * main.cpp
+ *
+ *  Created on: Jun 4, 2014
+ *      Author: Benjamin Thompson
+ *
+ *  Midterm CS 235
+ */
+
+// Input/Output
+#include <iostream>
+
+// Data Types
+#include <string>
+#include <fstream>
+#include "LinkedList.h"
+#include "Person.h"
+
+/**
+ * Menu for the program
+ *
+ */
+void menu()
+{
+	std::cout << "\t1. Create Roster" << std::endl
+			<< "\t2. View Roster" << std::endl
+			<< "\t3. Shuffle Roster" << std::endl
+			<< "\t4. Create Teams" << std::endl
+			<< "\t5. View Teams" << std::endl
+			<< "\t6. User Play" << std::endl
+			<< "\t7. Auto Play" << std::endl
+			<< "\t8. Quit" << std::endl
+			<< "Enter the number you wish to execute: ";
+}
+
+
+/**
+ * Builds the given LinkedList from a user inputed file
+ *
+ * @param LinkedList Roster
+ *
+ */
+void CreateRoster(LinkedList& Roster)
+{
+
+	std::string file;
+	std::cout << "\n\n\n\nPlease enter the filename: ";
+	std::cin >> file;
+
+	std::ifstream in(file.c_str());
+	if(!in.is_open())
+	{
+		std::cout << "ERROR: Not a valid filename.\n\n\n\n";
+		return;
+	}
+
+
+	std::string name;
+	int speed;
+	int str;
+	while(in >> name >> speed >> str)
+	{
+		Roster.push(Person(name, speed, str));
+	}
+}
+
+
+/**
+ *  Displays the contents of the given LinkedList
+ *
+ *  @param LinkedList Roster
+ *
+ */
+void ViewRoster(LinkedList& Roster)
+{
+	Roster.Display();
+}
+
+
+/**
+ * Shuffles the given LinkedList
+ *
+ * @param LinkedList Roster
+ *
+ */
+void ShuffleRoster(LinkedList& Roster)
+{
+	Roster.Shuffle();
+}
+
+
+///////////////////////////////////////////////////////
+void CreateTeams()
+{
+
+}
+
+void ViewTeams()
+{
+
+}
+
+void UserPlay()
+{
+
+}
+
+void AutoPlay()
+{
+
+}
+
+
+int main()
+{
+
+	LinkedList Roster;
+	LinkedList TeamA;
+	LinkedList TeamB;
+
+	while(true)
+	{
+		menu();
+		int input;
+		std::cin >> input;
+		if(std::cin.fail())
+		{
+			//invalid input
+		}
+		else if(input == 1)	// Create Rooster
+		{
+			CreateRoster(Roster);
+		}
+		else if(input == 2)	// View
+		{
+			ViewRoster(Roster);
+		}
+		else if(input == 3)	// Shuffle
+		{
+			ShuffleRoster(Roster);
+		}
+		else if(input == 4)	// Create Teams
+		{
+			//CreateTeams(TeamA, TeamB);
+		}
+		else if(input == 5)	// View
+		{
+			///ViewTeams(TeamA, TeamB);
+		}
+		else if(input == 6)	// User Play
+		{
+
+		}
+		else if(input == 7)	// Auto Play
+		{
+
+		}
+		else if(input == 8)	// Quit
+		{
+			break;
+		}
+		if(std::cin.fail())
+		{
+			std::cin.clear();
+			std::cin.ignore(10000,'\n');
+			std::cout << "ERROR: Invalid input. Please enter a number."
+					<< std::endl;
+		}
+
+	}
+
+}

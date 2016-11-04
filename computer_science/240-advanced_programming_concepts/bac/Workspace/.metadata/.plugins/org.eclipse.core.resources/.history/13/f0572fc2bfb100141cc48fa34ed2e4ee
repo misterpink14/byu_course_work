@@ -1,0 +1,19 @@
+/**
+ * 
+ */
+package Shared.Model;
+
+/**
+ * @author Benjamin Thompson
+ *
+ */
+public class Field
+{
+
+	private String title;
+	private Integer xcoord;
+	private String helphtml;
+	private String knowndata;
+	
+	
+}

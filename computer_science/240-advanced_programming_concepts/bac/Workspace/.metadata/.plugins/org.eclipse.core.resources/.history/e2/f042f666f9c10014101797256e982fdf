@@ -1,0 +1,107 @@
+package Server.Facade;
+
+import java.sql.SQLException;
+
+import Server.DatabaseAccess.ImageDBAccess;
+import Server.DatabaseAccess.UserDBAccess;
+import Server.DatabaseAccess.Database.Database;
+import Shared.Model.User;
+
+public class ServerFacade
+{
+	
+	public static void initialize() throws ClassNotFoundException 
+	{
+		try
+		{
+			Database.init();
+		
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			throw e;
+		}
+	}
+	
+	public void validateUser(User u) throws SQLException
+	{
+		UserDBAccess udb = new UserDBAccess();
+		
+		try
+		{
+			udb.GetUser(u);
+		} catch (SQLException e)
+		{
+			e.printStackTrace();
+			throw e;
+		}
+		
+	}
+	
+
+	
+	public void getProjects(User u)
+	{
+		UserDBAccess udb = new UserDBAccess();
+		
+		try
+		{
+			udb.GetUser(u);
+		} catch (SQLException e)
+		{
+			e.printStackTrace();
+			throw e;
+		}
+		
+	}
+	
+	public void downloadbatch(User u, Integer projectID)
+	{
+		UserDBAccess udb = new UserDBAccess();
+		ImageDBAccess ibd = new ImageDBAccess();
+		
+		try
+		{
+			udb.GetUser(u);
+		} catch (SQLException e)
+		{
+			e.printStackTrace();
+			throw e;
+		}
+		udb.GetProjectImages(projectID);
+		
+		
+	}
+	
+	public void submitBatch(User u, )
+	{
+		UserDBAccess udb = new UserDBAccess();
+		ImageDBAccess ibd = new ImageDBAccess();
+		
+		try
+		{
+			udb.GetUser(u);
+		} catch (SQLException e)
+		{
+			e.printStackTrace();
+			throw e;
+		}
+		udb.GetProjectImages(projectId);
+		
+	}
+	
+	public void getFields()
+	{
+		
+	}
+	
+	public void getSampleImage()
+	{
+		
+	}
+	
+	public void search()
+	{
+		
+	}
+	
+}

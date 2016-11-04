@@ -1,0 +1,57 @@
+package Client.GUI;
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.URL;
+
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+@SuppressWarnings("serial")
+public class ImageView extends JPanel
+{
+	public ImageView()
+	{
+		initUI();
+	}
+	
+	public void initUI()
+	{
+		int frameWidth = 900;
+	    int frameHeight = 900;
+	    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	    setBounds((int) screenSize.getWidth() - frameWidth, 0, frameWidth, frameHeight);
+	    
+		this.setBackground(Color.gray);
+	}
+	
+	public void insertImage(String imageUrl)
+	{
+		System.out.println(imageUrl);
+		BufferedImage image = null;
+		try {                
+			image = ImageIO.read(new URL(imageUrl));
+
+		} catch (IOException e) {
+			e.printStackTrace();
+	    }
+		
+		ImageIcon ii = new ImageIcon(image);
+
+		Image newImage = ii.getImage().getScaledInstance(600, 400,  java.awt.Image.SCALE_SMOOTH);
+		ii.setImage(newImage);
+		
+		JLabel picLabel = new JLabel(ii);
+		add(picLabel);
+		
+		repaint();
+	}
+
+	
+}

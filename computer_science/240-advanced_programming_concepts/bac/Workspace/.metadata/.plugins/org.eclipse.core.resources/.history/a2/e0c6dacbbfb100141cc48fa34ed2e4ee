@@ -1,0 +1,16 @@
+/**
+ * 
+ */
+package Shared.Model;
+
+/**
+ * @author Benjamin Thompson
+ *
+ */
+public class Project
+{
+	private String title;
+	private Integer records;
+	private Integer firsty;
+	private Integer height;
+}

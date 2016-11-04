@@ -1,0 +1,75 @@
+/**
+ * 
+ */
+package Server.DatabaseAccess.Database;
+
+import java.io.File;
+import java.io.IOException;
+import java.sql.SQLException;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+
+/**
+ * @author Benjamin Thompson
+ *
+ */
+public class Importer
+{
+	public Importer() throws ClassNotFoundException, SQLException
+	{
+		Database.init();
+		Database.erase();
+	}
+
+	/**
+	 * @param args
+	 * @throws ParserConfigurationException 
+	 * @throws IOException 
+	 * @throws SAXException 
+	 * @throws SQLException 
+	 * @throws ClassNotFoundException 
+	 */
+	public static void main(String[] args) throws SAXException, IOException, ParserConfigurationException, ClassNotFoundException, SQLException
+	{
+		new Importer().execute(args[0]);
+	}
+	
+	public void execute(String fileURL) throws SAXException, IOException, ParserConfigurationException
+	{
+		File f = new File(fileURL);
+		System.out.println(f.getPath());
+		DocumentBuilder docb = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+		Document doc = docb.parse(f);
+		
+		NodeList nl = doc.getElementsByTagName("users");
+		for (int i = 0; i < nl.getLength(); i++)
+		{
+			Element e = (Element)nl.item(i);
+			
+			NodeList nl1 = e.getElementsByTagName("user");
+			for (int j = 0; j < nl.getLength(); j++)
+			{
+				Element el = (Element)nl.item(j);
+				
+				parseUserXML(el);
+			}
+		}
+		
+		
+//		String str = specificElm.getTestContent();
+		
+	}
+	
+	public void parseUserXML(Element userElm)
+	{
+		System.out.println(userElm.toString());
+	}
+
+}

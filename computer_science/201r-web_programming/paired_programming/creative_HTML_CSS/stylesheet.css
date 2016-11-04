@@ -1,0 +1,144 @@
+body {
+    background-color: white;
+    background-image: url("background.jpg");
+    background-size: 100% 800px;
+    background-repeat: no-repeat;
+}
+
+div {
+    float: left;
+    margin: 0 0 0 3.301%;
+    width: 1vh;
+    height: .5vw;
+    background-color: white;
+    position: relative;
+    -webkit-animation-name: example; /* Chrome, Safari, Opera */
+    -webkit-animation-duration: 1.5s; /* Chrome, Safari, Opera */
+    -webkit-animation-iteration-count: infinite; /* Chrome, Safari, Opera */
+    animation-name: example;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    opacity:0.7;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes example {
+    0%   {background-color:white; left:0px; top:0px;}
+    25%  {background-color:white; left:0px; top:650px;}
+}
+
+#a {
+    -webkit-animation-delay: -.6s; /* Chrome, Safari, Opera */
+    animation-delay: -.6s;
+}
+#b {
+    -webkit-animation-delay: -2.1s; /* Chrome, Safari, Opera */
+    animation-delay: -2.1s;
+}
+#c {
+    -webkit-animation-delay: -.1s; /* Chrome, Safari, Opera */
+    animation-delay: -.1s;
+}
+#d {
+    -webkit-animation-delay: -.2s; /* Chrome, Safari, Opera */
+    animation-delay: -.2s;
+}
+#e {
+    -webkit-animation-delay: -1.3s; /* Chrome, Safari, Opera */
+    animation-delay: -1.3s;
+}
+#f {
+    -webkit-animation-delay: -.5s; /* Chrome, Safari, Opera */
+    animation-delay: -.5s;
+}
+#g {
+    -webkit-animation-delay: -2.5s; /* Chrome, Safari, Opera */
+    animation-delay: -2.5s;
+}
+#h {
+    -webkit-animation-delay: -.7s; /* Chrome, Safari, Opera */
+    animation-delay: -.7s;
+}
+#i {
+    -webkit-animation-delay: -1.9s; /* Chrome, Safari, Opera */
+    animation-delay: -1.9s;
+}
+#j {
+    -webkit-animation-delay: -.8s; /* Chrome, Safari, Opera */
+    animation-delay: -.8s;
+}
+#k {
+    -webkit-animation-delay: -1s; /* Chrome, Safari, Opera */
+    animation-delay: -1s;
+}
+#l {
+    -webkit-animation-delay: -1.7s; /* Chrome, Safari, Opera */
+    animation-delay: -1.7s;
+}
+#m {
+    -webkit-animation-delay: -2.4s; /* Chrome, Safari, Opera */
+    animation-delay: -2.4s;
+}
+#n {
+    -webkit-animation-delay: -1.2s; /* Chrome, Safari, Opera */
+    animation-delay: -1.2s;
+}
+#o {
+    -webkit-animation-delay: -1.6s; /* Chrome, Safari, Opera */
+    animation-delay: -1.6s;
+}
+#p {
+    -webkit-animation-delay: -.4s; /* Chrome, Safari, Opera */
+    animation-delay: -.4s;
+}
+#q {
+    -webkit-animation-delay: -2.3s; /* Chrome, Safari, Opera */
+    animation-delay: -2.3s;
+}
+#r {
+    -webkit-animation-delay: -2s; /* Chrome, Safari, Opera */
+    animation-delay: -2s;
+}
+#s {
+    -webkit-animation-delay: -1.4s; /* Chrome, Safari, Opera */
+    animation-delay: -1.4s;
+}
+#t {
+    -webkit-animation-delay: -1.5s; /* Chrome, Safari, Opera */
+    animation-delay: -1.5s;
+}
+#u {
+    -webkit-animation-delay: -.3s; /* Chrome, Safari, Opera */
+    animation-delay: -.3s;
+}
+#v {
+    -webkit-animation-delay: -.9s; /* Chrome, Safari, Opera */
+    animation-delay: -.9s;
+}
+#w {
+    -webkit-animation-delay: -1.8s; /* Chrome, Safari, Opera */
+    animation-delay: -1.8s;
+}
+#x {
+    -webkit-animation-delay: -1.1s; /* Chrome, Safari, Opera */
+    animation-delay: -1.1s;
+}
+#y {
+    -webkit-animation-delay: -2.6s; /* Chrome, Safari, Opera */
+    animation-delay: -2.6s;
+}
+#z {
+    -webkit-animation-delay: -2.2s; /* Chrome, Safari, Opera */
+    animation-delay: -2.2s;
+}
+
+/* Standard syntax */
+@keyframes example {
+    0%   {background-color:white; left:0px; top:0px;}
+    100%  {background-color:white; left:0px; top:650px;}
+}

@@ -1,0 +1,28 @@
+/**
+ * 
+ */
+package Server.DatabaseAccess.Database;
+
+/**
+ * @author Benjamin Thompson
+ *
+ */
+public class Importer
+{
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args)
+	{
+		// TODO Auto-generated method stub
+		new Importer().execute(args[0]);
+
+	}
+	
+	public void execute(String fileUrl)
+	{
+		File f = new file(fileURL)
+	}
+
+}

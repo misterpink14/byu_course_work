@@ -1,0 +1,30 @@
+body {
+	font-family: 'Arial', Arial, sans-serif;
+	background-image: url("background2.jpg");
+}
+
+div {
+	font-size: 12pt;
+}
+
+.pane {
+	border-width: 1px;
+	border-style: solid;
+	border-color: brown;
+	line-height: 120%;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 30px;
+	padding-right: 20px;
+	border-top-left-radius: 20px;
+	width: 250px;
+	background-color: #F0E6D2;
+	margin-left: 35px;
+	margin-top: 30px;
+}
+
+#showoff {
+	border-top-left-radius: 0px;
+	border-bottom-left-radius: 20px;
+	box-shadow: 10px 10px 5px DarkGray;
+}

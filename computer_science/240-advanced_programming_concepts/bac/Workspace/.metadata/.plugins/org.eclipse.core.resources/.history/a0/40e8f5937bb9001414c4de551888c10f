@@ -1,0 +1,72 @@
+/**
+ * 
+ */
+package Server.DatabaseAccess;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import Shared.Model.Project;
+
+/**
+ * ProjectDBAccess class. CRUD access the project table in the
+ * 	database via DBAccess super class
+ * 
+ * @author Benjamin Thompson
+ *
+ */
+public class ProjectDBAccess extends DBAccess
+{
+
+	/**
+	 * Create a project
+	 * 
+	 * @param p
+	 */
+	public void CreateProject(Project p)
+	{
+		super.Create("");
+	}
+	
+	/**
+	 * Get all projects
+	 * 
+	 * @return List<Project>
+	 */
+	public List<Project> GetAllProjects()
+	{
+		super.GetAll("");
+		List<Project> ret = new ArrayList<Project>();
+		return ret;
+	}
+	
+	/**
+	 * Get a project. May not be used
+	 * 
+	 * @param p
+	 */
+	public void Get(Project p)
+	{
+		super.Get("");
+	}
+	
+	/**
+	 * Updates a project. May not be used
+	 * 
+	 * @param p
+	 */
+	public void Update(Project p)
+	{
+		super.Update("");
+	}
+	
+	/**
+	 * Deletes a project
+	 * 
+	 * @param p
+	 */
+	public void DeleteProject(Project p)
+	{
+		super.Delete("");
+	}
+}

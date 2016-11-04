@@ -1,0 +1,573 @@
+******************************************************************************
+                  MSP430 Linker PC v4.2.1                      
+******************************************************************************
+>> Linked Fri Dec 06 06:26:01 2013
+
+OUTPUT FILE NAME:   <Pong.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 0000927e
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  SFR                   00000000   00000010  00000000  00000010  RWIX
+  PERIPHERALS_8BIT      00000010   000000f0  00000000  000000f0  RWIX
+  PERIPHERALS_16BIT     00000100   00000100  00000000  00000100  RWIX
+  RAM                   00000200   00000400  0000008a  00000376  RWIX
+  INFOD                 00001000   00000040  00000000  00000040  RWIX
+  INFOC                 00001040   00000040  00000000  00000040  RWIX
+  INFOB                 00001080   00000040  00000000  00000040  RWIX
+  INFOA                 000010c0   00000040  00000000  00000040  RWIX
+  FLASH                 00008000   00007fde  00002186  00005e58  RWIX
+  INT00                 0000ffe0   00000002  00000000  00000002  RWIX
+  INT01                 0000ffe2   00000002  00000000  00000002  RWIX
+  INT02                 0000ffe4   00000002  00000002  00000000  RWIX
+  INT03                 0000ffe6   00000002  00000002  00000000  RWIX
+  INT04                 0000ffe8   00000002  00000000  00000002  RWIX
+  INT05                 0000ffea   00000002  00000002  00000000  RWIX
+  INT06                 0000ffec   00000002  00000002  00000000  RWIX
+  INT07                 0000ffee   00000002  00000002  00000000  RWIX
+  INT08                 0000fff0   00000002  00000002  00000000  RWIX
+  INT09                 0000fff2   00000002  00000002  00000000  RWIX
+  INT10                 0000fff4   00000002  00000002  00000000  RWIX
+  INT11                 0000fff6   00000002  00000000  00000002  RWIX
+  INT12                 0000fff8   00000002  00000002  00000000  RWIX
+  INT13                 0000fffa   00000002  00000002  00000000  RWIX
+  INT14                 0000fffc   00000002  00000002  00000000  RWIX
+  RESET                 0000fffe   00000002  00000002  00000000  RWIX
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.pinit     0    00008000    00000000     UNINITIALIZED
+
+.bss       0    00000200    0000003a     UNINITIALIZED
+                  00000200    00000012     pongEvents.obj (.bss)
+                  00000212    0000000c     pong.obj (.bss)
+                  0000021e    00000008     rts430x.lib : _lock.obj (.bss)
+                  00000226    00000008                 : boot.obj (.bss)
+                  0000022e    00000006     RBX430_lcd.obj (.bss)
+                  00000234    00000004     rts430x.lib : rand.obj (.bss)
+                  00000238    00000002     RBX430-1.obj (.bss)
+
+.data      0    00000200    00000000     UNINITIALIZED
+
+.stack     0    000005b0    00000050     UNINITIALIZED
+                  000005b0    00000002     rts430x.lib : boot.obj (.stack)
+                  000005b2    0000004e     --HOLE--
+
+.text      0    00008000    00001472     
+                  00008000    000003c2     pongLib.obj (.text:drawBall)
+                  000083c2    0000023a     RBX430_lcd.obj (.text:lcd_point)
+                  000085fc    0000022a     RBX430_lcd.obj (.text:my_printfi)
+                  00008826    00000164     pong.obj (.text:main)
+                  0000898a    00000146     RBX430_lcd.obj (.text:lcd_init)
+                  00008ad0    00000120     RBX430_lcd.obj (.text:lcd_putchar)
+                  00008bf0    000000c8     RBX430_lcd.obj (.text:lcd_wordImage)
+                  00008cb8    000000be     RBX430-1.obj (.text:RBX430_init)
+                  00008d76    000000bc     RBX430-1.obj (.text:ADC_read)
+                  00008e32    00000078     RBX430-1.obj (.text:ERROR2)
+                  00008eaa    00000068     pongLib.obj (.text:drawPaddle)
+                  00008f12    0000005a     RBX430_lcd.obj (.text:lcd_WD)
+                  00008f6c    00000058     pongEvents.obj (.text:MOVE_BALL_event)
+                  00008fc4    00000056     pong.obj (.text:_isr:WDT_ISR)
+                  0000901a    00000048     rts430x.lib : autoinit.obj (.text:_auto_init)
+                  00009062    00000048     RBX430_lcd.obj (.text:lcd_WD2)
+                  000090aa    00000046     RBX430_lcd.obj (.text:DelayMs)
+                  000090f0    00000038     RBX430_lcd.obj (.text:ReadDataWord)
+                  00009128    00000038     rts430x.lib : rand.obj (.text:rand)
+                  00009160    00000034     RBX430_lcd.obj (.text:WriteDataWord)
+                  00009194    00000034     RBX430_lcd.obj (.text:lcd_set_x_y)
+                  000091c8    00000030     RBX430_lcd.obj (.text:lcd_cursor)
+                  000091f8    0000002e     RBX430_lcd.obj (.text:lcd_set)
+                  00009226    0000002c     pongEvents.obj (.text:ADC_READ_event)
+                  00009252    0000002c     RBX430_lcd.obj (.text:lcd_volume)
+                  0000927e    0000002a     rts430x.lib : boot.obj (.text:_isr:_c_int00_noexit)
+                  000092a8    00000026                 : mult32.obj (.text)
+                  000092ce    00000024     RBX430_lcd.obj (.text:lcd_fillImage)
+                  000092f2    00000024     RBX430_lcd.obj (.text:lcd_printf)
+                  00009316    00000020     RBX430_lcd.obj (.text:ReadData)
+                  00009336    0000001e     RBX430_lcd.obj (.text:WriteCmd)
+                  00009354    0000001e     RBX430_lcd.obj (.text:WriteData)
+                  00009372    0000001e     RBX430_lcd.obj (.text:lcd_mode)
+                  00009390    0000001e     pongEvents.obj (.text:new_paddle)
+                  000093ae    0000001a     pongEvents.obj (.text:new_ball)
+                  000093c8    00000016     pong.obj (.text:_isr:TIMERA1_ISR)
+                  000093de    00000014     RBX430_lcd.obj (.text:lcd_backlight)
+                  000093f2    00000014     rts430x.lib : mult16.obj (.text)
+                  00009406    00000012     pong.obj (.text:_isr:ISR_trap)
+                  00009418    00000012     rts430x.lib : memcpy.obj (.text:memcpy)
+                  0000942a    00000010                 : lsr32.obj (.text:l_lsr)
+                  0000943a    0000000e                 : strlen.obj (.text:strlen)
+                  00009448    0000000a                 : abs.obj (.text:abs)
+                  00009452    0000000a     RBX430_lcd.obj (.text:lcd_clear)
+                  0000945c    00000008     RBX430-1.obj (.text:_isr:ADC10_ISR)
+                  00009464    00000004     RBX430-1.obj (.text:ADC_init)
+                  00009468    00000004     rts430x.lib : pre_init.obj (.text:_system_pre_init)
+                  0000946c    00000004                 : exit.obj (.text:abort)
+                  00009470    00000002                 : _lock.obj (.text:_nop)
+
+.const     0    00009472    00000d0a     
+                  00009472    00000a12     pongImages.obj (.const:pong_image)
+                  00009e84    000001e0     RBX430_lcd.obj (.const:cs)
+                  0000a064    000000a2     RBX430_lcd.obj (.const:.string:dv3)
+                  0000a106    0000002c     RBX430_lcd.obj (.const:dv$3)
+                  0000a132    0000001a     pong.obj (.const:.string)
+                  0000a14c    00000011     RBX430_lcd.obj (.const:.string:lHexChar$1)
+                  0000a15d    00000001     --HOLE-- [fill = 0]
+                  0000a15e    00000011     RBX430_lcd.obj (.const:.string:uHexChar$2)
+                  0000a16f    00000001     --HOLE-- [fill = 0]
+                  0000a170    00000006     RBX430_lcd.obj (.const:px_off)
+                  0000a176    00000006     RBX430_lcd.obj (.const:px_on)
+
+.cinit     0    0000a17c    0000000a     
+                  0000a17c    00000008     rts430x.lib : rand.obj (.cinit)
+                  0000a184    00000002     --HOLE-- [fill = 0]
+
+PORT1      0    0000ffe4    00000002     
+                  0000ffe4    00000002     pong.obj (.int02)
+
+PORT2      0    0000ffe6    00000002     
+                  0000ffe6    00000002     pong.obj (.int03)
+
+ADC10      0    0000ffea    00000002     
+                  0000ffea    00000002     RBX430-1.obj (.int05)
+
+USCIAB0TX 
+*          0    0000ffec    00000002     
+                  0000ffec    00000002     pong.obj (.int06)
+
+USCIAB0RX 
+*          0    0000ffee    00000002     
+                  0000ffee    00000002     pong.obj (.int07)
+
+TIMERA1    0    0000fff0    00000002     
+                  0000fff0    00000002     pong.obj (.int08)
+
+TIMERA0    0    0000fff2    00000002     
+                  0000fff2    00000002     pong.obj (.int09)
+
+WDT        0    0000fff4    00000002     
+                  0000fff4    00000002     pong.obj (.int10)
+
+TIMERB1    0    0000fff8    00000002     
+                  0000fff8    00000002     pong.obj (.int12)
+
+TIMERB0    0    0000fffa    00000002     
+                  0000fffa    00000002     pong.obj (.int13)
+
+NMI        0    0000fffc    00000002     
+                  0000fffc    00000002     pong.obj (.int14)
+
+.reset     0    0000fffe    00000002     
+                  0000fffe    00000002     rts430x.lib : boot.obj (.reset)
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address    name
+--------   ----
+00000200   .bss
+00000200   .data
+00008000   .text
+0000004a   ADC10AE0
+0000004b   ADC10AE1
+000001b0   ADC10CTL0
+000001b2   ADC10CTL1
+00000048   ADC10DTC0
+00000049   ADC10DTC1
+000001b4   ADC10MEM
+000001bc   ADC10SA
+0000945c   ADC10_ISR
+00009226   ADC_READ_event
+00009464   ADC_init
+00008d76   ADC_read
+00000057   BCSCTL1
+00000058   BCSCTL2
+00000053   BCSCTL3
+0000946c   C$$EXIT
+000010fb   CALBC1_12MHZ
+000010f9   CALBC1_16MHZ
+000010ff   CALBC1_1MHZ
+000010fd   CALBC1_8MHZ
+000010fa   CALDCO_12MHZ
+000010f8   CALDCO_16MHZ
+000010fe   CALDCO_1MHZ
+000010fc   CALDCO_8MHZ
+00000056   DCOCTL
+00008e32   ERROR2
+00000128   FCTL1
+0000012a   FCTL2
+0000012c   FCTL3
+00000000   IE1
+00000001   IE2
+00000002   IFG1
+00000003   IFG2
+00009406   ISR_trap
+0000942a   L_LSR
+00008f6c   MOVE_BALL_event
+000000c0   OA0CTL0
+000000c1   OA0CTL1
+000000c2   OA1CTL0
+000000c3   OA1CTL1
+00000022   P1DIR
+00000025   P1IE
+00000024   P1IES
+00000023   P1IFG
+00000020   P1IN
+00000021   P1OUT
+00000027   P1REN
+00000026   P1SEL
+0000002a   P2DIR
+0000002d   P2IE
+0000002c   P2IES
+0000002b   P2IFG
+00000028   P2IN
+00000029   P2OUT
+0000002f   P2REN
+0000002e   P2SEL
+0000001a   P3DIR
+00000018   P3IN
+00000019   P3OUT
+00000010   P3REN
+0000001b   P3SEL
+0000001e   P4DIR
+0000001c   P4IN
+0000001d   P4OUT
+00000011   P4REN
+0000001f   P4SEL
+00008cb8   RBX430_init
+00000172   TACCR0
+00000174   TACCR1
+00000176   TACCR2
+00000162   TACCTL0
+00000164   TACCTL1
+00000166   TACCTL2
+00000160   TACTL
+0000012e   TAIV
+00000170   TAR
+00000216   TB0_tone_on
+00000192   TBCCR0
+00000194   TBCCR1
+00000196   TBCCR2
+00000182   TBCCTL0
+00000184   TBCCTL1
+00000186   TBCCTL2
+00000180   TBCTL
+0000011e   TBIV
+00000190   TBR
+000093c8   TIMERA1_ISR
+0000005d   UCA0ABCTL
+00000062   UCA0BR0
+00000063   UCA0BR1
+00000060   UCA0CTL0
+00000061   UCA0CTL1
+0000005f   UCA0IRRCTL
+0000005e   UCA0IRTCTL
+00000064   UCA0MCTL
+00000066   UCA0RXBUF
+00000065   UCA0STAT
+00000067   UCA0TXBUF
+0000006a   UCB0BR0
+0000006b   UCB0BR1
+00000068   UCB0CTL0
+00000069   UCB0CTL1
+0000006c   UCB0I2CIE
+00000118   UCB0I2COA
+0000011a   UCB0I2CSA
+0000006e   UCB0RXBUF
+0000006d   UCB0STAT
+0000006f   UCB0TXBUF
+00000120   WDTCTL
+00008fc4   WDT_ISR
+00000214   WDT_adc_cnt
+00000212   WDT_cps_cnt
+00000600   __STACK_END
+00000050   __STACK_SIZE
+00000001   __TI_args_main
+00000001   __TI_auto_init
+00000226   __TI_cleanup_ptr
+0000022a   __TI_dtors_ptr
+00000001   __TI_exit
+0000ffe4   __TI_int02
+0000ffe6   __TI_int03
+0000ffea   __TI_int05
+0000ffec   __TI_int06
+0000ffee   __TI_int07
+0000fff0   __TI_int08
+0000fff2   __TI_int09
+0000fff4   __TI_int10
+0000fff8   __TI_int12
+0000fffa   __TI_int13
+0000fffc   __TI_int14
+ffffffff   __binit__
+00000200   __bss__
+ffffffff   __c_args__
+0000a17c   __cinit__
+00000200   __data__
+00000200   __edata__
+0000023a   __end__
+00009472   __etext__
+000093f2   __mpyi
+000092a8   __mpyl
+ffffffff   __pinit__
+00008000   __text__
+0000901a   _auto_init
+0000927e   _c_int00
+0000927e   _c_int00_noexit
+0000021e   _lock
+00009470   _nop
+0000fffe   _reset_vector
+000005b0   _stack
+00009468   _system_pre_init
+00000222   _unlock
+0000946c   abort
+00009448   abs
+ffffffff   binit
+0000a17c   cinit
+00009e84   cs
+00008000   drawBall
+00008eaa   drawPaddle
+0000a064   dv3
+0000021a   dx
+0000021c   dy
+00000200   edata
+0000023a   end
+00009472   etext
+00000238   i2c_fSCL
+00008f12   lcd_WD
+00009062   lcd_WD2
+000093de   lcd_backlight
+00009452   lcd_clear
+000091c8   lcd_cursor
+000092ce   lcd_fillImage
+0000898a   lcd_init
+00009372   lcd_mode
+000083c2   lcd_point
+000092f2   lcd_printf
+00008ad0   lcd_putchar
+000091f8   lcd_set
+00009194   lcd_set_x_y
+00009252   lcd_volume
+00008bf0   lcd_wordImage
+00008826   main
+00009418   memcpy
+00000200   myBall
+00000208   myPaddle
+000093ae   new_ball
+00009390   new_paddle
+ffffffff   pinit
+00009472   pong_image
+0000a170   px_off
+0000a176   px_on
+00009128   rand
+0000943a   strlen
+00000218   sys_event
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address    name
+--------   ----
+00000000   IE1
+00000001   IE2
+00000001   __TI_args_main
+00000001   __TI_auto_init
+00000001   __TI_exit
+00000002   IFG1
+00000003   IFG2
+00000010   P3REN
+00000011   P4REN
+00000018   P3IN
+00000019   P3OUT
+0000001a   P3DIR
+0000001b   P3SEL
+0000001c   P4IN
+0000001d   P4OUT
+0000001e   P4DIR
+0000001f   P4SEL
+00000020   P1IN
+00000021   P1OUT
+00000022   P1DIR
+00000023   P1IFG
+00000024   P1IES
+00000025   P1IE
+00000026   P1SEL
+00000027   P1REN
+00000028   P2IN
+00000029   P2OUT
+0000002a   P2DIR
+0000002b   P2IFG
+0000002c   P2IES
+0000002d   P2IE
+0000002e   P2SEL
+0000002f   P2REN
+00000048   ADC10DTC0
+00000049   ADC10DTC1
+0000004a   ADC10AE0
+0000004b   ADC10AE1
+00000050   __STACK_SIZE
+00000053   BCSCTL3
+00000056   DCOCTL
+00000057   BCSCTL1
+00000058   BCSCTL2
+0000005d   UCA0ABCTL
+0000005e   UCA0IRTCTL
+0000005f   UCA0IRRCTL
+00000060   UCA0CTL0
+00000061   UCA0CTL1
+00000062   UCA0BR0
+00000063   UCA0BR1
+00000064   UCA0MCTL
+00000065   UCA0STAT
+00000066   UCA0RXBUF
+00000067   UCA0TXBUF
+00000068   UCB0CTL0
+00000069   UCB0CTL1
+0000006a   UCB0BR0
+0000006b   UCB0BR1
+0000006c   UCB0I2CIE
+0000006d   UCB0STAT
+0000006e   UCB0RXBUF
+0000006f   UCB0TXBUF
+000000c0   OA0CTL0
+000000c1   OA0CTL1
+000000c2   OA1CTL0
+000000c3   OA1CTL1
+00000118   UCB0I2COA
+0000011a   UCB0I2CSA
+0000011e   TBIV
+00000120   WDTCTL
+00000128   FCTL1
+0000012a   FCTL2
+0000012c   FCTL3
+0000012e   TAIV
+00000160   TACTL
+00000162   TACCTL0
+00000164   TACCTL1
+00000166   TACCTL2
+00000170   TAR
+00000172   TACCR0
+00000174   TACCR1
+00000176   TACCR2
+00000180   TBCTL
+00000182   TBCCTL0
+00000184   TBCCTL1
+00000186   TBCCTL2
+00000190   TBR
+00000192   TBCCR0
+00000194   TBCCR1
+00000196   TBCCR2
+000001b0   ADC10CTL0
+000001b2   ADC10CTL1
+000001b4   ADC10MEM
+000001bc   ADC10SA
+00000200   .bss
+00000200   .data
+00000200   __bss__
+00000200   __data__
+00000200   __edata__
+00000200   edata
+00000200   myBall
+00000208   myPaddle
+00000212   WDT_cps_cnt
+00000214   WDT_adc_cnt
+00000216   TB0_tone_on
+00000218   sys_event
+0000021a   dx
+0000021c   dy
+0000021e   _lock
+00000222   _unlock
+00000226   __TI_cleanup_ptr
+0000022a   __TI_dtors_ptr
+00000238   i2c_fSCL
+0000023a   __end__
+0000023a   end
+000005b0   _stack
+00000600   __STACK_END
+000010f8   CALDCO_16MHZ
+000010f9   CALBC1_16MHZ
+000010fa   CALDCO_12MHZ
+000010fb   CALBC1_12MHZ
+000010fc   CALDCO_8MHZ
+000010fd   CALBC1_8MHZ
+000010fe   CALDCO_1MHZ
+000010ff   CALBC1_1MHZ
+00008000   .text
+00008000   __text__
+00008000   drawBall
+000083c2   lcd_point
+00008826   main
+0000898a   lcd_init
+00008ad0   lcd_putchar
+00008bf0   lcd_wordImage
+00008cb8   RBX430_init
+00008d76   ADC_read
+00008e32   ERROR2
+00008eaa   drawPaddle
+00008f12   lcd_WD
+00008f6c   MOVE_BALL_event
+00008fc4   WDT_ISR
+0000901a   _auto_init
+00009062   lcd_WD2
+00009128   rand
+00009194   lcd_set_x_y
+000091c8   lcd_cursor
+000091f8   lcd_set
+00009226   ADC_READ_event
+00009252   lcd_volume
+0000927e   _c_int00
+0000927e   _c_int00_noexit
+000092a8   __mpyl
+000092ce   lcd_fillImage
+000092f2   lcd_printf
+00009372   lcd_mode
+00009390   new_paddle
+000093ae   new_ball
+000093c8   TIMERA1_ISR
+000093de   lcd_backlight
+000093f2   __mpyi
+00009406   ISR_trap
+00009418   memcpy
+0000942a   L_LSR
+0000943a   strlen
+00009448   abs
+00009452   lcd_clear
+0000945c   ADC10_ISR
+00009464   ADC_init
+00009468   _system_pre_init
+0000946c   C$$EXIT
+0000946c   abort
+00009470   _nop
+00009472   __etext__
+00009472   etext
+00009472   pong_image
+00009e84   cs
+0000a064   dv3
+0000a170   px_off
+0000a176   px_on
+0000a17c   __cinit__
+0000a17c   cinit
+0000ffe4   __TI_int02
+0000ffe6   __TI_int03
+0000ffea   __TI_int05
+0000ffec   __TI_int06
+0000ffee   __TI_int07
+0000fff0   __TI_int08
+0000fff2   __TI_int09
+0000fff4   __TI_int10
+0000fff8   __TI_int12
+0000fffa   __TI_int13
+0000fffc   __TI_int14
+0000fffe   _reset_vector
+ffffffff   __binit__
+ffffffff   __c_args__
+ffffffff   __pinit__
+ffffffff   binit
+ffffffff   pinit
+
+[196 symbols]

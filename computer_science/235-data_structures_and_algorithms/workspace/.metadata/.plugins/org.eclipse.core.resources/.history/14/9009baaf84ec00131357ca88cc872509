@@ -1,0 +1,148 @@
+/*
+ * LinkedList.cpp
+ *
+ *  Created on: Jun 4, 2014
+ *      Author: misterpink14
+ */
+
+
+#include "LinkedList.h"
+
+
+LinkedList::LinkedList()
+{
+	head = NULL;
+	tail = NULL;
+	amt = 0;
+}
+
+
+void LinkedList::push(Person p)
+{
+	if(head == NULL)
+	{
+		head = new Node(p);
+		amt++;
+		return;
+	}
+	else if(tail == NULL)
+	{
+		tail = new Node(p);
+		tail->prev = head;
+		head->next = tail;
+		++amt;
+		return;
+	}
+	else
+	{
+		Node* n = new Node(p);
+		n->prev = tail;
+		tail->next = n;
+		tail = tail->next;
+		amt++;
+		return;
+	}
+}
+
+
+
+void LinkedList::Display()
+{
+	Node* n = head;
+	while( n != NULL )
+	{
+		n->item.Display();
+		n = n->next;
+	}
+}
+
+
+
+void LinkedList::Shuffle()
+{
+	srand(time(NULL));
+	Node* n = head;
+	while (n != NULL)
+	{
+		int shuff = rand() % (amt-1);
+		Node* h = head;
+		Person temp = n->item;
+		for(unsigned i = 1; i < shuff; i++)
+		{
+			head = head->next;
+		}
+		n->item = h->item;
+		h->item = temp;
+		n = n->next;
+	}
+}
+
+
+
+void LinkedList::clear()
+{
+	Node* n = head;
+	while(n != NULL)
+	{
+		head = head->next;
+		delete n;
+		n = head;
+	}
+
+	amt = 0;
+}
+
+
+
+void LinkedList::keepLast()
+{
+	Node* n = head;
+	while(n->next != NULL)
+	{
+		head = head->next;
+		delete n;
+		n = head;
+	}
+
+	amt = 1;
+}
+
+
+void LinkedList::CreateTeams(LinkedList& TeamA, LinkedList& TeamB, int size)
+{
+	std::cout << "size: " << size << std::endl;
+	Node* n = head;
+	for (unsigned i = 0; i < size-1; i++)
+	{
+		TeamA.push(n->item);
+		n = n->next;
+		TeamB.push(n->item);
+		n = n->next;
+	}
+	if((size*2) == amt)
+	{
+		clear();
+	}
+	else
+	{
+		keepLast();
+	}
+	return;
+}
+
+
+bool LinkedList::Empty()
+{
+	if (head == NULL)
+	{
+		return true;
+	}
+	return false;
+}
+
+
+
+int LinkedList::size()
+{
+	return amt;
+}

@@ -1,0 +1,89 @@
+package Client.GUI;
+
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JToolBar;
+
+@SuppressWarnings("serial")
+public class ImageView extends JPanel
+{
+	public ImageView()
+	{
+		initUI();
+	}
+	
+	public void initUI()
+	{
+		buildToolbar();
+	}
+
+	private void buildToolbar()
+	{
+		JToolBar toolbar = new JToolBar();
+		
+//		toolbar.setAlignmentX((float) 0.0);
+
+		JButton button = new JButton("Zoom In");
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent event) {
+                System.exit(0);
+            }
+        });
+        toolbar.add(button);
+
+        button = new JButton("Zoom Out");
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent event) {
+                System.exit(0);
+            }
+        });
+        toolbar.add(button);
+        
+        button = new JButton("Invert Image");
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent event) {
+                System.exit(0);
+            }
+        });
+        toolbar.add(button);
+        
+        button = new JButton("Toggle Highlights");
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent event) {
+                System.exit(0);
+            }
+        });
+        toolbar.add(button);
+
+        button = new JButton("Save");
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent event) {
+                System.exit(0);
+            }
+        });
+        toolbar.add(button);
+        
+
+        button = new JButton("Submit");
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent event) {
+                System.exit(0);
+            }
+        });
+        toolbar.add(button);
+
+        JPanel basic = new JPanel();
+        add(toolbar, BorderLayout.NORTH);  
+	}
+}

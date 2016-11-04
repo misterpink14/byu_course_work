@@ -1,0 +1,13 @@
+/**
+ * 
+ */
+package Shared.Model;
+
+/**
+ * @author Benjamin Thompson
+ *
+ */
+public class Values
+{
+	ArrayList <String> value;
+}

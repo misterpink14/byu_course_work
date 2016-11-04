@@ -1,0 +1,85 @@
+package Client;
+
+import Client.GUI.LoginView;
+import Client.GUI.WelcomeView;
+import Client.GUI.WindowView;
+import Client.Model.BatchState;
+
+public class Client
+{
+	private LoginView login;
+//	private WelcomeView welcome;
+	private WindowView window;
+//	@SuppressWarnings("unused")
+//	private Controller controller = new Controller();
+	
+	public Client(String host, String port)
+	{
+		Controller.comm.urlBase = "http://" + host + ":" + port + "/";
+		Controller.client = this;
+		Controller.batch = new BatchState();
+		initUI();
+	}
+	
+	/**
+	 * @return the login
+	 */
+	public LoginView getLogin()
+	{
+		return login;
+	}
+
+	/**
+	 * @param login the login to set
+	 */
+	public void setLogin(LoginView login)
+	{
+		this.login = login;
+	}
+
+	/**
+	 * @return the window
+	 */
+	public WindowView getWindow()
+	{
+		return window;
+	}
+
+	/**
+	 * @param window the window to set
+	 */
+	public void setWindow(WindowView window)
+	{
+		this.window = window;
+	}
+
+	private void initUI()
+	{
+		login = new LoginView();
+		window = new WindowView();
+		
+	}
+	
+	public void hideLogin()
+	{
+		login.setVisible(false);
+		window.setVisible(true);
+	}
+	
+	public void errorLogin()
+	{
+		login.setVisible(true);
+		window.setVisible(false);
+	}
+	
+	public void update()
+	{
+		window.repaint();
+	}
+	
+	
+	public static void main(String[] args)
+	{
+    	new Client(args[0], args[1]);
+	}
+}

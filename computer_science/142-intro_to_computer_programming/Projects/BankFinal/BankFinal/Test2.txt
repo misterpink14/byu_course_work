@@ -1,0 +1,19 @@
+Opening Accounts:
+Checking 1000 Paula true
+Checking+ -150 Billy false
+Checking++ 60000 Lori true
+Saving 100 Ben true
+Saving+ 3000 Quin true
+Saving+ -100 Sasha false
+Size: 4
+Testing Transactions:
+writeCheck 1 20000 false
+getCurrentBalance 1 995
+advanceMonth 1
+End
+Closing Accounts:
+close 50 false
+close -1 false
+close 4 true
+Size: 2
+

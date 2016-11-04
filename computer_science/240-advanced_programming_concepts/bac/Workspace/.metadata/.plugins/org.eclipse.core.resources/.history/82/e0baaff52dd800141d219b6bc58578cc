@@ -1,0 +1,97 @@
+package Client;
+
+import java.io.IOException;
+
+import Client.Communicator.ClientCommunicator;
+import Client.Communicator.ClientCommunicatorException;
+import Shared.Communication.Param.DownloadBatch_Param;
+import Shared.Communication.Param.GetFields_Param;
+import Shared.Communication.Param.GetProjects_Param;
+import Shared.Communication.Param.GetSampleImage_Param;
+import Shared.Communication.Param.SubmitBatch_Param;
+import Shared.Communication.Param.ValidateUser_Param;
+import Shared.Communication.Result.DownloadBatch_Result;
+import Shared.Communication.Result.GetFields_Result;
+import Shared.Communication.Result.GetProjects_Result;
+import Shared.Communication.Result.GetSampleImage_Result;
+import Shared.Communication.Result.SubmitBatch_Result;
+import Shared.Communication.Result.ValidateUser_Result;
+
+public class Controller
+{
+	static ClientCommunicator comm = new ClientCommunicator();
+
+	static ValidateUser_Param user_p;
+	static GetProjects_Param projects_p;
+	static GetSampleImage_Param sampleImage_p;
+	static DownloadBatch_Param downloadBatch_p;
+	static SubmitBatch_Param submitBatch_p;
+	static GetFields_Param fields_p;
+	
+	static ValidateUser_Result user_r;
+	static GetProjects_Result projects_r;
+	static GetSampleImage_Result sampleImage_r;
+	static DownloadBatch_Result downloadBatch_r;
+	static SubmitBatch_Result submitBatch_r;
+	static GetFields_Result fields_r;
+	
+	String imageURL;
+	
+	
+	public Controller ()
+	{
+		comm.urlBase = "http://localhost:8969/";
+	}
+	
+	public static void validateUser()
+	{
+		try
+		{
+			user_r = comm.ValidateUser(user_p);
+			
+		} catch (IOException | ClientCommunicatorException e)
+		{
+			e.printStackTrace();
+		}
+	}
+	
+	public static void getProjects()
+	{
+		try
+		{
+			projects_r = comm.GetProjects(projects_p);
+		} catch (IOException | ClientCommunicatorException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public static void getSampleImage()
+	{
+		try
+		{
+			sampleImage_r = comm.GetSampleImage(sampleImage_p);
+		} catch (IOException | ClientCommunicatorException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public static void downloadBatch()
+	{
+		downloadBatch_r = comm.DownloadBatch(downloadBatch_p);
+	}
+	
+	public static void submitBatch()
+	{
+		submitBatch_r = comm.SubmitBatch(submitBatch_p);
+	}
+	
+	public static void getFields()
+	{
+		fields_r = comm.GetFields(fields_p);
+	}
+	
+}

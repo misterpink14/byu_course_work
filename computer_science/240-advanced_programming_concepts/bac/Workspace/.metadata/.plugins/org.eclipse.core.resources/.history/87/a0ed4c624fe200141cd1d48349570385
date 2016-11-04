@@ -1,0 +1,23 @@
+package Client.GUI.Entry;
+
+import java.awt.Color;
+
+import javax.swing.JTabbedPane;
+
+@SuppressWarnings("serial")
+public class EntryView extends JTabbedPane
+{
+	TableEntryView table;
+	TableEntryView form;
+	public EntryView()
+	{
+		initUI();
+	}
+	
+	private void initUI()
+	{
+		this.addTab("Table Entry", new TableEntryView());
+		this.addTab("Form Entry", new FormEntryView());
+	}
+
+}

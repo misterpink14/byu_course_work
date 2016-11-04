@@ -1,0 +1,15 @@
+﻿<Properties StartupItem="03-genesequencealign/GeneticsLab.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="03-genesequencealign/PairWiseAlign.cs">
+    <Files>
+      <File FileName="03-genesequencealign/PairWiseAlign.cs" Line="67" Column="14" />
+      <File FileName="03-genesequencealign/ResultTable.cs" Line="39" Column="48" />
+      <File FileName="03-genesequencealign/MainForm.cs" Line="91" Column="71" />
+      <File FileName="03-genesequencealign/EmptyClass.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

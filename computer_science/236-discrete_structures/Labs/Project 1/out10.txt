@@ -1,0 +1,7 @@
+(FACTS,"Facts",2)
+(COLON,":",2)
+(RULES,"Rules",2)
+(FACTS,"Facts",2)
+(FACTS,"Facts",2)
+(ID,"FactsRulesFactsFacts",4)
+Total Tokens = 6

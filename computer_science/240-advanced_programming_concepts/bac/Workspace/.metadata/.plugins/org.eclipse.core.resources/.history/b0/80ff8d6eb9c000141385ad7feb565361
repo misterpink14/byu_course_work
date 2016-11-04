@@ -1,0 +1,52 @@
+/**
+ * 
+ */
+package Server.DatabaseAccess.Database;
+
+import java.io.File;
+import java.io.IOException;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
+
+/**
+ * @author Benjamin Thompson
+ *
+ */
+public class Importer
+{
+
+	/**
+	 * @param args
+	 * @throws ParserConfigurationException 
+	 * @throws IOException 
+	 * @throws SAXException 
+	 */
+	public static void main(String[] args) throws SAXException, IOException, ParserConfigurationException
+	{
+		// TODO Auto-generated method stub
+		new Importer().execute(args[0]);
+
+	}
+	
+	public void execute(String fileURL) throws SAXException, IOException, ParserConfigurationException
+	{
+		File f = new File(fileURL);
+		
+		DocumentBuilder docb = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+		Document doc = docb.parse(f);
+		
+		NodeList nl = doc.getElementsByTagName("");
+		
+		Element someElm = (Element)nl.item(i);
+		Element specificElm - someElm.getEleentByTagName(tagName).item();
+		
+		String str = specificElm.getTestContent();
+		
+	}
+
+}

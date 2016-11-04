@@ -1,0 +1,25 @@
+package Client.Model;
+
+import Shared.Model.User;
+
+public class BatchState
+{
+	private User u;
+	private Project p;
+	
+	/* ***********************************
+	 * Updatable Content
+	 *************************************/
+	
+	public void setU(String user, String pass, String first, 
+			String last, String email, Integer indexed)
+	{
+		u = new User(user, pass, first, last, email, indexed);
+	}
+	
+	public User getU()
+	{
+		return u;
+	}
+	
+}

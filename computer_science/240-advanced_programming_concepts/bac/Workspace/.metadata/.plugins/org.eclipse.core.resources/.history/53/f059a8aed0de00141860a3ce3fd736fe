@@ -1,0 +1,25 @@
+package Client.GUI;
+
+
+import javax.swing.JTabbedPane;
+
+import Client.GUI.ImageSupport.FieldHelpView;
+import Client.GUI.ImageSupport.ImageNavigationView;
+
+@SuppressWarnings("serial")
+public class ImageSupportView extends JTabbedPane
+{
+	public FieldHelpView help = new FieldHelpView();
+	public ImageNavigationView imageNav = new ImageNavigationView();
+	
+	public ImageSupportView()
+	{
+		initUI();
+	}
+	
+	private void initUI()
+	{
+		this.addTab("Field Help", help);
+		this.addTab("Image Navigation", imageNav);
+	}
+}

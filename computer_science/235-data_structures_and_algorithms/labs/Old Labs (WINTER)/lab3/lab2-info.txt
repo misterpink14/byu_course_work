@@ -1,0 +1,33 @@
+lab 3
+
+
+use in >> s; // (string)
+
+set<string> board;
+while(!(in >> s))
+{
+	board.push_back(s);
+}
+
+sqrt(board) = col/rows;
+
+
+//Dict
+	-set of strings
+	-load
+	-find words
+	-find prefix
+	-set::lower_bound
+		-compare prefix
+
+//Board
+
+
+	-vector - so you can index it
+	-vector<vector<string>> //not the way I'm going to do it
+	-find(row,col);
+		if(off board) return;
+		w+=board[row][col];
+		if (w != prefix of any dict) return;
+		find(row,col+1);	
+		find(row+1,col);

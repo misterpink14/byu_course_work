@@ -1,0 +1,305 @@
+
+package Server.DatabaseAccess;
+
+import static org.junit.Assert.assertTrue;
+
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import Server.DatabaseAccess.Database.Database;
+import Shared.Model.Project;
+
+/**
+ * ProjectDBAccess class. CRUD access the project table in the
+ * 	database via DBAccess super class
+ * 
+ * @author Benjamin Thompson
+ *
+ */
+public class ProjectDBAccess extends DBAccess
+{
+	private Database db = new Database();
+//	final private int NUM_ATT = 7;
+	
+	@SuppressWarnings("static-access")
+	public ProjectDBAccess()
+	{
+		try
+		{
+			this.db.init();
+		} catch (ClassNotFoundException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
+	/**
+	 * @return the db
+	 */
+	public Database getDb()
+	{
+		return db;
+	}
+
+
+
+	/**
+	 * @param db the db to set
+	 */
+	public void setDb(Database db)
+	{
+		this.db = db;
+	}
+
+
+
+	/**
+	 * Creates a new project
+	 * 
+	 * @param p
+	 * @throws SQLException 
+	 */
+	public void CreateProject(Project p) throws SQLException
+	{
+//		ResultSet rs = null;
+		PreparedStatement stmt = null;
+		ResultSet keyRS = null;		
+		
+		try {
+			String query = "insert into project "
+					+ "(title, records_per_image, first_y_coord, record_height) "
+					+ "values (?, ?, ?, ?)";
+
+			db.beginTransaction();
+
+			stmt = db.getConn().prepareStatement(query);
+
+			stmt.setString(1, p.getTitle());
+			stmt.setInt(2, p.getRecords());
+			stmt.setInt(3, p.getFirsty());
+			stmt.setInt(4, p.getHeight());
+
+			if(stmt.executeUpdate() == 1)
+			{
+				Statement keyStmt = db.getConn().createStatement();
+				keyRS = keyStmt.executeQuery("select last_insert_rowid()");
+				keyRS.next();
+				int id = keyRS.getInt(1);
+				p.setId(id);
+			}
+			else
+			{
+				throw new SQLException();
+			}
+		}
+		catch (SQLException e) {
+			db.endTransaction(false);
+			throw e;
+		}
+		db.endTransaction(true);
+	}
+	
+	/**
+	 * Gets all projects
+	 * 
+	 * @return List<Project>
+	 * @throws SQLException 
+	 */
+	public List<Project> GetAllProjects() throws SQLException
+	{
+		List<Project> ret = new ArrayList<Project>();
+		ResultSet rs = null;
+		PreparedStatement stmt = null;
+		
+		try {
+			String query = "select * from project ";
+
+			db.beginTransaction();
+
+			stmt = db.getConn().prepareStatement(query);
+			rs = stmt.executeQuery();
+			while(rs.next())
+			{
+				Integer id = rs.getInt(1);
+				String titles = rs.getString(2);
+				String records = rs.getString(3);
+				String firsty = rs.getString(4);
+				String height = rs.getString(5);
+				ret.add(new Project(id, titles, records, firsty, height));
+			}
+		}
+		catch (SQLException e) {
+//			db.endTransaction(false);
+			throw e;
+		}
+		finally
+		{
+			db.endTransaction(false);			
+		}
+
+		
+		
+		return ret;
+	}
+	
+	/**
+	 * Gets a project
+	 * 
+	 * @param p
+	 * @throws SQLException 
+	 */
+	public void GetProject(Project p) throws SQLException
+	{
+		ResultSet rs = null;
+		PreparedStatement stmt = null;
+		
+		try {
+			
+			StringBuilder query = new StringBuilder();
+			query.append("select * from project where ");
+			if (p.getId() != null && p.getId() != -1)
+			{
+				query.append("project_id = ? ");
+			}
+			if (p.getProject() != null)
+			{
+				if (p.getId() != null && p.getId() != -1)
+				{
+					query.append("and ");
+				}
+				query.append("project_name = ? ");
+			}
+			if (p.getPass() != null)
+			{
+				if ( (p.getId() != null && p.getId() != -1)||(p.getProject() != null) )
+				{
+					query.append("and ");
+				}
+				query.append("password = ? ");
+			}
+			
+			db.beginTransaction();
+
+			stmt = db.getConn().prepareStatement(query.toString());
+
+			int i = 1;
+			if (p.getId() != null && p.getId() != -1)
+			{
+				stmt.setInt(i, p.getId());
+				++i;
+			}
+			if (p.getProject() != null)
+			{
+				stmt.setString(i, p.getProject());
+				++i;
+			}
+			if (p.getPass() != null)
+			{
+				stmt.setString(i, p.getPass());
+				++i;
+			}
+			
+			rs = stmt.executeQuery();
+			if(rs.next())
+			{
+				Integer id = rs.getInt(1);
+//				String project = rs.getString(2);
+//				String pass = rs.getString(3);
+//				String first = rs.getString(4);
+//				String last = rs.getString(5);
+//				String email = rs.getString(6);
+//				Integer indexed = rs.getInt(7);
+				p.setId(id);
+//				p = new Project(id, project, pass, first, last, email, indexed);
+			}
+			else
+			{
+				throw new SQLException();
+			}
+		}
+		catch (SQLException e) {
+			throw e;
+		}
+		finally
+		{
+			db.endTransaction(false);			
+		}
+	
+	}
+	
+	/**
+	 * Updates a project. May not be used.
+	 * 
+	 * @param p
+	 * @throws SQLException 
+	 */
+	public void UpdateProject(Project p) throws SQLException
+	{
+		PreparedStatement stmt = null;
+		try {
+			db.beginTransaction();
+			String query = "update project set project_name = ?, password = ?, first_name = ?, last_name = ?, email = ?, indexed = ? where project_id = ?";
+			stmt = db.getConn().prepareStatement(query);
+			stmt.setString(1, p.getProject());
+			stmt.setString(2, p.getPass());
+			stmt.setString(3, p.getFirst());
+			stmt.setString(4, p.getLast());
+			stmt.setString(5, p.getEmail());
+			stmt.setInt(6, p.getIndexed());
+			stmt.setInt(7, p.getId());
+			Integer i = stmt.executeUpdate();
+			if (i != 1) {
+				throw new SQLException();
+			}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			db.endTransaction(false);
+			throw e;
+		}
+//		finally {
+//			
+//		}
+		db.endTransaction(true);
+		
+	}
+	
+	/**
+	 * Deletes a project
+	 * 
+	 * @param p
+	 * @throws SQLException 
+	 */
+	public void DeleteProject(Project p) throws SQLException
+	{
+		db.beginTransaction();
+		PreparedStatement stmt = null;
+		try
+		{
+			String query = "delete from project where project_id = ? ";
+			stmt = db.getConn().prepareStatement(query);
+			stmt.setInt(1, p.getId());
+			if (stmt.executeUpdate() != 1) {
+				throw new SQLException();
+			}
+		} catch (SQLException e)
+		{
+			// TODO Auto-generated catch block
+			db.endTransaction(false);
+			e.printStackTrace();
+			throw e;
+		}
+		db.endTransaction(true);
+		
+	}
+}

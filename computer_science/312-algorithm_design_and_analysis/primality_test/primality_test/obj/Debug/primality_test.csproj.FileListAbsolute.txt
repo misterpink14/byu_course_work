@@ -1,0 +1,9 @@
+C:\Users\Student\Documents\GitHub\byu_cs312\primality_test\primality_test\bin\Debug\primality_test.exe.config
+C:\Users\Student\Documents\GitHub\byu_cs312\primality_test\primality_test\bin\Debug\primality_test.exe
+C:\Users\Student\Documents\GitHub\byu_cs312\primality_test\primality_test\bin\Debug\primality_test.pdb
+C:\Users\Student\Documents\GitHub\byu_cs312\primality_test\primality_test\obj\Debug\primality_test.csprojResolveAssemblyReference.cache
+C:\Users\Student\Documents\GitHub\byu_cs312\primality_test\primality_test\obj\Debug\primality_test.Form1.resources
+C:\Users\Student\Documents\GitHub\byu_cs312\primality_test\primality_test\obj\Debug\primality_test.Properties.Resources.resources
+C:\Users\Student\Documents\GitHub\byu_cs312\primality_test\primality_test\obj\Debug\primality_test.csproj.GenerateResource.Cache
+C:\Users\Student\Documents\GitHub\byu_cs312\primality_test\primality_test\obj\Debug\primality_test.exe
+C:\Users\Student\Documents\GitHub\byu_cs312\primality_test\primality_test\obj\Debug\primality_test.pdb

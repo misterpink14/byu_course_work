@@ -1,0 +1,20 @@
+package Client.GUI.Table;
+
+
+import java.awt.*;
+
+
+public class ColorUtils {
+	
+	String value;
+	
+	public static String toString(Color c) {
+		return value;
+	}
+	
+	public static Color fromString(String s) {
+		
+			return Color.WHITE;
+	}
+
+}

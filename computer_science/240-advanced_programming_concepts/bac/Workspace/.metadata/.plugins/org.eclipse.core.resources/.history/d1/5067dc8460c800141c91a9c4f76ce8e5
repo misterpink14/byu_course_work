@@ -1,0 +1,320 @@
+package Server.Facade;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import Server.ServerException;
+import Server.DatabaseAccess.FieldDBAccess;
+import Server.DatabaseAccess.ImageDBAccess;
+import Server.DatabaseAccess.ProjectDBAccess;
+import Server.DatabaseAccess.RecordDBAccess;
+import Server.DatabaseAccess.UserDBAccess;
+import Server.DatabaseAccess.Database.Database;
+import Server.DatabaseAccess.Database.DatabaseException;
+import Shared.Model.Field;
+import Shared.Model.Image;
+import Shared.Model.Project;
+import Shared.Model.Record;
+import Shared.Model.User;
+
+public class ServerFacade
+{
+	
+	public static void initialize() throws ServerException 
+	{
+		try
+		{
+			Database.init();
+		
+		} catch (ClassNotFoundException e) {
+			throw new ServerException("FAILED\n");
+		}
+	}
+	
+	public static void validateUser(User u) throws ServerException
+	{
+		UserDBAccess udb = new UserDBAccess();
+		
+		try
+		{
+			udb.GetUser(u);
+		} catch (SQLException e)
+		{
+			throw new ServerException("FALSE\n");
+		} catch (DatabaseException e)
+		{
+			throw new ServerException("FAILED\n");
+		}
+		
+	}
+	
+
+	
+	public static List<Project> getProjects(User u) throws ServerException
+	{
+		UserDBAccess udb = new UserDBAccess();
+		
+		try
+		{
+			udb.GetUser(u);
+		} catch (SQLException e)
+		{
+			throw new ServerException("FAILED\n");
+		} catch (DatabaseException e)
+		{
+			throw new ServerException("FAILED\n");
+		}
+		
+		
+		ProjectDBAccess pdb = new ProjectDBAccess();
+		try
+		{
+			return pdb.GetAllProjects();
+		} catch (SQLException | DatabaseException e)
+		{
+			throw new ServerException("FAILED\n");
+		}
+	}
+	
+	public static Image getSampleImage(User u, Integer projectId) throws ServerException
+	{
+		UserDBAccess udb = new UserDBAccess();
+		
+		try
+		{
+			udb.GetUser(u);
+		} catch (SQLException | DatabaseException e)
+		{
+			throw new ServerException("FAILED\n");
+		}
+		
+		ImageDBAccess idb = new ImageDBAccess();
+		List<Image> projectImages = null;
+		try
+		{
+			projectImages = idb.GetProjectImages(projectId);
+		} catch (SQLException | DatabaseException e)
+		{
+			throw new ServerException("FAILED\n");
+		}
+		if (projectImages == null || projectImages.size() == 0)
+		{
+			throw new ServerException("FAILED\n");
+		}
+		return projectImages.get(0);
+	}
+	
+	public static List<Field> downloadbatch(User u, Image i, Project p) throws ServerException
+	{
+		UserDBAccess udb = new UserDBAccess();
+		
+		try
+		{
+			udb.GetUser(u);
+		} catch (SQLException | DatabaseException e)
+		{
+			throw new ServerException("FAILED\n");
+		}
+		
+		ImageDBAccess idb = new ImageDBAccess();
+		ProjectDBAccess pdb = new ProjectDBAccess();
+		
+		try
+		{
+			List<Image> userImages = idb.GetUserImages(u.getId());
+			pdb.GetProject(p);
+
+			if (userImages.size() > 0)
+			{
+				throw new ServerException("FAILED\n");
+			}
+		} catch (SQLException | DatabaseException e)
+		{
+			throw new ServerException("FAILED\n");
+		}
+		
+		List<Image> projectImages = null;
+		try
+		{
+			projectImages = idb.GetProjectImages(i.getProjectID());
+			
+			
+		} catch (SQLException | DatabaseException e)
+		{
+			throw new ServerException("FAILED\n");
+		}
+		
+		if (projectImages == null)
+		{
+			throw new ServerException("FAILED\n");
+		}
+		else
+		{
+			Image im = null;
+			for (int index = 0; index < projectImages.size(); index ++)
+			{
+				im = projectImages.get(index);
+				if (im.getUserID() == -1)
+				{
+					break;
+				}
+				else
+				{
+					im = null;
+				}
+			}
+			
+			if (im == null)
+			{
+				throw new ServerException("FAILED\n");
+			}
+			else
+			{
+				i.setId(im.getId());
+				i.setFile(im.getFile());
+				i.setProjectID(im.getProjectID());
+				i.setUserID(u.getId());
+				try
+				{
+					idb.UpdateImage(i);
+				} catch (SQLException | DatabaseException e1)
+				{
+					throw new ServerException("FAILED\n");
+				}
+				try
+				{
+					return new FieldDBAccess().GetImageFields(i.getId());
+				} catch (SQLException | DatabaseException e)
+				{
+					throw new ServerException("FAILED\n");
+				}
+			}
+		}
+		
+	}
+	
+	@SuppressWarnings("unused")
+	public static void submitBatch(User u, Integer imageID, Map<Integer, ArrayList<String>> recordList) throws ServerException
+	{
+		
+		try
+		{
+			self:validateUser(u);
+		} catch (ServerException e)
+		{
+			throw new ServerException("FAILED\n");
+		}
+
+		FieldDBAccess fdb = new FieldDBAccess();
+		ImageDBAccess idb = new ImageDBAccess();
+//		Image i = new Image();
+//		i.setId(imageID);
+		
+		try
+		{
+			List<Image> iList = idb.GetUserImages(u.getId());
+			if (iList != null && iList.size() > 0)
+			{
+				for (Image i : iList)
+				{
+					if (imageID == i.getId())
+					{
+						throw new DatabaseException();
+					}
+				}
+			}
+			
+			List<Field> fieldList =  fdb.GetImageFields(imageID);
+			for (Map.Entry<Integer, ArrayList<String>> temp: recordList.entrySet())
+			{
+				int i = 0;
+				for (String s: temp.getValue())
+				{
+					Field f = fieldList.get(i);
+					
+					RecordDBAccess rdb = new RecordDBAccess();
+					Record r = new Record(s, temp.getKey(), imageID, f.getId());
+					rdb.CreateRecord(r);
+					
+					i++;
+				}
+			}
+			
+		} catch (SQLException | DatabaseException e)
+		{
+			throw new ServerException("FAILED\n");
+		}
+		
+		
+	}
+	
+	@SuppressWarnings("unused")
+	public static List<Field> getFields(User u, Integer projectID) throws ServerException
+	{
+		List<Field> ret = null;
+		
+		try
+		{
+			self:validateUser(u);
+			
+			FieldDBAccess fdb = new FieldDBAccess();
+			ret = fdb.GetProjectFields(projectID);
+		} catch (ServerException e)
+		{
+			throw new ServerException("FAILED\n");
+		}  catch (SQLException | DatabaseException e)
+		{
+			throw new ServerException("FAILED\n");
+		}
+		
+		return ret;
+	}
+	
+	@SuppressWarnings("unused")
+	public static Map<Image, List<Record>> search(User u, List<Integer> fieldIDs, List<String> searchValues) throws ServerException
+	{
+		Map<Image, List<Record>> ret = new HashMap<Image, List<Record>>();
+		try
+		{
+			self:validateUser(u);
+			
+			RecordDBAccess rdb = new RecordDBAccess();
+			
+			List<Record> rList = rdb.SearchRecords(fieldIDs, searchValues);
+			ImageDBAccess idb = new ImageDBAccess();
+			for (Record r : rList)
+			{
+				Image i = new Image(r.getImageID(), "", 0, 0);
+				idb.GetImage(i);
+				
+				if(ret != null && ret.containsKey(i))
+				{
+					List<Record> mapList = ret.get(i);
+					mapList.add(r);
+				}
+				else
+				{
+					ArrayList<Record> mapList = new ArrayList<Record>();
+					mapList.add(r);
+					ret.put(i, mapList);
+				}
+			}
+			
+		} catch (ServerException e)
+		{
+			throw new ServerException("FAILED\n");
+		}  catch (SQLException | DatabaseException e)
+		{
+			throw new ServerException("FAILED\n");
+		} catch(Exception e)
+		{
+			e.printStackTrace();
+			throw new ServerException("FAILED\n");
+		}
+		
+		return ret;
+	}
+}

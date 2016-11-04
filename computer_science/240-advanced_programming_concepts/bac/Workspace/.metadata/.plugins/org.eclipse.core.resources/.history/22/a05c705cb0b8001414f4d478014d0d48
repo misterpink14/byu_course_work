@@ -1,0 +1,120 @@
+/**
+ * 
+ */
+package Shared.Communication;
+
+import java.util.List;
+
+import Shared.Model.Field;
+
+/**
+ * @author Benjamin Thompson
+ *
+ */
+public class DownloadBatch_Result
+{
+	private Boolean success;
+	private Integer batchID;
+	private Integer projectID;
+	private String imageURL;
+	private Integer ycoord;
+	private Integer height;
+	private Integer records;
+	private Integer fields;
+	private List<Field> fieldList;
+	/**
+	 * @param batchID
+	 * @param projectID
+	 * @param imageURL
+	 * @param ycoord
+	 * @param height
+	 * @param records
+	 * @param fields
+	 * @param fieldList
+	 */
+	public DownloadBatch_Result(Boolean success, Integer batchID, Integer projectID,
+			String imageURL, Integer ycoord, Integer height, Integer records,
+			Integer fields, List<Field> fieldList)
+	{
+		super();
+		this.success = success;
+		this.batchID = batchID;
+		this.projectID = projectID;
+		this.imageURL = imageURL;
+		this.ycoord = ycoord;
+		this.height = height;
+		this.records = records;
+		this.fields = fields;
+		this.fieldList = fieldList;
+	}
+	/**
+	 * @return the batchID
+	 */
+	public Integer getBatchID()
+	{
+		return batchID;
+	}
+	/**
+	 * @return the projectID
+	 */
+	public Integer getProjectID()
+	{
+		return projectID;
+	}
+	/**
+	 * @return the imageURL
+	 */
+	public String getImageURL()
+	{
+		return imageURL;
+	}
+	/**
+	 * @return the ycoord
+	 */
+	public Integer getYcoord()
+	{
+		return ycoord;
+	}
+	/**
+	 * @return the height
+	 */
+	public Integer getHeight()
+	{
+		return height;
+	}
+	/**
+	 * @return the records
+	 */
+	public Integer getRecords()
+	{
+		return records;
+	}
+	/**
+	 * @return the fields
+	 */
+	public Integer getFields()
+	{
+		return fields;
+	}
+	/**
+	 * @return the fieldList
+	 */
+	public List<Field> getFieldList()
+	{
+		return fieldList;
+	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString()
+	{
+		return "DownloadBatch_Result [batchID=" + batchID + ", projectID="
+				+ projectID + ", imageURL=" + imageURL + ", ycoord=" + ycoord
+				+ ", height=" + height + ", records=" + records + ", fields="
+				+ fields + ", fieldList=" + fieldList + "]";
+	}
+	
+	
+	
+}

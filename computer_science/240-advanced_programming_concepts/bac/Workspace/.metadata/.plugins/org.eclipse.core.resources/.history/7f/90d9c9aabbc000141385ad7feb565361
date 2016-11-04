@@ -1,0 +1,218 @@
+//STEP 1. Import required packages
+package Server.DatabaseAccess.Database;
+
+
+import java.io.*;
+import java.sql.*;
+//import java.util.logging.*;
+
+public class Database
+{
+	// build the db information
+	private static final String DATABASE_DIRECTORY = "database";
+	private static final String DATABASE_FILE = "record-indexer.sqlite";
+	private static final String DATABASE_URL = "jdbc:sqlite:" + DATABASE_DIRECTORY +
+												File.separator + DATABASE_FILE;
+//	private static Logger logger;
+	
+	private Connection conn;
+	private Statement stmt;
+	
+	public Database ()
+	{
+		conn = null;
+		stmt = null;
+	}
+	
+	
+	
+	/**
+	 * @return the conn
+	 */
+	public Connection getConn()
+	{
+		return conn;
+	}
+
+	/**
+	 * @return the stmt
+	 */
+	public Statement getStmt()
+	{
+		return stmt;
+	}
+
+
+
+	@SuppressWarnings("serial")
+	public class DatabaseException extends Exception {}
+	
+	
+	public static void init() throws ClassNotFoundException
+	{
+		//STEP 2: Register JDBC driver
+		final String driver = "org.sqlite.JDBC";
+		try
+		{
+			Class.forName(driver);
+			
+		} catch (ClassNotFoundException e)
+		{
+			// TODO Auto-generated catch block
+//			e.printStackTrace();
+			throw e;
+			
+		}
+	}
+	
+	public void beginTransaction()
+	{
+		//STEP 3: Open a connection
+		try
+		{
+			this.conn = DriverManager.getConnection(DATABASE_URL);
+			
+		} catch (SQLException e)
+		{
+			System.out.println(DATABASE_URL);
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try
+		{
+			this.conn.setAutoCommit(false);
+		} catch (SQLException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
+	public void connect()
+	{
+		try
+		{
+			this.conn = DriverManager.getConnection(DATABASE_URL);
+			
+		} catch (SQLException e)
+		{
+			System.out.println(DATABASE_URL);
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
+//	@SuppressWarnings("unused")
+//	public ResultSet executeQuery (String query, String []params) throws SQLException
+//	{
+//		//STEP 4: Execute a query
+//
+//		ResultSet rs = null;
+//		try
+//		{
+//			stmt = conn.createStatement();
+//		} catch (SQLException e)
+//		{
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		try
+//		{
+//			rs = stmt.executeQuery(query);
+//			return rs;
+//		} catch (SQLException e)
+//		{
+//			// TODO Auto-generated catch block
+//			if (rs != null && !rs.isClosed())
+//			{
+//				rs.close();
+//			}
+//			throw e;
+//		}
+//	}
+//	
+//	public void execute (String query, )
+	
+	public void endTransaction(boolean commit)
+	{
+		try
+		{
+			if (commit)
+			{
+				this.conn.commit();
+			}
+			else 
+			{
+				this.conn.rollback();
+			}
+		} catch (SQLException e)
+		{
+			// TODO Auto-generated catch block
+//			e.printStackTrace();
+		}
+		try
+		{
+			if (stmt != null && !stmt.isClosed())
+				stmt.close();
+		} catch (SQLException e)
+		{
+			// TODO Auto-generated catch block
+//			e.printStackTrace();
+		}
+		try
+		{
+			if(conn != null && !conn.isClosed())
+				conn.close();
+		} catch (SQLException e)
+		{
+			// TODO Auto-generated catch block
+//			e.printStackTrace();
+		}
+	}
+	
+	public void close()
+	{
+		try
+		{
+			if (stmt != null && !stmt.isClosed())
+				stmt.close();
+		} catch (SQLException e)
+		{
+			// TODO Auto-generated catch block
+//			e.printStackTrace();
+		}
+		try
+		{
+			if(!conn.isClosed())
+				conn.close();
+		} catch (SQLException e)
+		{
+			// TODO Auto-generated catch block
+//			e.printStackTrace();
+		}
+	}
+	
+	public static void erase() throws SQLException 
+	{
+        Database database = new Database();
+        database.beginTransaction();
+        database.clearTable("user");
+        database.clearTable("project");
+        database.clearTable("image");
+        database.clearTable("field");
+        database.clearTable("record");
+        database.endTransaction(true);
+    }
+	
+	public void clearTable(String table) throws SQLException
+	{
+		String sql = "TRUNCATE my_table";
+		stmt.executeUpdate(sql);
+		sql = "DELETE FROM " + table;
+		stmt.executeUpdate(sql);
+	}
+	
+
+}

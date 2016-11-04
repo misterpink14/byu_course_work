@@ -1,0 +1,7 @@
+/Users/benthompson/Documents/class/byu_cs312/GeneSequenceAlignment/03-genesequencealign/obj/Debug/.NETFramework,Version=v4.0.AssemblyAttribute.cs
+/Users/benthompson/Documents/class/byu_cs312/GeneSequenceAlignment/03-genesequencealign/obj/Debug/GeneticsLab.MainForm.resources
+/Users/benthompson/Documents/class/byu_cs312/GeneSequenceAlignment/03-genesequencealign/obj/Debug/GeneticsLab.Properties.Resources.resources
+/Users/benthompson/Documents/class/byu_cs312/GeneSequenceAlignment/03-genesequencealign/bin/Debug/GeneticsLab.exe.mdb
+/Users/benthompson/Documents/class/byu_cs312/GeneSequenceAlignment/03-genesequencealign/bin/Debug/GeneticsLab.exe
+/Users/benthompson/Documents/class/byu_cs312/GeneSequenceAlignment/03-genesequencealign/obj/Debug/GeneticsLab.exe
+/Users/benthompson/Documents/class/byu_cs312/GeneSequenceAlignment/03-genesequencealign/obj/Debug/GeneticsLab.exe.mdb

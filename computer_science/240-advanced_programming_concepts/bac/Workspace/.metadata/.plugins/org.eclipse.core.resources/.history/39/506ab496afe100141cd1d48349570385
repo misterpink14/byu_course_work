@@ -1,0 +1,71 @@
+package Client.GUI.ImageSupport;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.IOException;
+
+import javax.swing.BoxLayout;
+import javax.swing.JEditorPane;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneLayout;
+import javax.swing.event.HyperlinkEvent;
+import javax.swing.event.HyperlinkListener;
+
+@SuppressWarnings("serial")
+public class FieldHelpView extends JPanel
+{
+	JEditorPane jep;
+	
+	public FieldHelpView()
+	{
+		initUI();
+	}
+	
+	private void initUI()
+	{
+//		createHorizontalScrollBar();
+	}
+	
+	public void insertHTML(String url)
+	{
+		
+		jep = new JEditorPane();
+//		basic.setLayout(new BoxLayout(basic, BoxLayout.Y_AXIS));
+		basic.setLayout(new ScrollPaneLayout());
+
+		jep.setEditable(false);
+		jep.setOpaque(true);
+		try {
+			jep.setContentType("text/html");
+			jep.setPage(url);
+		}catch (IOException e) {
+			jep.setContentType("text/html");
+			jep.setText("<html>Could not load</html>");
+		}
+		jep.setForeground(Color.BLACK);
+		jep.setBackground(Color.WHITE);
+		jep.setEditable(false);
+//		jep.addHyperlinkListener(hyperlinkListener );
+		jep.setSize(this.getSize());
+		JScrollPane basic = new JScrollPane(jep);
+//		jep.addMouseListener(mouseAdapter);
+//		JScrollPane scrollPane = new JScrollPane(this);
+		basic.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+		basic.add(jep);
+		add(basic);
+
+	
+		
+		setBackground(Color.WHITE);
+		revalidate();
+		repaint();
+		
+	}
+	
+}
+
+

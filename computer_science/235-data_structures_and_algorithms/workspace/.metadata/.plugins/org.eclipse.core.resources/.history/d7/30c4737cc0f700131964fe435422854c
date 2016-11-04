@@ -1,0 +1,528 @@
+/*
+ * AVL.cpp
+ *
+ *  Created on: Jun 18, 2014
+ *      Author: misterpink14
+ */
+
+#include "AVL.h"
+
+
+
+
+
+
+
+
+
+void AVL::SingleLeft(Node*& n)
+{
+     Node *h;
+//     if (n->left == NULL)
+//     {
+//    	 h = NULL;
+//     }
+//     else
+    	 cout << "n->l\n";
+    if (n->left == NULL)
+    {
+    	cout << "nnull\n";
+    	h = NULL;
+    }
+    else
+    {
+    	cout << "n->ll\n";
+    	 h = n->left;
+    if(h->right == NULL)
+    {
+    	cout << "null\n";
+    	n->left = NULL;
+    }
+    else
+    {
+    	cout << "r\n";
+    	n->left = h->right;
+    }
+    h->right = n;
+    }
+    cout << "n-\n";
+
+     n = h;
+}
+
+
+void AVL::DoubleLeft(Node*& n)
+{
+     SingleRight(n->left);
+     SingleLeft(n);
+}
+
+
+void AVL::SingleRight(Node*& n)
+{
+     Node *h;
+
+	 h = n->right;
+     n->right = h->left;
+     h->left = n;
+     n = h;
+}
+
+
+void AVL::DoubleRight(Node*& n)
+{
+     SingleLeft(n->right);
+     SingleRight(n);
+}
+
+
+
+int AVL::height(Node* n)//, int & h)
+{
+
+	int left, right;
+
+	 if(n==NULL)
+		 return 0;
+	 left = height(n->left);
+	 right = height(n->right);
+	 if(left > right)
+	 {
+		n->height = left;
+		return left+1;
+	 }
+	 else
+	 {
+		n->height = right;
+		return right+1;
+	 }
+}
+
+
+
+Node * AVL::add(int & data, Node* n)
+{;
+	if(n == NULL)
+	{
+		 n = new Node(data);
+		 return n;
+	}
+	else if(data < n->data)
+	{
+		Node*h =  add( data, n->left);
+		if(h == NULL)
+		{
+			return NULL;
+		}
+		n->left = h;
+		if( height(n->left) - height(n->right) > 1)
+		{
+			if(data < n->left->data)
+			{
+				SingleLeft(n);
+			}
+			else
+			{
+				DoubleLeft(n);
+			}
+		}
+		return n;
+	 }
+	 else if(data > n->data)
+	 {
+		Node*h = add(data, n->right);
+		if (h == NULL)
+		{
+			return NULL;
+		}
+		n->right = h;
+		if( (n->left == NULL && height(n->right) > 2) || ((height(n->right) - height(n->left)) > 1))
+		{
+			if(data > n->right->data)
+			{
+				SingleRight(n);
+			}
+			else
+			{
+				DoubleRight(n);
+			}
+		}
+		return n;
+	}
+	else
+	{
+		return NULL;
+	}
+}
+
+
+
+
+
+bool AVL::find(int data, Node*& Remove, Node*& Previous)
+{
+
+	if( Remove->getData() == data )
+	{
+
+		return true;
+	}
+	if( Remove->left == NULL && Remove->right == NULL )
+	{
+		return false;
+	}
+	if( data > Remove->getData() )
+	{
+		if ( Remove->right == NULL )
+		{
+			return false;
+		}
+		Previous = Remove;
+		Remove = Remove->right;
+		if ( find(data, Remove, Previous) )
+		{
+			return true;
+		}
+		return false;
+	}
+	else if( data < Remove->getData() )
+	{
+		 if ( Remove->left == NULL )
+		 {
+			 return false;
+		 }
+		 Previous = Remove;
+		 Remove = Remove->left;
+		 if ( find(data, Remove, Previous) )
+		 {
+			 return true;
+		 }
+		 return false;
+	}
+	return false;
+}
+
+
+
+void AVL::replace(Node*& Replace, Node*& Previous)
+{
+	if ( Replace->getRightChild() != NULL )
+	{
+		 Previous = Replace;
+		 Replace = Replace->right;
+		 replace(Replace, Previous);
+	}
+	return;
+}
+
+
+
+int AVL::HeightDifference(Node*& n)
+{
+	if (!(n))
+		return 0;
+	int rightHeight = (n->right)?n->right->height:0;
+	int leftHeight = (n->left)?n->left->height:0;
+	return rightHeight - leftHeight;
+}
+
+
+
+Node* AVL::rebal(Node* n)
+{
+
+	 if (n == NULL)
+	 {
+		 cout << "null\n";
+		 return NULL;
+	 }
+
+	 // balance subtrees first
+	 rebal(n->right);
+	 rebal(n->left);
+
+	 // compute height of self node
+	 n->height = height(n);
+
+	 // if height difference is less than 2 then return
+	 if ((HeightDifference(n))<1 && (HeightDifference(n))>-1)
+		 return n;
+
+	 // test which subtree is heavier
+	 if (HeightDifference(n)>0) {
+	  // if right subtree is heavier
+		 Node* newRoot = n->right;
+		 Node* newLeftRight = n->right->left;
+		 Node* newLeft = n;
+		 n = newRoot;
+		 newRoot->left = newLeft;
+		 newRoot->left->right = newLeftRight;
+	 }
+	 else
+	 {
+	  // if left subtree is heavier
+		 Node* newRoot = n->left;
+		 Node* newRightLeft = n->left->right;
+		 Node* newRight = n;
+		 n = newRoot;
+		 newRoot->right = newRight;
+		 newRoot->right->left = newRightLeft;
+	 }
+	 return n;
+}
+
+
+
+bool AVL::Remove(int data)
+{
+	Node* Remove = Root;
+	Node* Previous = NULL;
+	// find Remove and Previous
+	if(!find(data, Remove, Previous))
+	{
+		return false;
+	}
+
+
+	bool prev = true;
+
+	if ( Previous == NULL || Previous->data == Remove->data)
+	{
+		prev = false;
+	}
+
+	if( Remove->getLeftChild() == NULL && Remove->getRightChild() == NULL)
+	{	// Leaf node case
+
+		if ( prev && Previous->getLeftChild() != NULL && Previous->getLeftChild()->data == data)
+		{
+			cout << "1\n";
+			Previous->left = NULL;
+			delete Remove;
+		//	Previous = rebal(Previous);
+//			return true;
+		}
+		else
+		{	// Previous Left child is NULL
+
+			if (prev)
+			{	// there is a previous value
+				Previous->right = NULL;
+			}
+			else
+			{
+				Root = NULL;
+			}
+			cout << "2\n";
+			delete Remove;
+		//	Previous = rebal(Previous);
+//			return true;
+		}
+
+		return true;
+	}
+	if ( Remove->left == NULL )
+	{	// Can't go left
+		if (prev)
+		{	// there is a previous value
+
+			if(Previous->getRightChild() != NULL && Previous->right->data == data)
+			{	// if data = Previous right
+				Previous->right = Remove->getRightChild();
+			}
+			else
+			{
+				Previous->left = Remove->getRightChild();
+			}
+		}
+		else
+		{
+			Root = Remove->getRightChild();
+		}
+		cout << "3\n";
+		Remove->right = NULL;
+		delete Remove;
+	//	Previous = rebal(Previous);
+		return true;
+	}
+
+
+	// Find a replacement
+	bool rprev;
+	Node* RPrevious = NULL;
+	Node* Replace = NULL;
+
+	// Get Replace
+	Replace = Remove->getLeftChild();
+	replace(Replace, RPrevious);
+//	cout << "4\n";
+	if(RPrevious == NULL || RPrevious->data == Replace->data)
+	{
+		rprev = false;
+	}
+	else
+	{
+		rprev = true;
+	}
+
+	if (rprev)
+	{	// if you went left then all the way right
+
+		if(Replace->getLeftChild() != NULL)
+		{
+			RPrevious->right = Replace->left;
+		}
+		else
+		{
+			RPrevious->right = NULL;
+		}
+		Remove->data = Replace->data;
+		delete Replace;
+		//Remove = rebal(Remove);
+		return true;
+	}
+	else
+	{	// you went left once
+		if(Replace->getLeftChild() == NULL)
+		{	// if there is no left child
+			Remove->left = NULL;
+			Remove->data = Replace->data;
+			delete Replace;
+		}
+		else
+		{
+			Remove->data = Replace->data;
+			Remove->left = Replace->left;
+			delete Replace;
+		}
+		//Remove = rebal(Remove);
+		return true;
+	}
+}
+
+
+
+bool AVL::Remove(Node* n, int data)
+{
+	Node* Replace;
+	Node* RPrevious;
+	if (data == n->data)
+	{
+		if(n->left == NULL && n->right == NULL)
+		{
+			delete n;
+			Root = NULL;
+		}
+		else if(n->left != NULL)
+		{
+			Replace = n->left;
+			replace(Replace, RPrevious);
+			if(RPrevious == NULL)
+			{	// moved left once
+				n->data = Replace->data;
+				n->left = NULL;
+				if(Replace->left != NULL)
+				{
+					n->left = Replace->left;
+				}
+			}
+			else
+			{	// left then right
+				n->data = Replace->data;
+				RPrevious->right = NULL;
+				if(Replace->left != NULL)
+				{
+					RPrevious->right = Replace->left;
+				}
+			}
+			delete Replace;
+		}
+		else
+		{
+			Replace = n;
+			replace(Replace, RPrevious);
+		}
+		return true;
+	}
+	if(n->left != NULL)
+	{
+		Remove(n->left, data);
+	}
+}
+
+
+
+void AVL::Clear()
+{
+	if (Root == NULL)
+	{
+		return;
+	}
+	else
+	{
+		while(Root != NULL)
+		{
+			Remove(Root->data);
+		}
+
+
+		Root = NULL;
+	}
+}
+
+
+
+AVL::AVL()
+{
+	Root = NULL;
+}
+
+
+AVL::~AVL()
+{
+	Clear();
+}
+
+
+
+
+Node * AVL::getRootNode()
+{
+	return this->Root;
+}
+
+
+
+bool AVL::add(int data)
+{
+	if(Root == NULL)
+	{
+		Root = new Node(data, 0, NULL, NULL);
+		return true;
+	}
+	else
+	{
+		Node*n = add(data, Root);
+		if( n == NULL )
+			return false;
+		Root = n;
+		return true;
+	}
+}
+
+
+
+
+bool AVL::remove(int data)
+{
+	if(Root == NULL)
+	{
+		return false;
+	}
+	else
+	{
+		bool ret = Remove(data);
+
+		return ret;
+	}
+}

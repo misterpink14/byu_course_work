@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery and json</title>
+<!-- include jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+</head>
+<body>
+<h3>Search for a word</h3>
+<p>Try
+	<button id='school' type='button'>School</button> or 
+	<button id='work' type='button'>Work</button></p>
+
+
+<!-- <input type="text"></input> -->
+<input id="value" type="text"></input>
+<button  type="button">Search</button>
+
+<p class="hide">Keywords: <span id="keywords"></span></p>
+<p class="hide"><a href=""><img id="thumb" ></a></p>
+
+<script type="text/javascript">
+	
+	var json_file = 'smartSign.json'
+	var dict
+
+
+	$(".hide").hide()
+
+	$(document).ready(function(){
+		$.getJSON(
+			json_file,
+			function(result){
+				dict = result
+				console.log(dict)
+	        // $.each(result, function(i, field){
+	        //     $("div").append(field + " ")
+	        // }) 
+	    })
+    })
+
+    $('#school').click(function() {
+    	$('#value').val("school")
+    })
+
+    $('#work').click(function() {
+    	$('#value').val("work")
+    })
+
+	$('button').click(function(event){
+		console.log(event.target.id)
+		var value = $('#value').val().trim().toLowerCase()
+		var i
+		dict.forEach(function(element){
+			console.log(element.keywords)
+			i = jQuery.inArray(value, element.keywords)
+			if (i !== -1) {
+				$("#keywords").html(element.keywords.join(", "))
+				console.log(element.thumbnail)
+				$("#thumb").attr("src", element.thumbnail)
+				$("p").show()
+				$("a").attr("href", "https://www.youtube.com/watch?v=" + element.id)
+				return
+			}
+		})
+	})
+
+
+</script>
+
+
+</body>
+</html>

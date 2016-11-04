@@ -1,0 +1,54 @@
+package Client.GUI.ImageSupport;
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.io.IOException;
+
+import javax.swing.BoxLayout;
+import javax.swing.JEditorPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+
+import Client.Controller;
+
+@SuppressWarnings("serial")
+public class FieldHelpView extends JPanel
+{
+	JEditorPane jep;
+	
+	public FieldHelpView()
+	{
+		initUI();
+	}
+	
+	private void initUI()
+	{
+		this.setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
+		this.setPreferredSize(Controller.client.getWindow().bottomLeft.table.getPreferredSize());
+	}
+	
+	public void insertHTML(String url)
+	{
+		JEditorPane jep = new JEditorPane();
+
+		jep.setEditable(false);
+		jep.setOpaque(true);
+		try {
+			jep.setContentType("text/html");
+			jep.setPage(url);
+		}catch (IOException e) {
+			jep.setContentType("text/html");
+			jep.setText("<html>Could not load</html>");
+		}
+		jep.setForeground(Color.BLACK);
+		jep.setBackground(Color.WHITE);
+		
+		jep.setPreferredSize(new Dimension(800, 800));
+		
+		JScrollPane basic = new JScrollPane(jep, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		basic.setPreferredSize(this.getPreferredSize());
+		add(basic);
+	}
+}
+
+

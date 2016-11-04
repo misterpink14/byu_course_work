@@ -1,0 +1,13 @@
+package Client.GUI.Entry;
+
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+
+@SuppressWarnings("serial")
+public class TableEntryView extends JScrollPane
+{
+	public TableEntryView()
+	{
+		super(this, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+	}
+}

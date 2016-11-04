@@ -1,0 +1,25 @@
+        Correct output:
+Error
+Error
+Error
+ExtInt.NumVal(-1)
+ExtInt.NumVal(1)
+ExtInt.NumVal(4)
+Error
+Error
+
+        Your output:
+Error
+Error
+Error
+ExtInt.NumVal(-1)
+ExtInt.NumVal(1)
+ExtInt.NumVal(4)
+StackOverflowError()
+Error
+
+        Failed tests:
+8. 1 point. calc (/ 1 0)
+
+        Grade:
+7 out of 8

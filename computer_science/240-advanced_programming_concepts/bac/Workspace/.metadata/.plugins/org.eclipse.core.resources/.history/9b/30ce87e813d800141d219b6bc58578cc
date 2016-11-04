@@ -1,0 +1,58 @@
+package Client;
+
+import com.sun.org.apache.bcel.internal.generic.GETFIELD;
+
+import Client.Communicator.ClientCommunicator;
+import Shared.Communication.Param.DownloadBatch_Param;
+import Shared.Communication.Param.GetProjects_Param;
+import Shared.Communication.Param.GetSampleImage_Param;
+import Shared.Communication.Param.SubmitBatch_Param;
+import Shared.Communication.Param.ValidateUser_Param;
+
+public class Controller
+{
+	ClientCommunicator comm = new ClientCommunicator();
+	ValidateUser_Result user;
+	
+	public Controller ()
+	{
+		comm.urlBase = "http://localhost:8969/";
+	}
+	
+	public static void validateUser(ValidateUser_Param p)
+	{
+		
+	}
+	
+	public static void getProjects(GetProjects_Param p)
+	{
+		
+	}
+	
+	public static void getSampleImage(GetSampleImage_Param p)
+	{
+		
+	}
+	
+	public static void downloadBatch(DownloadBatch_Param p)
+	{
+		
+	}
+	
+	public static void submitBatch(SubmitBatch_Param p)
+	{
+		
+	}
+	
+	public static void getFields(GETFIELD p)
+	{
+		
+	}
+	
+	public static void fileDownloader(String p)
+	{
+		
+	}
+	
+	
+}

@@ -1,0 +1,28 @@
+
+**** Build of configuration Debug for project L05-Stop_Light ****
+
+"C:\\ti\\ccsv5\\utils\\bin\\gmake" -k all 
+'Building file: ../main.asm'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv5/tools/compiler/msp430_4.2.1/bin/cl430" -vmsp --define=__MSP430G2553__ --printf_support=minimal --preproc_with_compile --preproc_dependency="main.pp"  "../main.asm"
+"../main.asm", line 6: fatal error: cannot open source file "msp430.h"
+Compilation terminated.
+"../main.asm", WARNING! at line 6: [E1000] error while processing C code in
+                                           .cdecls directive
+1 Assembly Error, 1 Assembly Warning
+	            .cdecls C,LIST,"msp430.h"       ; Include device header file
+
+"../main.asm", ERROR!   at EOF: [E0300] The following symbols are undefined:
+  P1DIR
+
+  WDTCTL
+>> Compilation failure
+  WDTHOLD
+  P1OUT
+  WDTPW
+
+Errors in Source - Assembler Aborted
+gmake: *** [main.obj] Error 1
+gmake: Target `all' not remade because of errors.
+
+**** Build Finished ****

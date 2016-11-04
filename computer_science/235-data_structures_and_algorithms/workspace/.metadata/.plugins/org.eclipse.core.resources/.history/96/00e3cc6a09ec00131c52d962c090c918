@@ -1,0 +1,83 @@
+/*
+ * main.cpp
+ *
+ *  Created on: Jun 4, 2014
+ *      Author: Benjamin Thompson
+ *
+ *  Midterm CS 235
+ */
+
+
+#include <iostream>
+
+// Data Types
+#include <string>
+
+
+void menu()
+{
+	std::cout << "\t1. Create Roster" << std::endl
+			<< "\t2. View Roster" << std::endl
+			<< "\t3. Shuffle Roster" << std::endl
+			<< "\t4. Create Teams" << std::endl
+			<< "\t5. View Teams" << std::endl
+			<< "\t6. User Play" << std::endl
+			<< "\t7. Auto Play" << std::endl
+			<< "\t8. Quit" << std::endl;
+}
+
+
+int main()
+{
+	int str, spd;
+	string name;
+
+	while(true)
+	{
+		menu();
+		int input;
+		std::cin >> input;
+		if(std::cin.fail())
+		{
+			//invalid input
+		}
+		else if(input == 1)	// Create Rooster
+		{
+
+		}
+		else if(input == 2)	// View
+		{
+
+		}
+		else if(input == 3)	// Shuffle
+		{
+
+		}
+		else if(input == 4)	// Create Teams
+		{
+
+		}
+		else if(input == 5)	// View
+		{
+
+		}
+		else if(input == 6)	// User Play
+		{
+
+		}
+		else if(input == 7)	// Auto Play
+		{
+
+		}
+		else if(input == 8)	// Quit
+		{
+			break;
+		}
+		else
+		{
+			// invalid input
+		}
+
+	}
+
+}

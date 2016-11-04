@@ -1,0 +1,197 @@
+package Server.Facade;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import Server.ServerException;
+import Server.DatabaseAccess.ImageDBAccess;
+import Server.DatabaseAccess.ProjectDBAccess;
+import Server.DatabaseAccess.UserDBAccess;
+import Server.DatabaseAccess.Database.Database;
+import Server.DatabaseAccess.Database.DatabaseException;
+import Shared.Model.Image;
+import Shared.Model.Project;
+import Shared.Model.User;
+
+public class ServerFacade
+{
+	
+	public static void initialize() throws ServerException 
+	{
+		try
+		{
+			Database.init();
+		
+		} catch (ClassNotFoundException e) {
+			throw new ServerException("FAILED\n");
+		}
+	}
+	
+	public void validateUser(User u) throws ServerException
+	{
+		UserDBAccess udb = new UserDBAccess();
+		
+		try
+		{
+			udb.GetUser(u);
+		} catch (SQLException e)
+		{
+			throw new ServerException("FAILED\n");
+		} catch (DatabaseException e)
+		{
+			throw new ServerException("FALSE\n");
+		}
+		
+	}
+	
+
+	
+	public void getProjects(User u) throws ServerException
+	{
+		UserDBAccess udb = new UserDBAccess();
+		
+		try
+		{
+			udb.GetUser(u);
+		} catch (SQLException e)
+		{
+			throw new ServerException("FAILED\n");
+		} catch (DatabaseException e)
+		{
+			throw new ServerException("FAILED\n");
+		}
+		
+		
+		ProjectDBAccess pdb = new ProjectDBAccess();
+		try
+		{
+			pdb.GetAllProjects();
+		} catch (SQLException | DatabaseException e)
+		{
+			throw new ServerException("FAILED\n");
+		}
+	}
+	
+	public Image getSampleImage(User u, Integer projectId) throws ServerException
+	{
+		UserDBAccess udb = new UserDBAccess();
+		
+		try
+		{
+			udb.GetUser(u);
+		} catch (SQLException | DatabaseException e)
+		{
+			throw new ServerException("FAILED\n");
+		}
+		
+		ImageDBAccess idb = new ImageDBAccess();
+		List<Image> projectImages = null;
+		try
+		{
+			projectImages = idb.GetProjectImages(projectId);
+		} catch (SQLException | DatabaseException e)
+		{
+			throw new ServerException("FAILED\n");
+		}
+		
+		return (projectImages.size() > 0) ? projectImages.get(0) : throw new ServerException("FAILED\n");
+		
+	}
+	
+	public Image downloadbatch(User u, Integer projectID) throws ServerException
+	{
+		UserDBAccess udb = new UserDBAccess();
+		
+		try
+		{
+			udb.GetUser(u);
+		} catch (SQLException | DatabaseException e)
+		{
+			throw new ServerException("FAILED\n");
+		}
+		
+		ImageDBAccess idb = new ImageDBAccess();
+		
+		try
+		{
+			List<Image> userImages = idb.GetUserImages(u.getId());
+
+			if (userImages.size() > 0)
+			{
+				throw new ServerException("FAILED\n");
+			}
+		} catch (SQLException | DatabaseException e)
+		{
+			throw new ServerException("FAILED\n");
+		}
+		
+		List<Image> projectImages = null;
+		try
+		{
+			projectImages = idb.GetProjectImages(projectID);
+			
+			
+		} catch (SQLException | DatabaseException e)
+		{
+			throw new ServerException("FAILED\n");
+		}
+		
+		if (projectImages == null)
+		{
+			throw new ServerException("FAILED\n");
+		}
+		else
+		{
+			Image i = null;
+			for (int index = 0; index < projectImages.size(); index ++)
+			{
+				i = projectImages.get(index);
+				if (i.getUserID() == -1)
+				{
+					break;
+				}
+				else
+				{
+					i = null;
+				}
+			}
+			
+			if (i == null)
+			{
+				throw new ServerException("FAILED\n");
+			}
+			else
+			{
+				return i;
+			}
+		}
+		
+	}
+	
+	public void submitBatch(User u )
+	{
+		UserDBAccess udb = new UserDBAccess();
+		ImageDBAccess ibd = new ImageDBAccess();
+		
+		try
+		{
+			udb.GetUser(u);
+		} catch (SQLException e)
+		{
+			e.printStackTrace();
+			throw e;
+		}
+		
+	}
+	
+	public void getFields()
+	{
+		
+	}
+	
+	public void search()
+	{
+		
+	}
+	
+}

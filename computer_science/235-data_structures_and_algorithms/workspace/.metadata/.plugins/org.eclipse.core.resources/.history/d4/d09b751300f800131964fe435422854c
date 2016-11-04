@@ -1,0 +1,100 @@
+/*
+ * AVL.h
+ *
+ *  Created on: Jun 17, 2014
+ *      Author: misterpink14
+ */
+
+#ifndef AVL_H_
+#define AVL_H_
+
+#include "AVLInterface.h"
+#include "Node.h"
+#include <iostream>
+#include <math.h>
+
+class AVL : public AVLInterface {
+
+private:
+	Node* Root;
+
+	void rreplace(Node*& Replace, Node*& Previous);
+
+	void rebalance(Node *N);
+	void SingleLeft(Node*& n);
+	void DoubleLeft(Node*& n);
+	void SingleRight(Node*& n);
+	void DoubleRight(Node*& n);
+	Node* rebal(Node* n);
+	void rebal(int& data, Node* n);
+	int HeightDifference(Node*& n);
+
+	Node* bal(Node*& n);
+	int height(Node* n);
+	int Height(Node*n);
+	Node* deadd(int & data, Node* Current);
+	Node* add(int & data, Node* Current);
+	bool find(int data, Node*& Remove, Node*& Previous, Node*& PPrevious);
+	void replace(Node*& Replace, Node*& Previous);
+	bool Remove(int data);
+	Node* Remove(Node* n,  int data);
+	void Clear();
+
+
+
+public:
+	AVL();
+	~AVL();
+
+	//Please note that the class that implements this interface must be made
+	//of objects which implement the NodeInterface
+
+	/*
+	 * Returns the root node for this tree
+	 *
+	 * @return the root node for this tree.
+	 */
+	Node * getRootNode();
+
+	/*
+	 * Attempts to add the given int to the AVL tree
+	 * Rebalances the tree if data is successfully added
+	 *
+	 * @return true if added
+	 * @return false if unsuccessful (i.e. the int is already in tree)
+	 */
+	bool add(int data);
+
+	/*
+	 * Attempts to remove the given int from the AVL tree
+	 * Rebalances the tree if data is successfully removed
+	 *
+	 * @return true if successfully removed
+	 * @return false if remove is unsuccessful(i.e. the int is not in the tree)
+	 */
+	bool remove(int data);
+
+	/*
+	 * ROTATIONS:
+	 * 			LEFT
+	 *
+	 * 				IDENTIFY NODES TO ROTATE
+	 *
+	 * 				ROT.RIGHT=CUR.LEFT
+	 * 				CUR.LEFT=ROT
+	 * 				CUR=ROT
+	 *
+	 *
+	 *
+	 *
+	 * 			RIGHT
+	 *
+	 *
+	 *
+	 */
+};
+
+
+
+
+#endif /* AVL_H_ */

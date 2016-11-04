@@ -1,0 +1,69 @@
+
+**** Build of configuration Debug for project Pong ****
+
+"C:\\ti\\ccsv5\\utils\\bin\\gmake" -k all 
+'Building file: ../RBX430-1.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv5/tools/compiler/msp430_4.2.1/bin/cl430" -vmspx --abi=coffabi --include_path="C:/ti/ccsv5/ccs_base/msp430/include" --include_path="C:/ti/ccsv5/tools/compiler/msp430_4.2.1/include" --advice:power=all -g --define=__MSP430F2274__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="RBX430-1.pp"  "../RBX430-1.c"
+"../RBX430-1.c", line 140: remark #1540-D: (ULP 11.2) Assignment of higher bits (constants) to "P4OUT" within a loop. Recommend using lower 4 bits to allow use of constant generators
+"../RBX430-1.c", line 141: remark #1540-D: (ULP 11.2) Assignment of higher bits (constants) to "P4OUT" within a loop. Recommend using lower 4 bits to allow use of constant generators
+"../RBX430-1.c", line 141: remark #1540-D: (ULP 11.2) Assignment of higher bits (constants) to "P4OUT" within a loop. Recommend using lower 4 bits to allow use of constant generators
+'Finished building: ../RBX430-1.c'
+' '
+'Building file: ../RBX430_lcd.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv5/tools/compiler/msp430_4.2.1/bin/cl430" -vmspx --abi=coffabi --include_path="C:/ti/ccsv5/ccs_base/msp430/include" --include_path="C:/ti/ccsv5/tools/compiler/msp430_4.2.1/include" --advice:power=all -g --define=__MSP430F2274__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="RBX430_lcd.pp"  "../RBX430_lcd.c"
+"../RBX430_lcd.c", line 497: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../RBX430_lcd.c", line 499: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../RBX430_lcd.c", line 519: remark #2553-D: (ULP 14.1) Array index (involving "x") of type "int16". Recommend using "int16"
+"../RBX430_lcd.c", line 497: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../RBX430_lcd.c", line 499: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../RBX430_lcd.c", line 497: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../RBX430_lcd.c", line 499: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../RBX430_lcd.c", line 571: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../RBX430_lcd.c", line 920: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../RBX430_lcd.c", line 925: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../RBX430_lcd.c", line 927: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../RBX430_lcd.c", line 1034: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../RBX430_lcd.c", line 1064: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../RBX430_lcd.c", line 1069: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+'Finished building: ../RBX430_lcd.c'
+' '
+'Building file: ../pong.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv5/tools/compiler/msp430_4.2.1/bin/cl430" -vmspx --abi=coffabi --include_path="C:/ti/ccsv5/ccs_base/msp430/include" --include_path="C:/ti/ccsv5/tools/compiler/msp430_4.2.1/include" --advice:power=all -g --define=__MSP430F2274__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="pong.pp"  "../pong.c"
+"../pong.c", line 88: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../pong.c", line 108: remark #1530-D: (ULP 5.1) Detected modulo operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../pong.c", line 109: remark #1530-D: (ULP 5.1) Detected modulo operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../pong.c", line 198: remark #1538-D: (ULP 10.1) ISR ISR_trap calls function ERROR2. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+'Finished building: ../pong.c'
+' '
+'Building file: ../pongEvents.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv5/tools/compiler/msp430_4.2.1/bin/cl430" -vmspx --abi=coffabi --include_path="C:/ti/ccsv5/ccs_base/msp430/include" --include_path="C:/ti/ccsv5/tools/compiler/msp430_4.2.1/include" --advice:power=all -g --define=__MSP430F2274__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="pongEvents.pp"  "../pongEvents.c"
+"../pongEvents.c", line 28: remark #1546-D: (ULP 15.1) Detected consecutive bitfield assigns. Recommend using bit mask instead
+"../pongEvents.c", line 29: remark #1546-D: (ULP 15.1) Detected consecutive bitfield assigns. Recommend using bit mask instead
+"../pongEvents.c", line 30: remark #1546-D: (ULP 15.1) Detected consecutive bitfield assigns. Recommend using bit mask instead
+"../pongEvents.c", line 41: remark #1546-D: (ULP 15.1) Detected consecutive bitfield assigns. Recommend using bit mask instead
+"../pongEvents.c", line 42: remark #1546-D: (ULP 15.1) Detected consecutive bitfield assigns. Recommend using bit mask instead
+"../pongEvents.c", line 43: remark #1546-D: (ULP 15.1) Detected consecutive bitfield assigns. Recommend using bit mask instead
+'Finished building: ../pongEvents.c'
+' '
+'Building file: ../pongImages.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv5/tools/compiler/msp430_4.2.1/bin/cl430" -vmspx --abi=coffabi --include_path="C:/ti/ccsv5/ccs_base/msp430/include" --include_path="C:/ti/ccsv5/tools/compiler/msp430_4.2.1/include" --advice:power=all -g --define=__MSP430F2274__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="pongImages.pp"  "../pongImages.c"
+'Finished building: ../pongImages.c'
+' '
+'Building file: ../pongLib.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv5/tools/compiler/msp430_4.2.1/bin/cl430" -vmspx --abi=coffabi --include_path="C:/ti/ccsv5/ccs_base/msp430/include" --include_path="C:/ti/ccsv5/tools/compiler/msp430_4.2.1/include" --advice:power=all -g --define=__MSP430F2274__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="pongLib.pp"  "../pongLib.c"
+'Finished building: ../pongLib.c'
+' '
+'Building target: Pong.out'
+'Invoking: MSP430 Linker'
+"C:/ti/ccsv5/tools/compiler/msp430_4.2.1/bin/cl430" -vmspx --abi=coffabi --advice:power=all -g --define=__MSP430F2274__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal -z -m"Pong.map" --heap_size=80 --stack_size=80 -i"C:/ti/ccsv5/ccs_base/msp430/include" -i"C:/ti/ccsv5/tools/compiler/msp430_4.2.1/lib" -i"C:/ti/ccsv5/tools/compiler/msp430_4.2.1/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="Pong_linkInfo.xml" --rom_model -o "Pong.out"  "./pongLib.obj" "./pongImages.obj" "./pongEvents.obj" "./pong.obj" "./RBX430_lcd.obj" "./RBX430-1.obj" "../lnk_msp430f2274.cmd" -l"libc.a" 
+<Linking>
+'Finished building target: Pong.out'
+' '
+
+**** Build Finished ****

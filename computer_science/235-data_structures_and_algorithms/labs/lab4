@@ -1,0 +1,28 @@
+Read in a student file, sort students, print out compares
+
+OUTLINE
+	Load students into a vector
+		copy 1/4 to v2
+		sort v2
+		print # of compares
+		then repeat with half (use origional order)
+		then all students
+		each time print the caompare
+		Do with 4 different sorts
+		Every time you call < operator increment compare counter // make it static int compareCount <--makes the variable usable for all students
+													// also delare outside the student class int Student::compareCount;
+	Measure searches
+		load students to vector
+		Load query to vector
+			copy 1/2 to v2
+			copy 1/2 q to q2
+			foreach()
+				find()
+					Student(Q^(ID),"","","") // find this in the student vector
+						linear search
+						find()
+						set.find()
+				compareCount/#of queries = int
+				
+	Write a Report
+		

@@ -1,0 +1,3 @@
+[submodule "computer_science/340-software_design_and_testing/settlers_of_catan"]
+	path = computer_science/340-software_design_and_testing/settlers_of_catan
+	url = git@github.com:misterpink14/settlers_of_catan.git
