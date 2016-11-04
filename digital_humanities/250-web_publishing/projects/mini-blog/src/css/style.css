@@ -1,0 +1,175 @@
+/* BASE Styling */
+body {
+	font-size: 1.5em;
+	padding: 0;
+	margin: 0;
+	color: #487899;
+	background-color: #487899;
+}
+
+a {
+	color: #2287CC;
+}
+
+a:link {
+	color: #2287CC;
+}
+
+a:hover {
+	text-decoration: underline;
+	color: #FF6D51;
+}
+
+a:active {
+	color: #FF6D51;
+}
+
+a:visited {
+	color: #FF6D51;
+}
+
+h1, h4 {
+	color: #fff;
+	padding: .5em;
+}
+
+p {
+	background-color: #fff;
+	padding: .5em;
+	border-radius: .5em;
+}
+
+.title {
+	color:#CC2422;
+	background-color: #FF6D51;
+	padding: 0;
+}
+
+img {
+	width: 10em;
+	padding: .5em;
+}
+
+
+/* Navigaton */
+nav {
+	text-align: center;
+	padding: 0;
+	background-color: #CC2422;
+}
+
+nav ul {
+	list-style-type: none;
+	padding: .5em;
+}
+
+nav ul li {
+	padding: .2em;
+}
+
+nav ul a {
+	text-decoration: none;
+	color: #fff;
+	font-size: 2em;
+	padding-right: .1em;
+	padding-left: .1em;
+	border-radius: .1em;
+	/*border: 2px solid;*/
+}
+
+nav ul a:link {
+	text-decoration: none;
+	color: #fff;
+	padding-right: .1em;
+	padding-left: .1em;
+	border-radius: .1em;
+	/*border: 2px solid;*/
+}
+
+nav ul a:hover {
+	text-decoration: none;
+	color: #FF6D51;
+	font-weight: 400;
+}
+
+nav ul a:visited {
+	text-decoration: none;
+	color: #fff;
+}
+
+nav ul a:active {
+	text-decoration: none;
+	color: #FF6D51;
+}
+
+
+
+/* Padding for div to show blue background around paragraphs */
+.padding {
+	padding-left: .5em;
+	padding-right: .5em;
+}
+
+
+
+/* Desktop: */
+@media (min-width: 768px) {
+    
+    /* New Defaults */
+    body {
+    	font-size: 1.5em;
+    }
+
+
+    /* Navigation */
+    nav {
+    	padding-bottom: .8em;
+    }
+
+    nav ul li {
+    	display: inline;
+    	float: right;
+    }
+
+	nav ul a {
+		text-decoration: none;
+		color: #fff;
+		font-size: 1em;
+		border: none;
+		/*padding: 0;*/
+	}
+
+	nav ul a:link {
+		text-decoration: none;
+		color: #fff;
+		font-size: 1em;
+		border: none;
+		/*padding: 0;*/
+	}
+
+	nav ul a:hover {
+		text-decoration: underline;
+		color: #FF6D51;
+	}
+
+	.title {
+		float: left;
+		background-color: inherit;
+		color: #fff;
+		font-size: 2em;
+	}
+
+	img {
+		float: left;
+		display: inline;
+		height: auto;
+		width: 10em;
+		padding: 1em;
+	}
+
+	.min-height {
+		min-height: 10em;
+	}
+
+
+}

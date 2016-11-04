@@ -1,0 +1,92 @@
+body {
+	margin: 0px;
+	text-align: center;
+}
+
+
+/* Navigation */
+header {
+	background-color: #404040;
+    vertical-align: middle;
+    text-align: left;
+}
+
+header ul {
+	list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    color: white;
+}
+
+header li {
+    display: inline;
+    font-size: 20px;
+    vertical-align: middle;
+    line-height: 60px;
+}
+
+header a:visited, a:active, a:link {
+	text-decoration: none;
+	color: white;
+    vertical-align: middle;
+}
+
+header a:hover {
+	color: rgb(255, 215, 0);
+	font-weight: bold;
+}
+
+
+header li a {
+	text-align: center;
+	padding: 10px;
+    vertical-align: middle;
+}
+
+img.pokemon-title {
+	padding-top: 10px;
+	height: 40px;
+	width: auto;
+}
+
+
+/* Pokemon List */
+ul.pokemon-list {
+	list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    color: white;
+}
+
+ul.pokemon-list li {
+    display: inline;
+    font-size: 20px;
+    vertical-align: middle;
+    line-height: 60px;
+}
+
+img.pokemon {
+	width: 144px;
+	height: auto;
+}
+
+.border-hover:hover {
+	width: 148px;
+	height: auto;
+	border:5px dashed #021a40;
+}
+
+.sub-text {
+	font-style: italic;
+	font-size: 10pt;
+}
+
+
+/* Individual pokemon pages */
+.img-300 {
+	height: 300px;
+	width: auto;
+}
+

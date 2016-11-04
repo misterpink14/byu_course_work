@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Design Patterns</title>
+
+	<link rel="stylesheet" href="src/css/normalize.css">
+	<link rel="stylesheet" href="src/css/style.css">
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width" />
+
+</head>
+<body>
+
+	<nav>
+		<ul>
+			<li>
+				<a href="structural.html">Structural</a>
+			</li>
+			<li>
+				<a href="creational.html">Creational</a>
+			</li>
+			<li>
+				<a href="behavioral.html">Behavioral</a>
+			</li>
+			<li>
+				<a href="index.html">Home</a>
+			</li>
+		</ul>
+	</nav>
+
+	<section class="main-content">
+	
+		<h1>Behavioral Patterns</h1>
+
+
+		<h2>Command</h2>
+		<h3>The Problem:</h3>
+		<p>
+			Need to issue requests to objects without knowing anything about the operation being requested or the receiver of the request.
+		</p>
+		<h3>Discussion</h3>
+		<p>
+			The State pattern is a solution to the problem of how to make behavior depend on state.<br /><br />Define a "context" class to present a single interface to the outside world.<br />Define a State abstract base class.<br />Represent the different "states" of the state machine as derived classes of the State base class.<br />Define state-specific behavior in the appropriate State derived classes.<br />Maintain a pointer to the current "state" in the "context" class.<br />To change the state of the state machine, change the current "state" pointer.<br />The State pattern does not specify where the state transitions will be defined. The choices are two: the "context" object, or each individual State derived class. The advantage of the latter option is ease of adding new State derived classes. The disadvantage is each State derived class has knowledge of (coupling to) its siblings, which introduces dependencies between subclasses.<br /><br />A table-driven approach to designing finite state machines does a good job of specifying state transitions, but it is difficult to add actions to accompany the state transitions. The pattern-based approach uses code (instead of data structures) to specify state transitions, but it does a good job of accomodating state transition actions.
+		</p>
+	
+		<h2>State</h2>
+		<h3>The Problem:</h3>
+		<p>
+			A monolithic object's behavior is a function of its state, and it must change its behavior at run-time depending on that state. Or, an application is characterixed by large and numerous case statements that vector flow of control based on the state of the application.
+		</p>
+		<h3>Discussion</h3>
+		<p>
+			The State pattern is a solution to the problem of how to make behavior depend on state.<br /><br />Define a "context" class to present a single interface to the outside world.<br />Define a State abstract base class.<br />Represent the different "states" of the state machine as derived classes of the State base class.<br />Define state-specific behavior in the appropriate State derived classes.<br />Maintain a pointer to the current "state" in the "context" class.<br />To change the state of the state machine, change the current "state" pointer.<br />The State pattern does not specify where the state transitions will be defined. The choices are two: the "context" object, or each individual State derived class. The advantage of the latter option is ease of adding new State derived classes. The disadvantage is each State derived class has knowledge of (coupling to) its siblings, which introduces dependencies between subclasses.<br /><br />A table-driven approach to designing finite state machines does a good job of specifying state transitions, but it is difficult to add actions to accompany the state transitions. The pattern-based approach uses code (instead of data structures) to specify state transitions, but it does a good job of accomodating state transition actions.
+		</p>
+	
+		<h2>Strategy</h2>
+		<h3>The Problem:</h3>
+		<p>
+			An aspect of a class needs to be customized by the object that is calling it.
+		</p>
+		<h3>Discussion</h3>
+		<p>
+			A Strategy defines a set of algorithms that can be used interchangeably. Modes of transportation to an airport is an example of a Strategy. Several options exist such as driving one's own car, taking a taxi, an airport shuttle, a city bus, or a limousine service. For some airports, subways and helicopters are also available as a mode of transportation to the airport. Any of these modes of transportation will get a traveler to the airport, and they can be used interchangeably. The traveler must chose the Strategy based on tradeoffs between cost, convenience, and time.
+		</p>
+	
+		<h2>Template Method</h2>
+		<h3>The Problem:</h3>
+		<p>
+			Two different components have significant similarities, but demonstrate no reuse of common interface or implementation. If a change common to both components becomes necessary, duplicate effort must be expended.
+		</p>
+		<h3>Discussion</h3>
+		<p>
+			The component designer decides which steps of an algorithm are invariant (or standard), and which are variant (or customizable). The invariant steps are implemented in an abstract base class, while the variant steps are either given a default implementation, or no implementation at all. The variant steps represent "hooks", or "placeholders", that can, or must, be supplied by the component's client in a concrete derived class.<br/><br/>The component designer mandates the required steps of an algorithm, and the ordering of the steps, but allows the component client to extend or replace some number of these steps.<br/><br/>Template Method is used prominently in frameworks. Each framework implements the invariant pieces of a domain's architecture, and defines "placeholders" for all necessary or interesting client customization options. In so doing, the framework becomes the "center of the universe", and the client customizations are simply "the third rock from the sun". This inverted control structure has been affectionately labelled "the Hollywood principle" - "don't call us, we'll call you".
+		</p>
+
+	</section>
+
+</body>
+</html>

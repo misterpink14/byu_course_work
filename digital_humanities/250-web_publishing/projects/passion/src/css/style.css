@@ -1,0 +1,177 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-size: 1em;
+	color: #628CB6;
+	background-color: #FFFFEE;
+}
+
+
+section {
+	padding-right: 1em;
+	padding-left: 1em;
+}
+
+
+
+/* Navigation Bar */
+
+nav ul {
+	list-style-type: none;
+	text-align: center;
+	background-color: #444444;
+	margin: 0;
+	padding: .3em;
+	font-size: 1.2em;
+}
+
+
+nav ul li {
+	list-style: none;
+	display: inline-block;
+	margin: .6em .3em;
+	padding: 0;
+}
+
+
+nav ul li a {
+	color: #F9FCFE;
+	text-decoration: none;
+}
+
+
+nav ul li a:active {
+	font-weight: bolder;
+	text-decoration: none;
+}
+
+
+nav ul li a:hover {
+	color: #EEAA00;
+}
+
+
+
+/* Main Content Section */
+
+.main-content {
+	padding-top: 0;
+	margin-top: 0;
+	text-align: center;
+}
+
+
+.main-content h1 {
+	padding-top: .8em;
+	margin-top: 0;
+}
+
+
+
+/* Pattern List */
+
+.pattern-list {
+	font-size: 1.6em;
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+
+
+.pattern-list li {
+	display: inline-block;
+	padding: .5em;
+	margin: 0;
+	list-style: none;
+}
+
+
+.btn {
+	color: #990011;
+	padding: .5em 1em;
+	margin-left: auto;
+	margin-right: auto;
+	border: solid .1em #990011;
+	border-radius: .5em;
+	max-width: 8em;
+	text-align: center;
+	text-decoration: none;
+}
+
+
+.btn:hover {
+	color: #007722;
+	border-color: #007722;
+}
+
+
+.click-to-show {
+	display: none;
+}
+
+
+
+/* DESKTOP VIEW */
+
+@media screen and (min-width: 40em) {
+	body {
+		margin: 0;
+		padding: 0;
+	}
+
+	.main-content {
+		padding-right: 4em;
+		padding-left: 4em;
+	}
+
+
+	.main-content h1 {
+		padding-top: 2em;
+		margin-top: 0;
+	}
+
+	#pattern-content {
+		font-size: 1.2em;
+	}
+
+
+	nav ul {
+		list-style-type: none;
+		float: right;
+		text-align: center;
+		background-color: #444444;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		font-size: 1.5em;
+	}
+
+	nav ul li {
+		list-style: none;
+		display: inline-block;
+		margin: .3em 1em;
+		padding: 0;
+	}
+
+
+	nav ul li:last-child { 
+		color: #FFFFCC;
+		float: left;
+	}
+
+
+	nav ul li:last-child a { 
+		color: #EEAA00;
+	}
+
+
+	nav ul li:last-child a:hover { 
+		color: #A7A9AC;
+	}
+}
+
+
+
+/* Main Content */
+
+

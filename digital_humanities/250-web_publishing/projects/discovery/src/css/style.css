@@ -1,0 +1,106 @@
+/* Base styling */ 
+body {
+	font-size: 2em;
+    margin: 0;
+    padding: 0;
+    color: white;
+    background-color: rgb(132, 2, 0);
+}
+
+a {
+	color: #8987D4;
+}
+
+section h1 {
+	margin: 0;
+}
+
+
+/* Nav Bar */
+#navigation ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+	background-color: rgba(0,0,0,.5);
+}
+
+#navigation li {
+    padding: .1em;
+    text-align: center;
+}
+
+#navigation li a {
+	text-decoration: none;
+    display: block;
+    color: white;
+}
+
+#navigation li a:hover {
+	color: #FF5D5A;
+	text-decoration: underline;
+}
+
+#navigation {
+	padding-bottom: 5.5em;
+}
+
+
+/* Footer */
+footer h4 {
+	padding-top: 3em;
+	padding-bottom: 0;
+	margin-bottom: 0;
+	line-height: 0;
+}
+
+
+/* Discovery Section */
+#discovery h3 {
+	border-bottom: 1px solid white;
+}
+
+
+/* Code */
+.code {
+	padding: 1em;
+	margin: 1em;
+	font-size: .6em;
+	background-color: rgba(0,0,0,.6);
+}
+
+
+
+/* Responsive (DESKTOP) */
+@media (min-width: 50em) {
+	body {
+		font-size: 1.2em;
+	}
+
+	#navigation ul {
+		font-size: 1.5em;
+	}
+
+	#navigation ul li {
+ 		padding-right: 1em;
+	}
+
+	#home {
+		float: left;
+	}
+
+	.not-home {
+		font-size: .8em;
+		float: right;
+	}
+
+	#navigation {
+		padding-bottom: 2em;
+	}
+
+	.code code {
+		font-size: 1.8em;
+	}
+}

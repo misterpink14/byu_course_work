@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Design Patterns</title>
+
+	<link rel="stylesheet" href="src/css/normalize.css">
+	<link rel="stylesheet" href="src/css/style.css">
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width" />
+
+</head>
+<body>
+
+	<nav>
+		<ul>
+			<li>
+				<a href="structural.html">Structural</a>
+			</li>
+			<li>
+				<a href="creational.html">Creational</a>
+			</li>
+			<li>
+				<a href="behavioral.html">Behavioral</a>
+			</li>
+			<li>
+				<a href="index.html">Home</a>
+			</li>
+		</ul>
+	</nav>
+
+	<section class="main-content">
+	
+		<h1>Structural Patterns</h1>
+
+
+		<h2>Decorator</h2>
+		<h3>The Problem:</h3>
+		<p>
+			You want to add behavior or state to individual objects at run-time. Inheritance is not feasible because it is static and applies to an entire class.
+		</p>
+		<h3>Discussion</h3>
+		<p>
+			The solution to this class of problems involves encapsulating the original object inside an abstract wrapper interface. Both the decorator objects and the core object inherit from this abstract interface. The interface uses recursive composition to allow an unlimited number of decorator "layers" to be added to each core object.<br/><br/>Note that this pattern allows responsibilities to be added to an object, not methods to an object's interface. The interface presented to the client must remain constant as successive layers are specified.<br/><br/>Also note that the core object's identity has now been "hidden" inside of a decorator object. Trying to access the core object directly is now a problem.
+		</p>
+	
+		<h2>Proxy</h2>
+		<h3>The Problem:</h3>
+		<p>
+			You need to support resource-hungry objects, and you do not want to instantiate such objects unless and until they are actually requested by the client.
+		</p>
+		<h3>Discussion</h3>
+		<p>
+			Design a surrogate, or proxy, object that: instantiates the real object the first time the client makes a request of the proxy, remembers the identity of this real object, and forwards the instigating request to this real object. Then all subsequent requests are simply forwarded directly to the encapsulated real object.
+		</p>
+	
+		<h2>Adapter</h2>
+		<h3>The Problem:</h3>
+		<p>
+			An "off the shelf" component offers compelling functionality that you would like to reuse, but its "view of the world" is not compatible with the philosophy and architecture of the system currently being developed.
+		</p>
+		<h3>Discussion</h3>
+		<p>
+			Reuse has always been painful and elusive. One reason has been the tribulation of designing something new, while reusing something old. There is always something not quite right between the old and the new. It may be physical dimensions or misalignment. It may be timing or synchronization. It may be unfortunate assumptions or competing standards.<br/><br/>It is like the problem of inserting a new three-prong electrical plug in an old two-prong wall outlet – some kind of adapter or intermediary is necessary.<br/><br/>Adapter is about creating an intermediary abstraction that translates, or maps, the old component to the new system. Clients call methods on the Adapter object which redirects them into calls to the legacy component. This strategy can be implemented either with inheritance or with aggregation.<br/><br/>Adapter functions as a wrapper or modifier of an existing class. It provides a different or translated view of that class.
+		</p>
+
+	</section>
+
+</body>
+</html>

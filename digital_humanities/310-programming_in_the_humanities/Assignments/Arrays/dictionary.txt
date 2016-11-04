@@ -1,0 +1,7 @@
+bread	edible thing made out of grain
+milk	nutritious liquid produced by female mammals
+rock	a hard thing
+table	a flat surface raised from the floor on legs
+carpet	a floor covering made of fibers
+printer	a device for producing printed text on a page
+car	a mechanical device for conveying people and goods

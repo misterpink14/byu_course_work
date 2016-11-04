@@ -1,0 +1,148 @@
+/* General Styling */
+
+body {
+	background-color: white;
+}
+
+h1 {
+	text-align: center;
+}
+
+
+/* 4-bit styles */
+
+section {
+	display: flex;
+	flex-direction: column;
+	background-color: #e6eeff;
+}
+
+
+/* Desktop */
+@media (min-width: 768px) {
+	section {
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+	}
+}
+
+section section {
+	padding: 0;
+	margin: 10px;
+	display: flex;
+	flex-direction: row;
+	background-color: #fff2e6;
+}
+
+section section:hover {
+	-webkit-transform: rotate(180deg);
+	transform: rotate(180deg);
+}
+
+section section section:first-child {
+	width: 100px;
+	padding: 10px;
+	margin: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+section section section {
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+}
+ 
+section section section div {
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: row;
+}
+
+section section section div div {
+	padding: 0;
+	margin: 0;
+	width: 30px;
+	height: 30px;
+	display: flex;
+	flex-direction: column;
+}
+
+
+/* Supernatural Colors */
+#supernatural div:first-child div:first-child {
+	background-color: yellow;
+}
+
+#supernatural div:first-child div:last-child {
+	background-color: black;
+}
+
+#supernatural div:last-child div:first-child {
+	background-color: red;
+}
+
+#supernatural div:last-child div:last-child {
+	background-color: black;
+}
+
+
+/* Scrubs Colors */
+#scrubs div:first-child div:first-child {
+	background-color: red;
+}
+
+#scrubs div:first-child div:last-child {
+	background-color: #00ff99;
+}
+
+#scrubs div:last-child div:first-child {
+	background-color: #0072D1;
+}
+
+#scrubs div:last-child div:last-child {
+	background-color: #00cc99;
+}
+
+
+/* Gotham Colors */
+#gotham div:first-child div:first-child {
+	background-color: black;
+}
+
+#gotham div:first-child div:last-child {
+	background-color: #2d2566;
+}
+
+#gotham div:last-child div:first-child {
+	background-color: #363430;
+}
+
+#gotham div:last-child div:last-child {
+	background-color: #827e4a;
+}
+
+
+
+/* Daredevil colors */
+#daredevil div:first-child div:first-child {
+	background-color: #99ccff;
+}
+
+#daredevil div:first-child div:last-child {
+	background-color: #CE0000;
+}
+
+#daredevil div:last-child div:first-child {
+	background-color: #003366;
+}
+
+#daredevil div:last-child div:last-child {
+	background-color: #431430;
+}
+
+

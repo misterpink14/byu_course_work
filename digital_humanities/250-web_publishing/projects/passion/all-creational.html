@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Design Patterns</title>
+
+	<link rel="stylesheet" href="src/css/normalize.css">
+	<link rel="stylesheet" href="src/css/style.css">
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width" />
+
+</head>
+<body>
+
+	<nav>
+		<ul>
+			<li>
+				<a href="structural.html">Structural</a>
+			</li>
+			<li>
+				<a href="creational.html">Creational</a>
+			</li>
+			<li>
+				<a href="behavioral.html">Behavioral</a>
+			</li>
+			<li>
+				<a href="index.html">Home</a>
+			</li>
+		</ul>
+	</nav>
+
+	<section class="main-content">
+	
+		<h1>Creational Patterns</h1>
+
+
+		<h2>Factory Method</h2>
+		<h3>The Problem:</h3>
+		<p>
+			A framework needs to standardize the architectural model for a range of applications, but allow for individual applications to define their own domain objects and provide for their instantiation.
+		</p>
+		<h3>Discussion</h3>
+		<p>
+			Factory Method is to creating objects as Template Method is to implementing an algorithm. A superclass specifies all standard and generic behavior (using pure virtual "placeholders" for creation steps), and then delegates the creation details to subclasses that are supplied by the client.<br/><br/>Factory Method makes a design more customizable and only a little more complicated. Other design patterns require new classes, whereas Factory Method only requires a new operation.<br/><br/>People often use Factory Method as the standard way to create objects; but it isn't necessary if: the class that's instantiated never changes, or instantiation takes place in an operation that subclasses can easily override (such as an initialization operation).<br/><br/>Factory Method is similar to Abstract Factory but without the emphasis on families.<br/><br/>Factory Methods are routinely specified by an architectural framework, and then implemented by the user of the framework.
+		</p>
+	
+		<h2>Singleton</h2>
+		<h3>The Problem:</h3>
+		<p>
+			Application needs one, and only one, instance of an object. Additionally, lazy initialization and global access are necessary.
+		</p>
+		<h3>Discussion</h3>
+		<p>
+			Make the class of the single instance object responsible for creation, initialization, access, and enforcement. Declare the instance as a private static data member. Provide a public static member function that encapsulates all initialization code, and provides access to the instance.<br/><br/>The client calls the accessor function (using the class name and scope resolution operator) whenever a reference to the single instance is required.<br/><br/>Singleton should be considered only if all three of the following criteria are satisfied:<br/><br/>Ownership of the single instance cannot be reasonably assigned<br/>Lazy initialization is desirable<br/>Global access is not otherwise provided for<br/><br/>If ownership of the single instance, when and how initialization occurs, and global access are not issues, Singleton is not sufficiently interesting.<br/><br/>The Singleton pattern can be extended to support access to an application-specific number of instances.<br/><br/>The "static member function accessor" approach will not support subclassing of the Singleton class. If subclassing is desired, refer to the discussion in the book.<br/><br/>Deleting a Singleton class/instance is a non-trivial design problem. See "To Kill A Singleton" by John Vlissides for a discussion.
+		</p>
+	
+		<h2>Abstract Factory</h2>
+		<h3>The Problem:</h3>
+		<p>
+			If an application is to be portable, it needs to encapsulate platform dependencies. These "platforms" might include: windowing system, operating system, database, etc. Too often, this encapsulatation is not engineered in advance, and lots of #ifdef case statements with options for all currently supported platforms begin to procreate like rabbits throughout the code.
+		</p>
+		<h3>Discussion</h3>
+		<p>
+			Provide a level of indirection that abstracts the creation of families of related or dependent objects without directly specifying their concrete classes. The "factory" object has the responsibility for providing creation services for the entire platform family. Clients never create platform objects directly, they ask the factory to do that for them.<br/><br/>This mechanism makes exchanging product families easy because the specific class of the factory object appears only once in the application - where it is instantiated. The application can wholesale replace the entire family of products simply by instantiating a different concrete instance of the abstract factory.<br/><br/>Because the service provided by the factory object is so pervasive, it is routinely implemented as a Singleton.
+		</p>
+
+	</section>
+
+</body>
+</html>

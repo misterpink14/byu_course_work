@@ -1,0 +1,18 @@
+do this:
+
+
+use float
+use clear
+use media queries
+	- breakpoints
+		- not referencing ballpark screen size for phone
+		- building responsiveness for a site
+		- mobile first
+			- my base styles look great on mobile phone
+			- then add media query when things get too big
+			- easier to approach because it is additive
+			- Meta tag: 
+				<meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+
+				@media screen and (min-device-width:400px) // he did 480px and 660px
+use css/html validator from w3c -- required for evey assignment

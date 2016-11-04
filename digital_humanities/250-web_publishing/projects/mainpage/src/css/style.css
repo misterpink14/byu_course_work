@@ -1,0 +1,23 @@
+body {
+	font-size: 5em;
+	background-image: url("../img/background.gif");
+	background-size: 100% auto;
+}
+
+
+section {
+	width: 80%;
+	margin: auto;
+	background-color: white;
+	color: gray;
+	opacity: .9;
+	text-align: center;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
