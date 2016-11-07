@@ -1,5 +1,5 @@
 -module(erlang_intro).
--export([fib/1, area/2, sqrList/1, calcTotals/1, map/2, quickSortServer/0]).
+-export([fib/1, area/2, sqrList/1, calcTotals/1, map/2, quickSortServer/0, translate/2]).
 -import(math, [pi/0]).
 -import(random, [uniform/1]).
 -import(lists, [nth/2]).
@@ -41,20 +41,27 @@ map(Function, List) ->
     [Function(X) || X <- List].
 
 % --------------------------------------
+qsort([]) -> []; 
+qsort(List) ->
+    Pivot = lists:nth(random:uniform(length(List)), List),
+    qsort([Front || Front <- List, Front < Pivot]) ++ 
+    [Pivot] ++
+    qsort([Back || Back <- List, Back > Pivot]).
+
 quickSortServer() ->
     receive
-        "casa" -> 
-            io:format("house~n"), 
-            loop();
-        
-        "blanca" -> 
-            io:format("white~n"), 
-            loop();
-        
-        _ -> 
-            io:format("I don't understand.~n"), 
-            loop()
-    end.
+        {From, List} ->
+            From ! qsort(List),
+            quickSortServer()
+end.
+
+translate(To, Word) ->
+    To ! {self(), Word}, 
+    receive
+        Translation -> Translation
+end.
 
 % USAGE:
-% c(erlang_intro). 
+% c(erlang_intro).
+% PID = spawn(fun erlang_intro:quickSortServer/0).
+% erlang_intro:translate(PID, List).
