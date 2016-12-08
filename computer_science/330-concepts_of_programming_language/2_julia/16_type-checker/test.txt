@@ -1,0 +1,2 @@
+(nfirst (ncons 1 nempty))
+
