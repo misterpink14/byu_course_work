@@ -1,5 +1,4 @@
-% I ONLY DID PART 1
--module(top_supervisor).
+-module(db_supervisor).
 -behaviour(supervisor).
 
 -export([start_link/1, init/1]).
@@ -19,9 +18,9 @@ init(Env) ->
     Restart = permanent,
     Shutdown = 2000,
 
-    DbChild = {db_supervisor, {db_supervisor, start_link, [Env]},
-                   Restart, Shutdown, supervisor, [db_supervisor]},
-    CSChild = {custservice, {custservice, start_link, [Env]},
-                   Restart, Shutdown, worker, [custservice]},
+    SubChild = {subdb_supervisor, {subdb_supervisor, start_link, [Env]},
+                   Restart, Shutdown, supervisor, [subdb_supervisor]},
+    DbChild = {database, {database, start_link, [Env]},
+                   Restart, Shutdown, worker, [database]},
 
-    {ok, {SupFlags, [CSChild, DbChild]}}.
+    {ok, {SupFlags, [DbChild, SubChild]}}.
